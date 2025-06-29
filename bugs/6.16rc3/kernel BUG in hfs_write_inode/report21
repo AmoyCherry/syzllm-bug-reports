@@ -1,0 +1,54 @@
+------------[ cut here ]------------
+kernel BUG at fs/hfs/inode.c:444!
+Oops: invalid opcode: 0000 [#1] SMP KASAN PTI
+CPU: 0 UID: 0 PID: 41532 Comm: syz.9.2903 Not tainted 6.16.0-rc3 #1 PREEMPT(full) 
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.16.2-debian-1.16.2-1 04/01/2014
+RIP: 0010:hfs_write_inode+0x32b/0x9b0 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/fs/hfs/inode.c:444
+Code: aa 8b 4c 89 ef e8 35 c3 1a ff 49 83 fd 03 0f 84 c0 02 00 00 49 83 fd 04 74 12 49 83 fd 02 0f 84 ac fd ff ff e8 36 c1 1a ff 90 <0f> 0b e8 2e c1 1a ff 48 8d 7d 28 48 b8 00 00 00 00 00 fc ff df 48
+RSP: 0018:ffffc9000643fa90 EFLAGS: 00010212
+RAX: 00000000000000c2 RBX: 1ffff92000c87f53 RCX: 0000000000080000
+RDX: ffffc9001ef95000 RSI: ffff8880486f0000 RDI: 0000000000000002
+RBP: ffff8880763921d8 R08: fffffbfff210890b R09: fffffbfff210890b
+R10: fffffbfff210890a R11: ffffffff90844857 R12: 0000000000000000
+R13: 0000000000000000 R14: ffffffff93b26034 R15: ffff888076392200
+FS:  00007ff9d813c6c0(0000) GS:ffff888097afa000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 0000563175ab1a60 CR3: 000000004df84000 CR4: 0000000000002ef0
+Call Trace:
+ <TASK>
+ write_inode home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/fs/fs-writeback.c:1525 [inline]
+ __writeback_single_inode+0xb03/0xf80 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/fs/fs-writeback.c:1745
+ writeback_single_inode+0x2be/0x550 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/fs/fs-writeback.c:1801
+ write_inode_now+0x15c/0x1d0 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/fs/fs-writeback.c:2863
+ hfs_file_fsync+0xa7/0x190 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/fs/hfs/inode.c:676
+ vfs_fsync_range+0x13a/0x230 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/fs/sync.c:187
+ vfs_fsync home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/fs/sync.c:201 [inline]
+ do_fsync+0x4d/0x90 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/fs/sync.c:212
+ __do_sys_fdatasync home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/fs/sync.c:222 [inline]
+ __se_sys_fdatasync home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/fs/sync.c:220 [inline]
+ __x64_sys_fdatasync+0x36/0x50 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/fs/sync.c:220
+ do_syscall_x64 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/arch/x86/entry/syscall_64.c:63 [inline]
+ do_syscall_64+0xcf/0x490 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/arch/x86/entry/syscall_64.c:94
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7ff9d738eb29
+Code: ff ff c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 40 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 a8 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007ff9d813c038 EFLAGS: 00000246 ORIG_RAX: 000000000000004b
+RAX: ffffffffffffffda RBX: 00007ff9d75b5fa0 RCX: 00007ff9d738eb29
+RDX: 0000000000000000 RSI: 0000000000000000 RDI: 0000000000000006
+RBP: 00007ff9d7411b39 R08: 0000000000000000 R09: 0000000000000000
+R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000000000
+R13: 0000000000000000 R14: 00007ff9d75b5fa0 R15: 00007ffda8859638
+ </TASK>
+Modules linked in:
+---[ end trace 0000000000000000 ]---
+RIP: 0010:hfs_write_inode+0x32b/0x9b0 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/fs/hfs/inode.c:444
+Code: aa 8b 4c 89 ef e8 35 c3 1a ff 49 83 fd 03 0f 84 c0 02 00 00 49 83 fd 04 74 12 49 83 fd 02 0f 84 ac fd ff ff e8 36 c1 1a ff 90 <0f> 0b e8 2e c1 1a ff 48 8d 7d 28 48 b8 00 00 00 00 00 fc ff df 48
+RSP: 0018:ffffc9000643fa90 EFLAGS: 00010212
+RAX: 00000000000000c2 RBX: 1ffff92000c87f53 RCX: 0000000000080000
+RDX: ffffc9001ef95000 RSI: ffff8880486f0000 RDI: 0000000000000002
+RBP: ffff8880763921d8 R08: fffffbfff210890b R09: fffffbfff210890b
+R10: fffffbfff210890a R11: ffffffff90844857 R12: 0000000000000000
+R13: 0000000000000000 R14: ffffffff93b26034 R15: ffff888076392200
+FS:  00007ff9d813c6c0(0000) GS:ffff888097afa000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 0000555fae16d000 CR3: 000000004df84000 CR4: 0000000000002ef0

@@ -1,0 +1,45 @@
+------------[ cut here ]------------
+kernel BUG at fs/hfs/inode.c:444!
+Oops: invalid opcode: 0000 [#1] SMP KASAN PTI
+CPU: 0 UID: 0 PID: 16050 Comm: kworker/u9:10 Not tainted 6.16.0-rc3 #1 PREEMPT(full) 
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.16.2-debian-1.16.2-1 04/01/2014
+Workqueue: writeback wb_workfn (flush-7:2)
+RIP: 0010:hfs_write_inode+0x32b/0x9b0 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/fs/hfs/inode.c:444
+Code: aa 8b 4c 89 ef e8 35 c3 1a ff 49 83 fd 03 0f 84 c0 02 00 00 49 83 fd 04 74 12 49 83 fd 02 0f 84 ac fd ff ff e8 36 c1 1a ff 90 <0f> 0b e8 2e c1 1a ff 48 8d 7d 28 48 b8 00 00 00 00 00 fc ff df 48
+RSP: 0000:ffffc9000312f5f8 EFLAGS: 00010246
+RAX: 0000000000000000 RBX: 1ffff92000625ec0 RCX: ffffffff829fb3bb
+RDX: 0000000080000000 RSI: ffff888013130000 RDI: 0000000000000002
+RBP: ffff8880774f6958 R08: fffffbfff210890b R09: fffffbfff210890b
+R10: fffffbfff210890a R11: ffffffff90844857 R12: 0000000000000000
+R13: 0000000000000000 R14: ffffffff93b26034 R15: ffff8880774f6980
+FS:  0000000000000000(0000) GS:ffff888097afa000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00007f938399b000 CR3: 00000000727f2000 CR4: 0000000000002ef0
+Call Trace:
+ <TASK>
+ write_inode home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/fs/fs-writeback.c:1525 [inline]
+ __writeback_single_inode+0xb03/0xf80 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/fs/fs-writeback.c:1745
+ writeback_sb_inodes+0x5ae/0xe80 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/fs/fs-writeback.c:1976
+ wb_writeback+0x2eb/0xb70 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/fs/fs-writeback.c:2156
+ wb_do_writeback home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/fs/fs-writeback.c:2303 [inline]
+ wb_workfn+0x16e/0xea0 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/fs/fs-writeback.c:2343
+ process_one_work home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/kernel/workqueue.c:3238 [inline]
+ process_scheduled_works+0x5b0/0x1ac0 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/kernel/workqueue.c:3321
+ worker_thread+0x547/0xe40 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/kernel/workqueue.c:3402
+ kthread+0x439/0x890 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/kernel/kthread.c:464
+ ret_from_fork+0x52a/0x700 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/arch/x86/kernel/process.c:148
+ ret_from_fork_asm+0x1a/0x30 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/arch/x86/entry/entry_64.S:245
+ </TASK>
+Modules linked in:
+---[ end trace 0000000000000000 ]---
+RIP: 0010:hfs_write_inode+0x32b/0x9b0 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/fs/hfs/inode.c:444
+Code: aa 8b 4c 89 ef e8 35 c3 1a ff 49 83 fd 03 0f 84 c0 02 00 00 49 83 fd 04 74 12 49 83 fd 02 0f 84 ac fd ff ff e8 36 c1 1a ff 90 <0f> 0b e8 2e c1 1a ff 48 8d 7d 28 48 b8 00 00 00 00 00 fc ff df 48
+RSP: 0000:ffffc9000312f5f8 EFLAGS: 00010246
+RAX: 0000000000000000 RBX: 1ffff92000625ec0 RCX: ffffffff829fb3bb
+RDX: 0000000080000000 RSI: ffff888013130000 RDI: 0000000000000002
+RBP: ffff8880774f6958 R08: fffffbfff210890b R09: fffffbfff210890b
+R10: fffffbfff210890a R11: ffffffff90844857 R12: 0000000000000000
+R13: 0000000000000000 R14: ffffffff93b26034 R15: ffff8880774f6980
+FS:  0000000000000000(0000) GS:ffff888097afa000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00007fd2466f0c80 CR3: 000000006d51a000 CR4: 0000000000002ef0

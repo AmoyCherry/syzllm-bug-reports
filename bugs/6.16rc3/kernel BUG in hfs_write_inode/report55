@@ -1,0 +1,58 @@
+loop8: detected capacity change from 0 to 64
+minix: Unknown parameter '—·kóC4ÂHžhM/—„·ì`ãh0Ìe¥™°|¦ë}8Ë³¥’š»yn1fôÏgŽ)Ö'
+loop8: detected capacity change from 0 to 64
+------------[ cut here ]------------
+kernel BUG at fs/hfs/inode.c:444!
+Oops: invalid opcode: 0000 [#1] SMP KASAN PTI
+CPU: 1 UID: 0 PID: 68131 Comm: syz.8.5361 Not tainted 6.16.0-rc3 #1 PREEMPT(full) 
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.16.2-debian-1.16.2-1 04/01/2014
+RIP: 0010:hfs_write_inode+0x32b/0x9b0 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/fs/hfs/inode.c:444
+Code: aa 8b 4c 89 ef e8 35 c3 1a ff 49 83 fd 03 0f 84 c0 02 00 00 49 83 fd 04 74 12 49 83 fd 02 0f 84 ac fd ff ff e8 36 c1 1a ff 90 <0f> 0b e8 2e c1 1a ff 48 8d 7d 28 48 b8 00 00 00 00 00 fc ff df 48
+RSP: 0018:ffffc90005697890 EFLAGS: 00010246
+RAX: 0000000000000000 RBX: 1ffff92000ad2f13 RCX: ffffffff829fb3bb
+RDX: 0000000080000000 RSI: ffff8880452d9cc0 RDI: 0000000000000002
+RBP: ffff88807a134258 R08: fffffbfff210890b R09: fffffbfff210890b
+R10: fffffbfff210890a R11: ffffffff90844857 R12: 0000000000000000
+R13: 0000000000000000 R14: ffffffff93b26034 R15: ffff88807a134280
+FS:  00007f69f93d26c0(0000) GS:ffff8880eb2fa000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00007f69f876a550 CR3: 0000000026ed2000 CR4: 0000000000002ef0
+Call Trace:
+ <TASK>
+ write_inode home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/fs/fs-writeback.c:1525 [inline]
+ __writeback_single_inode+0xb03/0xf80 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/fs/fs-writeback.c:1745
+ writeback_single_inode+0x2be/0x550 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/fs/fs-writeback.c:1801
+ write_inode_now+0x15c/0x1d0 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/fs/fs-writeback.c:2863
+ hfs_file_fsync+0xa7/0x190 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/fs/hfs/inode.c:676
+ vfs_fsync_range+0x13a/0x230 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/fs/sync.c:187
+ generic_write_sync home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/include/linux/fs.h:3031 [inline]
+ generic_file_write_iter+0x305/0x3c0 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/mm/filemap.c:4259
+ new_sync_write home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/fs/read_write.c:593 [inline]
+ vfs_write home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/fs/read_write.c:686 [inline]
+ vfs_write+0xb92/0x10e0 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/fs/read_write.c:666
+ ksys_write+0x121/0x240 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/fs/read_write.c:738
+ do_syscall_x64 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/arch/x86/entry/syscall_64.c:63 [inline]
+ do_syscall_64+0xcf/0x490 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/arch/x86/entry/syscall_64.c:94
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7f69f858eb29
+Code: ff ff c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 40 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 a8 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007f69f93d2038 EFLAGS: 00000246 ORIG_RAX: 0000000000000001
+RAX: ffffffffffffffda RBX: 00007f69f87b5fa0 RCX: 00007f69f858eb29
+RDX: 0000000000000029 RSI: 0000200000000180 RDI: 0000000000000006
+RBP: 00007f69f8611b39 R08: 0000000000000000 R09: 0000000000000000
+R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000000000
+R13: 0000000000000000 R14: 00007f69f87b5fa0 R15: 00007fffd0ac8658
+ </TASK>
+Modules linked in:
+---[ end trace 0000000000000000 ]---
+RIP: 0010:hfs_write_inode+0x32b/0x9b0 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/fs/hfs/inode.c:444
+Code: aa 8b 4c 89 ef e8 35 c3 1a ff 49 83 fd 03 0f 84 c0 02 00 00 49 83 fd 04 74 12 49 83 fd 02 0f 84 ac fd ff ff e8 36 c1 1a ff 90 <0f> 0b e8 2e c1 1a ff 48 8d 7d 28 48 b8 00 00 00 00 00 fc ff df 48
+RSP: 0018:ffffc90005697890 EFLAGS: 00010246
+RAX: 0000000000000000 RBX: 1ffff92000ad2f13 RCX: ffffffff829fb3bb
+RDX: 0000000080000000 RSI: ffff8880452d9cc0 RDI: 0000000000000002
+RBP: ffff88807a134258 R08: fffffbfff210890b R09: fffffbfff210890b
+R10: fffffbfff210890a R11: ffffffff90844857 R12: 0000000000000000
+R13: 0000000000000000 R14: ffffffff93b26034 R15: ffff88807a134280
+FS:  00007f69f93d26c0(0000) GS:ffff8880eb2fa000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00007ffc927affb8 CR3: 0000000026ed2000 CR4: 0000000000002ef0
