@@ -1,0 +1,53 @@
+MTD: Attempt to mount non-MTD device "/dev/loop6"
+VFS_BUG_ON_INODE(1) encountered for inode ffff88804eafb758
+------------[ cut here ]------------
+kernel BUG at fs/namei.c:3483!
+Oops: invalid opcode: 0000 [#1] SMP KASAN PTI
+CPU: 0 UID: 0 PID: 14910 Comm: syz.6.225 Not tainted 6.16.0-rc3 #1 PREEMPT(full) 
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.16.2-debian-1.16.2-1 04/01/2014
+RIP: 0010:may_open+0x25d/0x410 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/fs/namei.c:3483
+Code: fe ff ff bb f3 ff ff ff eb 9d 66 81 fb 00 10 0f 84 e2 00 00 00 e8 f3 e3 84 ff 48 c7 c6 80 3e 9f 8b 48 89 ef e8 34 92 04 00 90 <0f> 0b bb d8 ff ff ff e9 71 ff ff ff e8 d2 e3 84 ff 4c 89 fa 48 b8
+RSP: 0018:ffffc9000308fad0 EFLAGS: 00010282
+RAX: 000000000000003a RBX: 0000000000000000 RCX: 0000000000000000
+RDX: 0000000000000000 RSI: ffff888045175640 RDI: 0000000000000002
+RBP: ffff88804eafb758 R08: fffff52000611f1a R09: fffff52000611f1a
+R10: fffff52000611f19 R11: ffffc9000308f8cf R12: 0000000000000006
+R13: 0000000000008042 R14: ffffffff8e5ee500 R15: ffffc9000308fc50
+FS:  00007fee7d78f6c0(0000) GS:ffff888097afa000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00007fc5858d2008 CR3: 000000007a192000 CR4: 0000000000002ef0
+Call Trace:
+ <TASK>
+ do_open home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/fs/namei.c:3894 [inline]
+ path_openat+0xeac/0x2920 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/fs/namei.c:4055
+ do_filp_open+0x1fe/0x2f0 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/fs/namei.c:4082
+ do_sys_openat2+0x5b2/0x6c0 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/fs/open.c:1437
+ do_sys_open+0xcd/0x140 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/fs/open.c:1452
+ __do_sys_openat home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/fs/open.c:1468 [inline]
+ __se_sys_openat home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/fs/open.c:1463 [inline]
+ __x64_sys_openat+0x9d/0x110 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/fs/open.c:1463
+ do_syscall_x64 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/arch/x86/entry/syscall_64.c:63 [inline]
+ do_syscall_64+0xcf/0x490 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/arch/x86/entry/syscall_64.c:94
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7fee7c98eb29
+Code: ff ff c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 40 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 a8 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007fee7d78f038 EFLAGS: 00000246 ORIG_RAX: 0000000000000101
+RAX: ffffffffffffffda RBX: 00007fee7cbb5fa0 RCX: 00007fee7c98eb29
+RDX: 0000000000000042 RSI: 0000200000000180 RDI: ffffffffffffff9c
+RBP: 00007fee7ca11b39 R08: 0000000000000000 R09: 0000000000000000
+R10: 00000000000001ff R11: 0000000000000246 R12: 0000000000000000
+R13: 0000000000000000 R14: 00007fee7cbb5fa0 R15: 00007ffd560f6f78
+ </TASK>
+Modules linked in:
+---[ end trace 0000000000000000 ]---
+RIP: 0010:may_open+0x25d/0x410 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/fs/namei.c:3483
+Code: fe ff ff bb f3 ff ff ff eb 9d 66 81 fb 00 10 0f 84 e2 00 00 00 e8 f3 e3 84 ff 48 c7 c6 80 3e 9f 8b 48 89 ef e8 34 92 04 00 90 <0f> 0b bb d8 ff ff ff e9 71 ff ff ff e8 d2 e3 84 ff 4c 89 fa 48 b8
+RSP: 0018:ffffc9000308fad0 EFLAGS: 00010282
+RAX: 000000000000003a RBX: 0000000000000000 RCX: 0000000000000000
+RDX: 0000000000000000 RSI: ffff888045175640 RDI: 0000000000000002
+RBP: ffff88804eafb758 R08: fffff52000611f1a R09: fffff52000611f1a
+R10: fffff52000611f19 R11: ffffc9000308f8cf R12: 0000000000000006
+R13: 0000000000008042 R14: ffffffff8e5ee500 R15: ffffc9000308fc50
+FS:  00007fee7d78f6c0(0000) GS:ffff8880eb2fa000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00007f0549046f98 CR3: 000000007a192000 CR4: 0000000000002ef0

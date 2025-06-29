@@ -1,0 +1,52 @@
+VFS_BUG_ON_INODE(1) encountered for inode ffff888028200000
+------------[ cut here ]------------
+kernel BUG at fs/namei.c:3483!
+Oops: invalid opcode: 0000 [#1] SMP KASAN PTI
+CPU: 0 UID: 0 PID: 32671 Comm: syz.3.2046 Not tainted 6.16.0-rc3 #1 PREEMPT(full) 
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.16.2-debian-1.16.2-1 04/01/2014
+RIP: 0010:may_open+0x25d/0x410 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/fs/namei.c:3483
+Code: fe ff ff bb f3 ff ff ff eb 9d 66 81 fb 00 10 0f 84 e2 00 00 00 e8 f3 e3 84 ff 48 c7 c6 80 3e 9f 8b 48 89 ef e8 34 92 04 00 90 <0f> 0b bb d8 ff ff ff e9 71 ff ff ff e8 d2 e3 84 ff 4c 89 fa 48 b8
+RSP: 0018:ffffc90006d1fad0 EFLAGS: 00010282
+RAX: 000000000000003a RBX: 0000000000000000 RCX: 0000000000000000
+RDX: 0000000000000000 RSI: ffff888045add640 RDI: 0000000000000002
+RBP: ffff888028200000 R08: fffff52000da3f1a R09: fffff52000da3f1a
+R10: fffff52000da3f19 R11: ffffc90006d1f8cf R12: 0000000000000006
+R13: 0000000000008200 R14: ffffffff8e5ee500 R15: ffffc90006d1fc50
+FS:  00007f683bc256c0(0000) GS:ffff888097afa000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00007f683af19340 CR3: 0000000046ece000 CR4: 0000000000002ef0
+Call Trace:
+ <TASK>
+ do_open home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/fs/namei.c:3894 [inline]
+ path_openat+0xeac/0x2920 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/fs/namei.c:4055
+ do_filp_open+0x1fe/0x2f0 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/fs/namei.c:4082
+ do_sys_openat2+0x5b2/0x6c0 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/fs/open.c:1437
+ do_sys_open+0xcd/0x140 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/fs/open.c:1452
+ __do_sys_openat home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/fs/open.c:1468 [inline]
+ __se_sys_openat home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/fs/open.c:1463 [inline]
+ __x64_sys_openat+0x9d/0x110 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/fs/open.c:1463
+ do_syscall_x64 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/arch/x86/entry/syscall_64.c:63 [inline]
+ do_syscall_64+0xcf/0x490 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/arch/x86/entry/syscall_64.c:94
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7f683ad8eb29
+Code: ff ff c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 40 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 a8 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007f683bc25038 EFLAGS: 00000246 ORIG_RAX: 0000000000000101
+RAX: ffffffffffffffda RBX: 00007f683afb5fa0 RCX: 00007f683ad8eb29
+RDX: 0000000000080200 RSI: 00002000000001c0 RDI: ffffffffffffff9c
+RBP: 00007f683ae11b39 R08: 0000000000000000 R09: 0000000000000000
+R10: 0000000000000001 R11: 0000000000000246 R12: 0000000000000000
+R13: 0000000000000000 R14: 00007f683afb5fa0 R15: 00007fffff9b01b8
+ </TASK>
+Modules linked in:
+---[ end trace 0000000000000000 ]---
+RIP: 0010:may_open+0x25d/0x410 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/fs/namei.c:3483
+Code: fe ff ff bb f3 ff ff ff eb 9d 66 81 fb 00 10 0f 84 e2 00 00 00 e8 f3 e3 84 ff 48 c7 c6 80 3e 9f 8b 48 89 ef e8 34 92 04 00 90 <0f> 0b bb d8 ff ff ff e9 71 ff ff ff e8 d2 e3 84 ff 4c 89 fa 48 b8
+RSP: 0018:ffffc90006d1fad0 EFLAGS: 00010282
+RAX: 000000000000003a RBX: 0000000000000000 RCX: 0000000000000000
+RDX: 0000000000000000 RSI: ffff888045add640 RDI: 0000000000000002
+RBP: ffff888028200000 R08: fffff52000da3f1a R09: fffff52000da3f1a
+R10: fffff52000da3f19 R11: ffffc90006d1f8cf R12: 0000000000000006
+R13: 0000000000008200 R14: ffffffff8e5ee500 R15: ffffc90006d1fc50
+FS:  00007f683bc256c0(0000) GS:ffff888097afa000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00007f683af19340 CR3: 0000000046ece000 CR4: 0000000000002ef0
