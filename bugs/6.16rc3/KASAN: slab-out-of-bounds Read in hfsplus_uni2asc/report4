@@ -1,0 +1,108 @@
+loop0: detected capacity change from 0 to 1024
+==================================================================
+BUG: KASAN: slab-out-of-bounds in hfsplus_uni2asc+0x92a/0xa20 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/fs/hfsplus/unicode.c:179
+Read of size 2 at addr ffff88802600640c by task syz.0.1111/22517
+
+CPU: 0 UID: 0 PID: 22517 Comm: syz.0.1111 Not tainted 6.16.0-rc3 #1 PREEMPT(full) 
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.16.2-debian-1.16.2-1 04/01/2014
+Call Trace:
+ <TASK>
+ __dump_stack home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/lib/dump_stack.c:94 [inline]
+ dump_stack_lvl+0x116/0x1b0 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/lib/dump_stack.c:120
+ print_address_description home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/mm/kasan/report.c:408 [inline]
+ print_report+0xcd/0x640 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/mm/kasan/report.c:521
+ kasan_report+0x96/0xd0 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/mm/kasan/report.c:634
+ hfsplus_uni2asc+0x92a/0xa20 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/fs/hfsplus/unicode.c:179
+ hfsplus_readdir+0x9ba/0xfe0 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/fs/hfsplus/dir.c:207
+ iterate_dir+0x297/0xae0 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/fs/readdir.c:108
+ __do_sys_getdents home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/fs/readdir.c:326 [inline]
+ __se_sys_getdents home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/fs/readdir.c:312 [inline]
+ __x64_sys_getdents+0x12f/0x2b0 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/fs/readdir.c:312
+ do_syscall_x64 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/arch/x86/entry/syscall_64.c:63 [inline]
+ do_syscall_64+0xcf/0x490 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/arch/x86/entry/syscall_64.c:94
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7fa4c838eb29
+Code: ff ff c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 40 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 a8 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007fa4c921c038 EFLAGS: 00000246 ORIG_RAX: 000000000000004e
+RAX: ffffffffffffffda RBX: 00007fa4c85b5fa0 RCX: 00007fa4c838eb29
+RDX: 0000000000001000 RSI: 0000200000000400 RDI: 0000000000000007
+RBP: 00007fa4c8411b39 R08: 0000000000000000 R09: 0000000000000000
+R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000000000
+R13: 0000000000000000 R14: 00007fa4c85b5fa0 R15: 00007ffe57215a68
+ </TASK>
+
+Allocated by task 22517:
+ kasan_save_stack+0x20/0x40 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/mm/kasan/common.c:47
+ kasan_save_track+0x14/0x30 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/mm/kasan/common.c:68
+ poison_kmalloc_redzone home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/mm/kasan/common.c:377 [inline]
+ __kasan_kmalloc+0xaa/0xb0 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/mm/kasan/common.c:394
+ kasan_kmalloc home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/include/linux/kasan.h:260 [inline]
+ __do_kmalloc_node home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/mm/slub.c:4328 [inline]
+ __kmalloc_noprof+0x23a/0x510 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/mm/slub.c:4340
+ kmalloc_noprof home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/include/linux/slab.h:909 [inline]
+ hfsplus_find_init+0x95/0x1f0 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/fs/hfsplus/bfind.c:21
+ hfsplus_readdir+0x204/0xfe0 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/fs/hfsplus/dir.c:144
+ iterate_dir+0x297/0xae0 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/fs/readdir.c:108
+ __do_sys_getdents home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/fs/readdir.c:326 [inline]
+ __se_sys_getdents home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/fs/readdir.c:312 [inline]
+ __x64_sys_getdents+0x12f/0x2b0 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/fs/readdir.c:312
+ do_syscall_x64 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/arch/x86/entry/syscall_64.c:63 [inline]
+ do_syscall_64+0xcf/0x490 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/arch/x86/entry/syscall_64.c:94
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+
+The buggy address belongs to the object at ffff888026006000
+ which belongs to the cache kmalloc-2k of size 2048
+The buggy address is located 0 bytes to the right of
+ allocated 1036-byte region [ffff888026006000, ffff88802600640c)
+
+The buggy address belongs to the physical page:
+page: refcount:0 mapcount:0 mapping:0000000000000000 index:0x0 pfn:0x26000
+head: order:3 mapcount:0 entire_mapcount:0 nr_pages_mapped:0 pincount:0
+flags: 0xfff00000000040(head|node=0|zone=1|lastcpupid=0x7ff)
+page_type: f5(slab)
+raw: 00fff00000000040 ffff88801b442000 dead000000000100 dead000000000122
+raw: 0000000000000000 0000000000080008 00000000f5000000 0000000000000000
+head: 00fff00000000040 ffff88801b442000 dead000000000100 dead000000000122
+head: 0000000000000000 0000000000080008 00000000f5000000 0000000000000000
+head: 00fff00000000003 ffffea0000980001 00000000ffffffff 00000000ffffffff
+head: ffffffffffffffff 0000000000000000 00000000ffffffff 0000000000000008
+page dumped because: kasan: bad access detected
+page_owner tracks the page as allocated
+page last allocated via order 3, migratetype Unmovable, gfp_mask 0xd20c0(__GFP_IO|__GFP_FS|__GFP_NOWARN|__GFP_NORETRY|__GFP_COMP|__GFP_NOMEMALLOC), pid 1, tgid 1 (swapper/0), ts 46318258521, free_ts 0
+ set_page_owner home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/include/linux/page_owner.h:32 [inline]
+ post_alloc_hook+0x146/0x160 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/mm/page_alloc.c:1704
+ prep_new_page+0x16/0x70 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/mm/page_alloc.c:1712
+ get_page_from_freelist+0xfa6/0x2550 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/mm/page_alloc.c:3669
+ __alloc_frozen_pages_noprof+0x227/0x520 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/mm/page_alloc.c:4959
+ alloc_pages_mpol+0x218/0x560 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/mm/mempolicy.c:2419
+ alloc_slab_page home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/mm/slub.c:2451 [inline]
+ allocate_slab home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/mm/slub.c:2619 [inline]
+ new_slab+0x25e/0x360 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/mm/slub.c:2673
+ ___slab_alloc+0xcf1/0x1610 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/mm/slub.c:3859
+ __slab_alloc.isra.90+0x57/0xb0 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/mm/slub.c:3949
+ __slab_alloc_node home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/mm/slub.c:4024 [inline]
+ slab_alloc_node home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/mm/slub.c:4185 [inline]
+ __do_kmalloc_node home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/mm/slub.c:4327 [inline]
+ __kvmalloc_node_noprof+0x39e/0x610 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/mm/slub.c:5015
+ kvmalloc_array_node_noprof home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/include/linux/slab.h:1065 [inline]
+ ip_set_net_init+0x166/0x490 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/net/netfilter/ipset/ip_set_core.c:2380
+ ops_init+0x1dc/0x640 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/net/core/net_namespace.c:138
+ __register_pernet_operations home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/net/core/net_namespace.c:1284 [inline]
+ register_pernet_operations+0x39f/0x700 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/net/core/net_namespace.c:1361
+ register_pernet_subsys+0x28/0x40 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/net/core/net_namespace.c:1402
+ ip_set_init+0x16/0xf0 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/net/netfilter/ipset/ip_set_core.c:2417
+ do_one_initcall+0x10f/0x6c0 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/init/main.c:1274
+ do_initcall_level home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/init/main.c:1336 [inline]
+ do_initcalls home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/init/main.c:1352 [inline]
+ do_basic_setup home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/init/main.c:1371 [inline]
+ kernel_init_freeable+0x6b4/0xc60 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/init/main.c:1584
+page_owner free stack trace missing
+
+Memory state around the buggy address:
+ ffff888026006300: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+ ffff888026006380: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+>ffff888026006400: 00 04 fc fc fc fc fc fc fc fc fc fc fc fc fc fc
+                      ^
+ ffff888026006480: fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc
+ ffff888026006500: fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc
+==================================================================
