@@ -1,0 +1,318 @@
+Warning: Permanently added '[localhost]:63694' (ED25519) to the list of known hosts.
+executing program
+syzkaller login: [  135.675182][ T5206] usb 1-1: new high-speed USB device number 2 using dummy_hcd
+[  135.839607][ T5206] usb 1-1: config 64 has an invalid interface number: 216 but max is 0
+[  135.841181][ T5206] usb 1-1: config 64 has no interface number 0
+[  135.842264][ T5206] usb 1-1: config 64 interface 216 has no altsetting 0
+[  135.849110][ T5206] usb 1-1: New USB device found, idVendor=0424, idProduct=cf30, bcdDevice=ad.f5
+[  135.850558][ T5206] usb 1-1: New USB device strings: Mfr=1, Product=2, SerialNumber=3
+[  135.851797][ T5206] usb 1-1: Product: syz
+[  135.852497][ T5206] usb 1-1: Manufacturer: syz
+[  135.853244][ T5206] usb 1-1: SerialNumber: syz
+executing program
+[  136.138527][ T5206] usb 1-1: USB disconnect, device number 2
+[  136.159776][ T5206] ==================================================================
+[  136.161202][ T5206] BUG: KASAN: slab-use-after-free in hdm_disconnect+0x227/0x250
+[  136.162666][ T5206] Read of size 8 at addr ffff888021fd9898 by task kworker/0:3/5206
+[  136.164046][ T5206] 
+[  136.164965][ T5206] CPU: 0 UID: 0 PID: 5206 Comm: kworker/0:3 Not tainted 6.16.0-rc3 #1 PREEMPT(full) 
+[  136.164998][ T5206] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.16.2-debian-1.16.2-1 04/01/2014
+[  136.165018][ T5206] Workqueue: usb_hub_wq hub_event
+[  136.165069][ T5206] Call Trace:
+[  136.165080][ T5206]  <TASK>
+[  136.165090][ T5206]  dump_stack_lvl+0x116/0x1b0
+[  136.165139][ T5206]  print_report+0xcd/0x640
+[  136.165167][ T5206]  ? __phys_addr+0xee/0x170
+[  136.165209][ T5206]  ? hdm_disconnect+0x227/0x250
+[  136.165236][ T5206]  kasan_report+0x96/0xd0
+[  136.165261][ T5206]  ? hdm_disconnect+0x227/0x250
+[  136.165292][ T5206]  hdm_disconnect+0x227/0x250
+[  136.165321][ T5206]  usb_unbind_interface+0x1e5/0x9d0
+[  136.165352][ T5206]  ? __sanitizer_cov_trace_pc+0x20/0x50
+[  136.165385][ T5206]  ? __pfx_usb_unbind_interface+0x10/0x10
+[  136.165416][ T5206]  device_remove+0x125/0x170
+[  136.165455][ T5206]  device_release_driver_internal+0x149/0x280
+[  136.165500][ T5206]  bus_remove_device+0x232/0x430
+[  136.165535][ T5206]  device_del+0x473/0xb20
+[  136.165576][ T5206]  ? __pfx_device_del+0x10/0x10
+[  136.165612][ T5206]  ? __sanitizer_cov_trace_pc+0x20/0x50
+[  136.165640][ T5206]  ? remove_intf_ep_devs+0x152/0x1e0
+[  136.165684][ T5206]  usb_disable_device+0x21c/0x600
+[  136.165729][ T5206]  usb_disconnect+0x27f/0x8b0
+[  136.165771][ T5206]  ? usb_clear_port_feature+0x6d/0xa0
+[  136.165811][ T5206]  hub_event+0x19ae/0x4900
+[  136.165845][ T5206]  ? register_lock_class+0x45/0x4c0
+[  136.165886][ T5206]  ? __pfx_hub_event+0x10/0x10
+[  136.165910][ T5206]  ? __lock_acquire+0xb6b/0x1f10
+[  136.165947][ T5206]  ? do_raw_spin_unlock+0x175/0x260
+[  136.166181][ T5206]  ? _raw_spin_unlock_irqrestore+0x41/0x70
+[  136.166231][ T5206]  ? _raw_spin_unlock_irq+0x23/0x50
+[  136.166269][ T5206]  process_scheduled_works+0x5b0/0x1ac0
+[  136.166316][ T5206]  ? __sanitizer_cov_trace_pc+0x20/0x50
+[  136.166344][ T5206]  ? __pfx_process_scheduled_works+0x10/0x10
+[  136.166384][ T5206]  ? __sanitizer_cov_trace_pc+0x20/0x50
+[  136.166412][ T5206]  ? assign_work+0x196/0x240
+[  136.166445][ T5206]  worker_thread+0x547/0xe40
+[  136.166483][ T5206]  ? __sanitizer_cov_trace_pc+0x20/0x50
+[  136.166511][ T5206]  ? __kthread_parkme+0x187/0x240
+[  136.166538][ T5206]  ? __kthread_parkme+0x19f/0x240
+[  136.166565][ T5206]  ? __pfx_worker_thread+0x10/0x10
+[  136.166600][ T5206]  kthread+0x439/0x890
+[  136.166634][ T5206]  ? __pfx_kthread+0x10/0x10
+[  136.166667][ T5206]  ? _raw_spin_unlock_irq+0x23/0x50
+[  136.166703][ T5206]  ? __pfx_kthread+0x10/0x10
+[  136.166736][ T5206]  ret_from_fork+0x52a/0x700
+[  136.166760][ T5206]  ? __pfx_kthread+0x10/0x10
+[  136.166791][ T5206]  ? __pfx_kthread+0x10/0x10
+[  136.166823][ T5206]  ret_from_fork_asm+0x1a/0x30
+[  136.166857][ T5206]  </TASK>
+[  136.166866][ T5206] 
+[  136.211048][ T5206] Allocated by task 5206:
+[  136.211811][ T5206]  kasan_save_stack+0x20/0x40
+[  136.212704][ T5206]  kasan_save_track+0x14/0x30
+[  136.213527][ T5206]  __kasan_kmalloc+0xaa/0xb0
+[  136.214344][ T5206]  __kmalloc_cache_noprof+0x1cb/0x3f0
+[  136.215226][ T5206]  hdm_probe+0xaa/0x1890
+[  136.215954][ T5206]  usb_probe_interface+0x318/0xa40
+[  136.216791][ T5206]  really_probe+0x245/0x990
+[  136.217669][ T5206]  __driver_probe_device+0x1e1/0x440
+[  136.218617][ T5206]  driver_probe_device+0x4c/0x1b0
+[  136.219508][ T5206]  __device_attach_driver+0x1e9/0x2f0
+[  136.220424][ T5206]  bus_for_each_drv+0x143/0x1c0
+[  136.221218][ T5206]  __device_attach+0x27c/0x480
+[  136.222008][ T5206]  bus_probe_device+0x178/0x1b0
+[  136.222843][ T5206]  device_add+0x1132/0x1860
+[  136.223626][ T5206]  usb_set_configuration+0xf07/0x1bf0
+[  136.224549][ T5206]  usb_generic_driver_probe+0xb1/0x110
+[  136.225440][ T5206]  usb_probe_device+0xfc/0x420
+[  136.226215][ T5206]  really_probe+0x245/0x990
+[  136.227007][ T5206]  __driver_probe_device+0x1e1/0x440
+[  136.227963][ T5206]  driver_probe_device+0x4c/0x1b0
+[  136.228838][ T5206]  __device_attach_driver+0x1e9/0x2f0
+[  136.229765][ T5206]  bus_for_each_drv+0x143/0x1c0
+[  136.230612][ T5206]  __device_attach+0x27c/0x480
+[  136.231456][ T5206]  bus_probe_device+0x178/0x1b0
+[  136.232393][ T5206]  device_add+0x1132/0x1860
+[  136.233215][ T5206]  usb_new_device+0xd2b/0x19f0
+[  136.234012][ T5206]  hub_event+0x2b56/0x4900
+[  136.234736][ T5206]  process_scheduled_works+0x5b0/0x1ac0
+[  136.235636][ T5206]  worker_thread+0x547/0xe40
+[  136.236475][ T5206]  kthread+0x439/0x890
+[  136.237187][ T5206]  ret_from_fork+0x52a/0x700
+[  136.237941][ T5206]  ret_from_fork_asm+0x1a/0x30
+[  136.238717][ T5206] 
+[  136.239114][ T5206] Freed by task 5206:
+[  136.239759][ T5206]  kasan_save_stack+0x20/0x40
+[  136.240560][ T5206]  kasan_save_track+0x14/0x30
+[  136.241338][ T5206]  kasan_save_free_info+0x3a/0x60
+[  136.242159][ T5206]  __kasan_slab_free+0x54/0x70
+[  136.242987][ T5206]  kfree+0x13f/0x3d0
+[  136.243682][ T5206]  device_release+0xa4/0x240
+[  136.244497][ T5206]  kobject_put+0x1c7/0x4c0
+[  136.245240][ T5206]  device_unregister+0x2f/0xc0
+[  136.246028][ T5206]  hdm_disconnect+0x10b/0x250
+[  136.246794][ T5206]  usb_unbind_interface+0x1e5/0x9d0
+[  136.247633][ T5206]  device_remove+0x125/0x170
+[  136.248409][ T5206]  device_release_driver_internal+0x149/0x280
+[  136.249443][ T5206]  bus_remove_device+0x232/0x430
+[  136.250289][ T5206]  device_del+0x473/0xb20
+[  136.251007][ T5206]  usb_disable_device+0x21c/0x600
+[  136.251852][ T5206]  usb_disconnect+0x27f/0x8b0
+[  136.252634][ T5206]  hub_event+0x19ae/0x4900
+[  136.253359][ T5206]  process_scheduled_works+0x5b0/0x1ac0
+[  136.254255][ T5206]  worker_thread+0x547/0xe40
+[  136.255017][ T5206]  kthread+0x439/0x890
+[  136.255694][ T5206]  ret_from_fork+0x52a/0x700
+[  136.256492][ T5206]  ret_from_fork_asm+0x1a/0x30
+[  136.257269][ T5206] 
+[  136.257668][ T5206] The buggy address belongs to the object at ffff888021fd8000
+[  136.257668][ T5206]  which belongs to the cache kmalloc-8k of size 8192
+[  136.259793][ T5206] The buggy address is located 6296 bytes inside of
+[  136.259793][ T5206]  freed 8192-byte region [ffff888021fd8000, ffff888021fda000)
+[  136.262018][ T5206] 
+[  136.262440][ T5206] The buggy address belongs to the physical page:
+[  136.263522][ T5206] page: refcount:0 mapcount:0 mapping:0000000000000000 index:0x0 pfn:0x21fd8
+[  136.264983][ T5206] head: order:3 mapcount:0 entire_mapcount:0 nr_pages_mapped:0 pincount:0
+[  136.266396][ T5206] ksm flags: 0xfff00000000040(head|node=0|zone=1|lastcpupid=0x7ff)
+[  136.267658][ T5206] page_type: f5(slab)
+[  136.268414][ T5206] raw: 00fff00000000040 ffff88801b442280 ffffea00013e4e00 dead000000000003
+[  136.269803][ T5206] raw: 0000000000000000 0000000080020002 00000000f5000000 0000000000000000
+[  136.271135][ T5206] head: 00fff00000000040 ffff88801b442280 ffffea00013e4e00 dead000000000003
+[  136.272488][ T5206] head: 0000000000000000 0000000080020002 00000000f5000000 0000000000000000
+[  136.273891][ T5206] head: 00fff00000000003 ffffea000087f601 00000000ffffffff 00000000ffffffff
+[  136.275262][ T5206] head: ffffffffffffffff 0000000000000000 00000000ffffffff 0000000000000008
+[  136.276615][ T5206] page dumped because: kasan: bad access detected
+[  136.277736][ T5206] page_owner tracks the page as allocated
+[  136.278666][ T5206] page last allocated via order 3, migratetype Unmovable, gfp_mask 0xd28c0(GFP_NOWAIT|__GFP_IO|__GFP_FS|__GFP_NORETRY|__GFP_COMP|__GFP_NOMEMALLOC), pid 9356, tgid 9356 (ifquery), ts 106781047044, free_ts 106756380322
+[  136.281880][ T5206]  post_alloc_hook+0x146/0x160
+[  136.282697][ T5206]  prep_new_page+0x16/0x70
+[  136.283450][ T5206]  get_page_from_freelist+0xfa6/0x2550
+[  136.284425][ T5206]  __alloc_frozen_pages_noprof+0x227/0x520
+[  136.285475][ T5206]  alloc_pages_mpol+0x218/0x560
+[  136.286328][ T5206]  new_slab+0x25e/0x360
+[  136.287048][ T5206]  ___slab_alloc+0xcf1/0x1610
+[  136.287932][ T5206]  __slab_alloc.isra.90+0x57/0xb0
+[  136.288801][ T5206]  __kmalloc_node_track_caller_noprof+0x2d1/0x510
+[  136.289886][ T5206]  kmalloc_reserve+0xf1/0x2b0
+[  136.290699][ T5206]  __alloc_skb+0x16e/0x370
+[  136.291474][ T5206]  netlink_dump+0x29f/0xc40
+[  136.292297][ T5206]  netlink_recvmsg+0x8f8/0xb30
+[  136.293106][ T5206]  sock_recvmsg+0x215/0x290
+[  136.293894][ T5206]  ____sys_recvmsg+0x206/0x6e0
+[  136.294732][ T5206]  ___sys_recvmsg+0x113/0x1b0
+[  136.295560][ T5206] page last free pid 9351 tgid 9351 stack trace:
+[  136.296657][ T5206]  __free_frozen_pages+0x6dc/0xda0
+[  136.297542][ T5206]  __put_partials+0x166/0x190
+[  136.298342][ T5206]  qlist_free_all+0x50/0x120
+[  136.299111][ T5206]  kasan_quarantine_reduce+0x163/0x1b0
+[  136.300009][ T5206]  __kasan_slab_alloc+0x67/0x90
+[  136.300817][ T5206]  kmem_cache_alloc_noprof+0x159/0x4a0
+[  136.301703][ T5206]  __anon_vma_prepare+0xad/0x450
+[  136.302505][ T5206]  __vmf_anon_prepare+0x11f/0x250
+[  136.303353][ T5206]  __handle_mm_fault+0x120f/0x4730
+[  136.304268][ T5206]  handle_mm_fault+0x3fd/0xae0
+[  136.305100][ T5206]  do_user_addr_fault+0x7e3/0x18c0
+[  136.305980][ T5206]  exc_page_fault+0xad/0x160
+[  136.306749][ T5206]  asm_exc_page_fault+0x26/0x30
+[  136.307542][ T5206] 
+[  136.307960][ T5206] Memory state around the buggy address:
+[  136.308848][ T5206]  ffff888021fd9780: fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb
+[  136.310099][ T5206]  ffff888021fd9800: fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb
+[  136.311349][ T5206] >ffff888021fd9880: fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb
+[  136.312608][ T5206]                             ^
+[  136.313384][ T5206]  ffff888021fd9900: fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb
+[  136.314661][ T5206]  ffff888021fd9980: fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb
+[  136.316013][ T5206] ==================================================================
+[  136.321464][ T5206] Kernel panic - not syncing: KASAN: panic_on_warn set ...
+[  136.322653][ T5206] CPU: 0 UID: 0 PID: 5206 Comm: kworker/0:3 Not tainted 6.16.0-rc3 #1 PREEMPT(full) 
+[  136.324193][ T5206] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.16.2-debian-1.16.2-1 04/01/2014
+[  136.325777][ T5206] Workqueue: usb_hub_wq hub_event
+[  136.326598][ T5206] Call Trace:
+[  136.327141][ T5206]  <TASK>
+[  136.327656][ T5206]  dump_stack_lvl+0x3d/0x1b0
+[  136.328490][ T5206]  panic+0x6ef/0x7a0
+[  136.329173][ T5206]  ? __pfx_panic+0x10/0x10
+[  136.329932][ T5206]  ? lockdep_hardirqs_on+0x8c/0x120
+[  136.330841][ T5206]  ? preempt_schedule_thunk+0x16/0x30
+[  136.331710][ T5206]  ? preempt_schedule_common+0x23/0xb0
+[  136.332641][ T5206]  ? check_panic_on_warn+0x1f/0xb0
+[  136.333508][ T5206]  ? hdm_disconnect+0x227/0x250
+[  136.334347][ T5206]  check_panic_on_warn+0xab/0xb0
+[  136.335163][ T5206]  end_report+0x11f/0x180
+[  136.335942][ T5206]  kasan_report+0xa4/0xd0
+[  136.336689][ T5206]  ? hdm_disconnect+0x227/0x250
+[  136.337525][ T5206]  hdm_disconnect+0x227/0x250
+[  136.338289][ T5206]  usb_unbind_interface+0x1e5/0x9d0
+[  136.339129][ T5206]  ? __sanitizer_cov_trace_pc+0x20/0x50
+[  136.340056][ T5206]  ? __pfx_usb_unbind_interface+0x10/0x10
+[  136.340963][ T5206]  device_remove+0x125/0x170
+[  136.341726][ T5206]  device_release_driver_internal+0x149/0x280
+[  136.342810][ T5206]  bus_remove_device+0x232/0x430
+[  136.343938][ T5206]  device_del+0x473/0xb20
+[  136.344854][ T5206]  ? __pfx_device_del+0x10/0x10
+[  136.345878][ T5206]  ? __sanitizer_cov_trace_pc+0x20/0x50
+[  136.347090][ T5206]  ? remove_intf_ep_devs+0x152/0x1e0
+[  136.348355][ T5206]  usb_disable_device+0x21c/0x600
+[  136.349643][ T5206]  usb_disconnect+0x27f/0x8b0
+[  136.350701][ T5206]  ? usb_clear_port_feature+0x6d/0xa0
+[  136.352040][ T5206]  hub_event+0x19ae/0x4900
+[  136.353254][ T5206]  ? register_lock_class+0x45/0x4c0
+[  136.354504][ T5206]  ? __pfx_hub_event+0x10/0x10
+[  136.355749][ T5206]  ? __lock_acquire+0xb6b/0x1f10
+[  136.357035][ T5206]  ? do_raw_spin_unlock+0x175/0x260
+[  136.358421][ T5206]  ? _raw_spin_unlock_irqrestore+0x41/0x70
+[  136.360003][ T5206]  ? _raw_spin_unlock_irq+0x23/0x50
+[  136.361435][ T5206]  process_scheduled_works+0x5b0/0x1ac0
+[  136.362684][ T5206]  ? __sanitizer_cov_trace_pc+0x20/0x50
+[  136.364112][ T5206]  ? __pfx_process_scheduled_works+0x10/0x10
+[  136.366140][ T5206]  ? __sanitizer_cov_trace_pc+0x20/0x50
+[  136.367715][ T5206]  ? assign_work+0x196/0x240
+[  136.368831][ T5206]  worker_thread+0x547/0xe40
+[  136.369923][ T5206]  ? __sanitizer_cov_trace_pc+0x20/0x50
+[  136.371204][ T5206]  ? __kthread_parkme+0x187/0x240
+[  136.372503][ T5206]  ? __kthread_parkme+0x19f/0x240
+[  136.373902][ T5206]  ? __pfx_worker_thread+0x10/0x10
+[  136.375105][ T5206]  kthread+0x439/0x890
+[  136.376139][ T5206]  ? __pfx_kthread+0x10/0x10
+[  136.377241][ T5206]  ? _raw_spin_unlock_irq+0x23/0x50
+[  136.378681][ T5206]  ? __pfx_kthread+0x10/0x10
+[  136.379866][ T5206]  ret_from_fork+0x52a/0x700
+[  136.380986][ T5206]  ? __pfx_kthread+0x10/0x10
+[  136.382064][ T5206]  ? __pfx_kthread+0x10/0x10
+[  136.383396][ T5206]  ret_from_fork_asm+0x1a/0x30
+[  136.384697][ T5206]  </TASK>
+[  136.385966][ T5206] Kernel Offset: disabled
+[  136.387023][ T5206] Rebooting in 86400 seconds..
+
+VM DIAGNOSIS:
+17:57:33  Registers:
+info registers vcpu 0
+
+CPU#0
+RAX=0000000000000000 RBX=ffffc9000220ec71 RCX=0000000000000001 RDX=0000000000000000
+RSI=000000000000006b RDI=0000000000000000 RBP=ffffffff9ac014d6 RSP=ffffc9000220eb80
+R8 =0000000000000002 R9 =fffff52000441d90 R10=fffff52000441d8f R11=ffffc9000220ec78
+R12=00000000ffffffed R13=000000000000006b R14=dffffc0000000000 R15=ffffc9000220ec72
+RIP=ffffffff81ba7630 RFL=00000086 [--S--P-] CPL=0 II=0 A20=1 SMM=0 HLT=0
+ES =0000 0000000000000000 ffffffff 00c00000
+CS =0010 0000000000000000 ffffffff 00a09b00 DPL=0 CS64 [-RA]
+SS =0018 0000000000000000 ffffffff 00c09300 DPL=0 DS   [-WA]
+DS =0000 0000000000000000 ffffffff 00c00000
+FS =0000 0000000000000000 ffffffff 00c00000
+GS =0000 ffff888097afa000 ffffffff 00c00000
+LDT=0000 0000000000000000 ffffffff 00c00000
+TR =0040 fffffe0000003000 00004087 00008b00 DPL=0 TSS64-busy
+GDT=     fffffe0000001000 0000007f
+IDT=     fffffe0000000000 00000fff
+CR0=80050033 CR2=00007f3396e1c890 CR3=000000004556e000 CR4=00002ef0
+DR0=0000000000000000 DR1=0000000000000000 DR2=0000000000000000 DR3=0000000000000000 
+DR6=00000000ffff0ff0 DR7=0000000000000400
+EFER=0000000000000d01
+FCW=037f FSW=0000 [ST=0] FTW=00 MXCSR=00001f80
+FPR0=0000000000000000 0000 FPR1=0000000000000000 0000
+FPR2=0000000000000000 0000 FPR3=0000000000000000 0000
+FPR4=0000000000000000 0000 FPR5=0000000000000000 0000
+FPR6=0000000000000000 0000 FPR7=0000000000000000 0000
+XMM00=f8143f1ca5898c27 083067dc39842411 XMM01=c5ff6165dfd55d40 3578cd90f8397172
+XMM02=5ccfc3a43c3cbc03 eda0af12ead864d8 XMM03=4a7a4b92c2ba218e f8bbbde527777279
+XMM04=0000000000000000 00000000a53e4200 XMM05=0000000000000000 00004dd300000000
+XMM06=0000000000000000 0000000000004dd3 XMM07=00004dd300000000 a53e420000004dd0
+XMM08=3e0000003c000000 f800000042000000 XMM09=505151515151685b 0707241100226b07
+XMM10=59c0bc7de02aef75 f16dc07c03138eb2 XMM11=b0a765aa205778ae 341730d09c39bc46
+XMM12=0d0c0f0e09080b0a 0504070601000302 XMM13=0c0f0e0d080b0a09 0407060500030201
+XMM14=0000000000000000 0000000000000980 XMM15=0000000000000000 0000000000000040
+info registers vcpu 1
+
+CPU#1
+RAX=00000000000005bc RBX=000055e30ddd25bc RCX=000000000aba9500 RDX=0000000000000000
+RSI=000055e30ddda1b0 RDI=000055e30ddd25bc RBP=000055e30ddda1b0 RSP=00007ffe918b37f8
+R8 =0000000000000009 R9 =0000000000000000 R10=000055e30ddada80 R11=00007fdbb77f64b0
+R12=000055e30ddd26a0 R13=000055e30ddd26a0 R14=0000000000000000 R15=000055e30ddada80
+RIP=00007fdbb76ea2a2 RFL=00000287 [--S--PC] CPL=3 II=0 A20=1 SMM=0 HLT=0
+ES =0000 0000000000000000 ffffffff 00c00000
+CS =0033 0000000000000000 ffffffff 00a0fb00 DPL=3 CS64 [-RA]
+SS =002b 0000000000000000 ffffffff 00c0f300 DPL=3 DS   [-WA]
+DS =0000 0000000000000000 ffffffff 00c00000
+FS =0000 00007fdbb758b8c0 ffffffff 00c00000
+GS =0000 0000000000000000 ffffffff 00c00000
+LDT=0000 0000000000000000 00000000 00000000
+TR =0040 fffffe000004a000 00004087 00008b00 DPL=0 TSS64-busy
+GDT=     fffffe0000048000 0000007f
+IDT=     fffffe0000000000 00000fff
+CR0=80050033 CR2=000055e30de4c108 CR3=00000000442f5000 CR4=00002ef0
+DR0=0000000000000000 DR1=0000000000000000 DR2=0000000000000000 DR3=0000000000000000 
+DR6=00000000ffff0ff0 DR7=0000000000000400
+EFER=0000000000000d01
+FCW=037f FSW=0000 [ST=0] FTW=00 MXCSR=00001f80
+FPR0=0000000000000000 0000 FPR1=0000000000000000 0000
+FPR2=0000000000000000 0000 FPR3=0000000000000000 0000
+FPR4=0000000000000000 0000 FPR5=0000000000000000 0000
+FPR6=0000000000000000 0000 FPR7=0000000000000000 0000
+XMM00=0000000000003631 322e34363a312d31 XMM01=73223d0047415420 2c006c6c696b6672
+XMM02=0000000000000000 0000000000000000 XMM03=0000000000000000 0000000000000000
+XMM04=ffffffffffffff00 0000000000000000 XMM05=63685f796d6d7564 2d6d726f6674616c
+XMM06=703d4741545f4854 41505f44493a450a XMM07=0000000000000000 0000000000000000
+XMM08=000055e30de2b000 0000000000000101 XMM09=64646464646464d5 6464646452555664
+XMM10=5255564a50525e55 49554b5255564a50 XMM11=0000000000000000 0000000000000000
+XMM12=0000000000000000 0000000000000000 XMM13=0000000000000000 0000000000000000
+XMM14=0000000000000000 0000000000000000 XMM15=0000000000000000 0000000000000000
