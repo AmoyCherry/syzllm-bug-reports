@@ -1,0 +1,60 @@
+------------[ cut here ]------------
+kernel BUG at fs/jfs/inode.c:169!
+Oops: invalid opcode: 0000 [#1] SMP KASAN PTI
+CPU: 0 UID: 0 PID: 37305 Comm: syz.1.2616 Not tainted 6.16.0-rc3 #1 PREEMPT(full) 
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.16.2-debian-1.16.2-1 04/01/2014
+RIP: 0010:jfs_evict_inode+0x3f8/0x4c0 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/fs/jfs/inode.c:169
+Code: 7d 80 00 74 0d e8 68 3d 78 fe 48 89 df e8 70 8b 02 00 e8 5b 3d 78 fe 48 89 df e8 93 1f 16 ff e9 e1 fc ff ff e8 49 3d 78 fe 90 <0f> 0b e8 41 ca de fe e9 41 fc ff ff e8 37 ca de fe e9 7c fc ff ff
+RSP: 0018:ffffc900065bf850 EFLAGS: 00010246
+RAX: 0000000000000000 RBX: ffff88804eb72910 RCX: ffffffff82582bcb
+RDX: 0000000080000000 RSI: ffff88804426b980 RDI: 0000000000000002
+RBP: ffff88804eb72598 R08: 0000000000000001 R09: 0000000000000001
+R10: fffffbfff210890a R11: ffffffff90844857 R12: ffff88804eb724e0
+R13: ffffffff834233d0 R14: ffffffff8bccf480 R15: 0000000000000000
+FS:  00007f68ba5326c0(0000) GS:ffff888097afa000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00007f61b6975d58 CR3: 000000004aae4000 CR4: 0000000000002ef0
+Call Trace:
+ <TASK>
+ evict+0x3dd/0x870 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/fs/inode.c:810
+ dispose_list+0x119/0x1f0 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/fs/inode.c:852
+ evict_inodes+0x38d/0x490 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/fs/inode.c:906
+ generic_shutdown_super+0xb2/0x390 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/fs/super.c:628
+ kill_block_super+0x3b/0x90 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/fs/super.c:1755
+ deactivate_locked_super+0xbd/0x130 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/fs/super.c:474
+ deactivate_super home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/fs/super.c:507 [inline]
+ deactivate_super+0xd8/0xf0 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/fs/super.c:503
+ cleanup_mnt+0x339/0x4d0 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/fs/namespace.c:1417
+ task_work_run+0x172/0x280 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/kernel/task_work.c:227
+ exit_task_work home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/include/linux/task_work.h:40 [inline]
+ do_exit+0x88c/0x30d0 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/kernel/exit.c:964
+ do_group_exit+0xd1/0x2a0 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/kernel/exit.c:1105
+ get_signal+0x276e/0x27c0 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/kernel/signal.c:3034
+ arch_do_signal_or_restart+0x78/0x880 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/arch/x86/kernel/signal.c:337
+ exit_to_user_mode_loop home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/kernel/entry/common.c:111 [inline]
+ exit_to_user_mode_prepare home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/include/linux/entry-common.h:330 [inline]
+ irqentry_exit_to_user_mode+0xd8/0x290 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/kernel/entry/common.c:184
+ exc_page_fault+0xd6/0x160 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/arch/x86/mm/fault.c:1535
+ asm_exc_page_fault+0x26/0x30 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/arch/x86/include/asm/idtentry.h:623
+RIP: 0033:0x7f68b978eb31
+Code: Unable to access opcode bytes at 0x7f68b978eb07.
+RSP: 002b:00000000000000f0 EFLAGS: 00010217
+RAX: 0000000000000000 RBX: 00007f68b99b5fa0 RCX: 00007f68b978eb29
+RDX: 0000000000000000 RSI: 00000000000000f0 RDI: 0000000000000011
+RBP: 00007f68b9811b39 R08: 0000000000000000 R09: 0000000000000000
+R10: 0000000000000000 R11: 0000000000000206 R12: 0000000000000000
+R13: 0000000000000000 R14: 00007f68b99b5fa0 R15: 00007ffce939a118
+ </TASK>
+Modules linked in:
+---[ end trace 0000000000000000 ]---
+RIP: 0010:jfs_evict_inode+0x3f8/0x4c0 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/work/linux-6.16-rc3/fs/jfs/inode.c:169
+Code: 7d 80 00 74 0d e8 68 3d 78 fe 48 89 df e8 70 8b 02 00 e8 5b 3d 78 fe 48 89 df e8 93 1f 16 ff e9 e1 fc ff ff e8 49 3d 78 fe 90 <0f> 0b e8 41 ca de fe e9 41 fc ff ff e8 37 ca de fe e9 7c fc ff ff
+RSP: 0018:ffffc900065bf850 EFLAGS: 00010246
+RAX: 0000000000000000 RBX: ffff88804eb72910 RCX: ffffffff82582bcb
+RDX: 0000000080000000 RSI: ffff88804426b980 RDI: 0000000000000002
+RBP: ffff88804eb72598 R08: 0000000000000001 R09: 0000000000000001
+R10: fffffbfff210890a R11: ffffffff90844857 R12: ffff88804eb724e0
+R13: ffffffff834233d0 R14: ffffffff8bccf480 R15: 0000000000000000
+FS:  00007f68ba5326c0(0000) GS:ffff888097afa000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 000000110c30a6ca CR3: 0000000070390000 CR4: 0000000000002ef0
