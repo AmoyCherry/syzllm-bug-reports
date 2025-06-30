@@ -53,7 +53,7 @@ chmod +x create-image.sh
 
 The result should be `$IMAGE/bullseye.img` disk image.
 
-## 3. Run repro.c
+## 3. Lauch VM
 
 Remember to replace `$KERNEL` and `$IMAGE` with your own paths.
 
@@ -61,3 +61,15 @@ Remember to replace `$KERNEL` and `$IMAGE` with your own paths.
 sudo qemu-system-x86_64 -m 4G -smp 4 -kernel $KERNEL/arch/x86/boot/bzImage -append "console=ttyS0 root=/dev/sda earlyprintk=serial net.ifnames=0" -drive file=$IMAGE/bullseye.img,format=raw -net user,host=10.0.2.10,hostfwd=tcp:127.0.0.1:10021-:22 -net nic,model=e1000 -enable-kvm -nographic -pidfile vm.pid 2>&1 | tee vm.log
 ```
 
+# 4. Run repro.c
+
+All required packages should be in the VM, including `gcc` and `vi` (not `vim`).
+
+Copy and paste the C repro program to the VM as a normal C file like `repro.c`. Do not name it as `repro.cprog`.
+
+Compile and run.
+
+```
+gcc repro.c -o repro
+./repro
+```
