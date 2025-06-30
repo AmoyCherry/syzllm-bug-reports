@@ -13,11 +13,13 @@ make defconfig
 make kvm_guest.config
 ```
 
-### Enable .confg
+### Enable required .confg
 
 Clear auto-generated content by using `:%d` in vim.
 
 Then copy and paste my [.config](https://github.com/AmoyCherry/syzllm-bug-reports/blob/main/bugs/6.16rc3/.config) content.
+
+> I copied this from [syzbot config](https://github.com/google/syzkaller/blob/master/dashboard/config/linux/upstream-apparmor-kasan.config).
 
 At last call the command `make olddefconfig`.
 
@@ -40,8 +42,8 @@ sudo apt install debootstrap
 Create a Debian Bullseye Linux image with the minimal set of required packages.
 
 ```
-mkdir image
-cd image
+mkdir $IMAGE
+cd $IMAGE
 wget https://raw.githubusercontent.com/google/syzkaller/master/tools/create-image.sh -O create-image.sh
 chmod +x create-image.sh
 ./create-image.sh
@@ -49,7 +51,7 @@ chmod +x create-image.sh
 
 > You might want to check how exactly this image was built. Check with the [script](https://raw.githubusercontent.com/google/syzkaller/master/tools/create-image.sh).
 
-The result should be `image/bullseye.img` disk image.
+The result should be `$IMAGE/bullseye.img` disk image.
 
 ## 3. Run repro.c
 
