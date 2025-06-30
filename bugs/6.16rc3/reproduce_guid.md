@@ -15,11 +15,9 @@ make kvm_guest.config
 
 ### Enable required .confg
 
-Clear auto-generated content by using `:%d` in vim.
+For `.config`, clear auto-generated content by using `:%d` in vim.
 
-Then copy and paste my [.config](https://github.com/AmoyCherry/syzllm-bug-reports/blob/main/bugs/6.16rc3/.config) content.
-
-> I copied this from [syzbot config](https://github.com/google/syzkaller/blob/master/dashboard/config/linux/upstream-apparmor-kasan.config).
+Then copy and paste my [.config](https://github.com/AmoyCherry/syzllm-bug-reports/blob/main/bugs/6.16rc3/.config) content (I copied this from [syzbot config](https://github.com/google/syzkaller/blob/master/dashboard/config/linux/upstream-apparmor-kasan.config).).
 
 At last call the command `make olddefconfig`.
 
@@ -49,7 +47,7 @@ chmod +x create-image.sh
 ./create-image.sh
 ```
 
-> You might want to check how exactly this image was built. Check with the [script](https://raw.githubusercontent.com/google/syzkaller/master/tools/create-image.sh).
+> You might want to check how exactly this image is built. Check with the [script](https://raw.githubusercontent.com/google/syzkaller/master/tools/create-image.sh).
 
 The result should be `$IMAGE/bullseye.img` disk image.
 
