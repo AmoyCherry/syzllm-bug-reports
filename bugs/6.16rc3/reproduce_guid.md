@@ -1,6 +1,10 @@
 ## 1. Kernel
 ### Download Linux 6.16-rc3
 
+> I found these bugs can also be reproduced on Linux 6.16-rc4 that just released on June 29.
+>
+> So you can download the [rc4](https://www.kernel.org/) version here instead of rc3 and the following repro steps are the same.
+
 ```bash
 wget https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/snapshot/linux-6.16-rc3.tar.gz
 ```
