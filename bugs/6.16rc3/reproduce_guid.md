@@ -65,7 +65,7 @@ sudo qemu-system-x86_64 -m 4G -smp 4 -kernel $KERNEL/arch/x86/boot/bzImage -appe
 
 # 4. Run repro.c
 
-All required packages should be in the VM, including `gcc` and `vi` (not `vim`).
+All required packages should be already in the VM, including `gcc` and `vi` (not `vim`).
 
 Copy and paste the C repro program to the VM as a normal C file like `repro.c`. Do not name it as `repro.cprog`.
 
@@ -75,3 +75,7 @@ Compile and run.
 gcc repro.c -o repro
 ./repro
 ```
+
+You would see the bug like this:
+
+![repro](../../assets/repro.png)
