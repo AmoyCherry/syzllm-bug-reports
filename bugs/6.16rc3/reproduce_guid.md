@@ -55,7 +55,7 @@ chmod +x create-image.sh
 
 The result should be `$IMAGE/bullseye.img` disk image.
 
-## 3. Lauch VM
+## 3. Launch VM
 
 Remember to replace `$KERNEL` and `$IMAGE` with your own paths.
 
