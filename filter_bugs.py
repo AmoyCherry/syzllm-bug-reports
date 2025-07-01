@@ -17,5 +17,5 @@ def remove_warning_subfolders(root_folder):
         break
 
 if __name__ == "__main__":
-    root_folder = "./workdir/crashes"  # Change this to your folder path
+    root_folder = "./workdir/crashes"
     remove_warning_subfolders(root_folder)
