@@ -1,0 +1,813 @@
+
+Debian GNU/Linux 11 syzkaller ttyS0
+
+Warning: Permanently added '[localhost]:18649' (ED25519) to the list of known hosts.
+2025/07/03 01:49:12 ignoring optional flag "sandboxArg"="0"
+2025/07/03 01:49:15 parsed 1 programs
+syzkaller login: [  139.803590][ T9748] cgroup: Unknown subsys name 'net'
+[  139.910800][ T9748] cgroup: Unknown subsys name 'cpuset'
+[  139.919293][ T9748] cgroup: Unknown subsys name 'rlimit'
+[  143.346933][ T9748] Adding 124996k swap on ./swap-file.  Priority:0 extents:1 across:124996k 
+[  150.120400][ T5167] Bluetooth: hci0: unexpected cc 0x0c03 length: 249 > 1
+[  150.123194][ T5167] Bluetooth: hci0: unexpected cc 0x1003 length: 249 > 9
+[  150.125173][ T5167] Bluetooth: hci0: unexpected cc 0x1001 length: 249 > 9
+[  150.131171][ T5167] Bluetooth: hci0: unexpected cc 0x0c23 length: 249 > 4
+[  150.133321][ T5167] Bluetooth: hci0: unexpected cc 0x0c38 length: 249 > 2
+[  152.864689][   T65] wlan0: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[  152.866089][   T65] wlan0: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[  152.926934][ T3545] wlan1: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[  152.928350][ T3545] wlan1: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[  153.980581][T10160] chnl_net:caif_netlink_parms(): no params data found
+[  154.111311][T10160] bridge0: port 1(bridge_slave_0) entered blocking state
+[  154.113166][T10160] bridge0: port 1(bridge_slave_0) entered disabled state
+[  154.114438][T10160] bridge_slave_0: entered allmulticast mode
+[  154.118789][T10160] bridge_slave_0: entered promiscuous mode
+[  154.123987][T10160] bridge0: port 2(bridge_slave_1) entered blocking state
+[  154.125144][T10160] bridge0: port 2(bridge_slave_1) entered disabled state
+[  154.128310][T10160] bridge_slave_1: entered allmulticast mode
+[  154.130947][T10160] bridge_slave_1: entered promiscuous mode
+[  154.198755][T10160] bond0: (slave bond_slave_0): Enslaving as an active interface with an up link
+[  154.203752][T10160] bond0: (slave bond_slave_1): Enslaving as an active interface with an up link
+[  154.269086][T10160] team0: Port device team_slave_0 added
+[  154.276863][T10160] team0: Port device team_slave_1 added
+[  154.343156][T10160] batman_adv: batadv0: Adding interface: batadv_slave_0
+[  154.345196][T10160] batman_adv: batadv0: The MTU of interface batadv_slave_0 is too small (1500) to handle the transport of batman-adv packets. Packets going over this interface will be fragmented on layer2 which could impact the performance. Setting the MTU to 1560 would solve the problem.
+[  154.359095][T10160] batman_adv: batadv0: Not using interface batadv_slave_0 (retrying later): interface not active
+[  154.370723][T10160] batman_adv: batadv0: Adding interface: batadv_slave_1
+[  154.372329][T10160] batman_adv: batadv0: The MTU of interface batadv_slave_1 is too small (1500) to handle the transport of batman-adv packets. Packets going over this interface will be fragmented on layer2 which could impact the performance. Setting the MTU to 1560 would solve the problem.
+[  154.382073][T10160] batman_adv: batadv0: Not using interface batadv_slave_1 (retrying later): interface not active
+[  154.508020][T10160] hsr_slave_0: entered promiscuous mode
+[  154.511359][T10160] hsr_slave_1: entered promiscuous mode
+[  154.768292][T10160] netdevsim netdevsim0 netdevsim0: renamed from eth0
+[  154.778254][T10160] netdevsim netdevsim0 netdevsim1: renamed from eth1
+[  154.784274][T10160] netdevsim netdevsim0 netdevsim2: renamed from eth2
+[  154.793253][T10160] netdevsim netdevsim0 netdevsim3: renamed from eth3
+[  154.833619][T10160] bridge0: port 2(bridge_slave_1) entered blocking state
+[  154.835072][T10160] bridge0: port 2(bridge_slave_1) entered forwarding state
+[  154.837005][T10160] bridge0: port 1(bridge_slave_0) entered blocking state
+[  154.838248][T10160] bridge0: port 1(bridge_slave_0) entered forwarding state
+[  154.929596][T10160] 8021q: adding VLAN 0 to HW filter on device bond0
+[  154.957747][ T3545] bridge0: port 1(bridge_slave_0) entered disabled state
+[  154.964212][ T3545] bridge0: port 2(bridge_slave_1) entered disabled state
+[  154.991624][T10160] 8021q: adding VLAN 0 to HW filter on device team0
+[  155.000341][ T3545] bridge0: port 1(bridge_slave_0) entered blocking state
+[  155.002005][ T3545] bridge0: port 1(bridge_slave_0) entered forwarding state
+[  155.038720][   T36] bridge0: port 2(bridge_slave_1) entered blocking state
+[  155.041991][   T36] bridge0: port 2(bridge_slave_1) entered forwarding state
+[  155.477855][T10160] 8021q: adding VLAN 0 to HW filter on device batadv0
+[  155.532085][T10160] veth0_vlan: entered promiscuous mode
+[  155.541013][T10160] veth1_vlan: entered promiscuous mode
+[  155.579153][T10160] veth0_macvtap: entered promiscuous mode
+[  155.590721][T10160] veth1_macvtap: entered promiscuous mode
+[  155.623486][T10160] batman_adv: batadv0: Interface activated: batadv_slave_0
+[  155.642767][T10160] batman_adv: batadv0: Interface activated: batadv_slave_1
+[  155.650401][T10160] netdevsim netdevsim0 netdevsim0: set [1, 0] type 2 family 0 port 6081 - 0
+[  155.651884][T10160] netdevsim netdevsim0 netdevsim1: set [1, 0] type 2 family 0 port 6081 - 0
+[  155.653237][T10160] netdevsim netdevsim0 netdevsim2: set [1, 0] type 2 family 0 port 6081 - 0
+[  155.654677][T10160] netdevsim netdevsim0 netdevsim3: set [1, 0] type 2 family 0 port 6081 - 0
+[  155.878966][   T13] netdevsim netdevsim0 netdevsim3 (unregistering): unset [1, 0] type 2 family 0 port 6081 - 0
+[  155.963603][   T13] netdevsim netdevsim0 netdevsim2 (unregistering): unset [1, 0] type 2 family 0 port 6081 - 0
+[  156.048651][   T13] netdevsim netdevsim0 netdevsim1 (unregistering): unset [1, 0] type 2 family 0 port 6081 - 0
+[  156.119947][   T13] netdevsim netdevsim0 netdevsim0 (unregistering): unset [1, 0] type 2 family 0 port 6081 - 0
+2025/07/03 01:49:38 executed programs: 0
+[  156.832479][   T54] Bluetooth: hci0: unexpected cc 0x0c03 length: 249 > 1
+[  156.836657][   T54] Bluetooth: hci0: unexpected cc 0x1003 length: 249 > 9
+[  156.838509][   T54] Bluetooth: hci0: unexpected cc 0x1001 length: 249 > 9
+[  156.841076][   T54] Bluetooth: hci0: unexpected cc 0x0c23 length: 249 > 4
+[  156.843020][   T54] Bluetooth: hci0: unexpected cc 0x0c38 length: 249 > 2
+[  157.165719][T10523] chnl_net:caif_netlink_parms(): no params data found
+[  157.290280][T10523] bridge0: port 1(bridge_slave_0) entered blocking state
+[  157.291729][T10523] bridge0: port 1(bridge_slave_0) entered disabled state
+[  157.293161][T10523] bridge_slave_0: entered allmulticast mode
+[  157.295802][T10523] bridge_slave_0: entered promiscuous mode
+[  157.302858][T10523] bridge0: port 2(bridge_slave_1) entered blocking state
+[  157.304190][T10523] bridge0: port 2(bridge_slave_1) entered disabled state
+[  157.305442][T10523] bridge_slave_1: entered allmulticast mode
+[  157.309150][T10523] bridge_slave_1: entered promiscuous mode
+[  157.368358][T10523] bond0: (slave bond_slave_0): Enslaving as an active interface with an up link
+[  157.374734][T10523] bond0: (slave bond_slave_1): Enslaving as an active interface with an up link
+[  157.434401][T10523] team0: Port device team_slave_0 added
+[  157.440000][T10523] team0: Port device team_slave_1 added
+[  157.498946][T10523] batman_adv: batadv0: Adding interface: batadv_slave_0
+[  157.500772][T10523] batman_adv: batadv0: The MTU of interface batadv_slave_0 is too small (1500) to handle the transport of batman-adv packets. Packets going over this interface will be fragmented on layer2 which could impact the performance. Setting the MTU to 1560 would solve the problem.
+[  157.506184][T10523] batman_adv: batadv0: Not using interface batadv_slave_0 (retrying later): interface not active
+[  157.515118][T10523] batman_adv: batadv0: Adding interface: batadv_slave_1
+[  157.518830][T10523] batman_adv: batadv0: The MTU of interface batadv_slave_1 is too small (1500) to handle the transport of batman-adv packets. Packets going over this interface will be fragmented on layer2 which could impact the performance. Setting the MTU to 1560 would solve the problem.
+[  157.525758][T10523] batman_adv: batadv0: Not using interface batadv_slave_1 (retrying later): interface not active
+[  157.641226][T10523] hsr_slave_0: entered promiscuous mode
+[  157.643412][T10523] hsr_slave_1: entered promiscuous mode
+[  157.645605][T10523] debugfs: Directory 'hsr0' with parent 'hsr' already present!
+[  157.649820][T10523] Cannot create hsr debugfs directory
+[  158.170828][ T1329] ieee802154 phy0 wpan0: encryption failed: -22
+[  158.172031][ T1329] ieee802154 phy1 wpan1: encryption failed: -22
+[  158.189275][   T13] bridge_slave_1: left allmulticast mode
+[  158.190382][   T13] bridge_slave_1: left promiscuous mode
+[  158.192335][   T13] bridge0: port 2(bridge_slave_1) entered disabled state
+[  158.210616][   T13] bridge_slave_0: left allmulticast mode
+[  158.211542][   T13] bridge_slave_0: left promiscuous mode
+[  158.212627][   T13] bridge0: port 1(bridge_slave_0) entered disabled state
+[  158.546766][   T13] bond0 (unregistering): (slave bond_slave_0): Releasing backup interface
+[  158.551402][   T13] bond0 (unregistering): (slave bond_slave_1): Releasing backup interface
+[  158.554361][   T13] bond0 (unregistering): Released all slaves
+[  158.730660][   T13] hsr_slave_0: left promiscuous mode
+[  158.744866][   T13] hsr_slave_1: left promiscuous mode
+[  158.749911][   T13] batman_adv: batadv0: Interface deactivated: batadv_slave_0
+[  158.751647][   T13] batman_adv: batadv0: Removing interface: batadv_slave_0
+[  158.756221][   T13] batman_adv: batadv0: Interface deactivated: batadv_slave_1
+[  158.759864][   T13] batman_adv: batadv0: Removing interface: batadv_slave_1
+[  158.794575][   T13] veth1_macvtap: left promiscuous mode
+[  158.810835][   T13] veth0_macvtap: left promiscuous mode
+[  158.811889][   T13] veth1_vlan: left promiscuous mode
+[  158.812884][   T13] veth0_vlan: left promiscuous mode
+[  158.891144][   T54] Bluetooth: hci0: command tx timeout
+[  159.265837][   T13] team0 (unregistering): Port device team_slave_1 removed
+[  159.295703][   T13] team0 (unregistering): Port device team_slave_0 removed
+[  160.029829][T10523] netdevsim netdevsim0 netdevsim0: renamed from eth0
+[  160.050829][T10523] netdevsim netdevsim0 netdevsim1: renamed from eth1
+[  160.071962][T10523] netdevsim netdevsim0 netdevsim2: renamed from eth2
+[  160.103343][T10523] netdevsim netdevsim0 netdevsim3: renamed from eth3
+[  160.497115][T10523] 8021q: adding VLAN 0 to HW filter on device bond0
+[  160.523287][T10523] 8021q: adding VLAN 0 to HW filter on device team0
+[  160.534522][   T64] bridge0: port 1(bridge_slave_0) entered blocking state
+[  160.535774][   T64] bridge0: port 1(bridge_slave_0) entered forwarding state
+[  160.549873][   T64] bridge0: port 2(bridge_slave_1) entered blocking state
+[  160.551121][   T64] bridge0: port 2(bridge_slave_1) entered forwarding state
+[  160.891522][T10523] 8021q: adding VLAN 0 to HW filter on device batadv0
+[  160.971695][   T54] Bluetooth: hci0: command tx timeout
+[  160.975477][T10523] veth0_vlan: entered promiscuous mode
+[  160.986898][T10523] veth1_vlan: entered promiscuous mode
+[  161.035563][T10523] veth0_macvtap: entered promiscuous mode
+[  161.044780][T10523] veth1_macvtap: entered promiscuous mode
+[  161.092321][T10523] batman_adv: batadv0: Interface activated: batadv_slave_0
+[  161.111684][T10523] batman_adv: batadv0: Interface activated: batadv_slave_1
+[  161.122604][T10523] netdevsim netdevsim0 netdevsim0: set [1, 0] type 2 family 0 port 6081 - 0
+[  161.124348][T10523] netdevsim netdevsim0 netdevsim1: set [1, 0] type 2 family 0 port 6081 - 0
+[  161.126094][T10523] netdevsim netdevsim0 netdevsim2: set [1, 0] type 2 family 0 port 6081 - 0
+[  161.129323][T10523] netdevsim netdevsim0 netdevsim3: set [1, 0] type 2 family 0 port 6081 - 0
+[  161.269458][ T3545] wlan0: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[  161.270959][ T3545] wlan0: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[  161.359146][ T3545] wlan1: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[  161.360874][ T3545] wlan1: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[  161.752784][T10926] loop0: detected capacity change from 0 to 32768
+[  161.807654][T10926] ocfs2: Mounting device (7,0) on (node local, slot 0) with ordered data mode.
+[  161.837274][T10926] OCFS2: ERROR (device loop0): ocfs2_validate_gd_self: Group descriptor #0 has bad signature 
+[  161.840226][T10926] On-disk corruption discovered. Please run fsck.ocfs2 once the filesystem is unmounted.
+[  161.842473][T10926] OCFS2: File system is now read-only.
+[  161.843748][T10926] (syz.0.16,10926,0):ocfs2_search_chain:1817 ERROR: status = -30
+[  161.855306][T10926] (syz.0.16,10926,0):ocfs2_search_chain:1940 ERROR: status = -30
+[  161.857278][T10926] (syz.0.16,10926,0):ocfs2_claim_suballoc_bits:2010 ERROR: status = -30
+[  161.859273][T10926] (syz.0.16,10926,0):ocfs2_claim_suballoc_bits:2063 ERROR: status = -30
+[  161.861172][T10926] (syz.0.16,10926,0):ocfs2_claim_new_inode:2298 ERROR: status = -30
+[  161.863055][T10926] (syz.0.16,10926,0):ocfs2_claim_new_inode:2313 ERROR: status = -30
+[  161.864862][T10926] (syz.0.16,10926,0):ocfs2_mknod_locked:638 ERROR: status = -30
+[  161.868460][T10926] (syz.0.16,10926,0):ocfs2_mknod:385 ERROR: status = -30
+[  161.872591][T10926] (syz.0.16,10926,0):ocfs2_mknod:502 ERROR: status = -30
+[  161.874432][T10926] (syz.0.16,10926,0):ocfs2_create:675 ERROR: status = -30
+[  161.924511][T10523] ocfs2: Unmounting device (7,0) on (node local)
+2025/07/03 01:49:43 executed programs: 3
+[  162.396663][T10938] loop0: detected capacity change from 0 to 32768
+[  162.434450][T10938] ocfs2: Mounting device (7,0) on (node local, slot 0) with ordered data mode.
+[  162.445744][T10938] OCFS2: ERROR (device loop0): ocfs2_validate_gd_self: Group descriptor #0 has bad signature 
+[  162.455458][T10938] On-disk corruption discovered. Please run fsck.ocfs2 once the filesystem is unmounted.
+[  162.457124][T10938] OCFS2: File system is now read-only.
+[  162.457997][T10938] (syz.0.17,10938,0):ocfs2_search_chain:1817 ERROR: status = -30
+[  162.459298][T10938] (syz.0.17,10938,0):ocfs2_search_chain:1940 ERROR: status = -30
+[  162.461253][T10938] (syz.0.17,10938,0):ocfs2_claim_suballoc_bits:2010 ERROR: status = -30
+[  162.462556][T10938] (syz.0.17,10938,0):ocfs2_claim_suballoc_bits:2063 ERROR: status = -30
+[  162.463850][T10938] (syz.0.17,10938,0):ocfs2_claim_new_inode:2298 ERROR: status = -30
+[  162.465154][T10938] (syz.0.17,10938,0):ocfs2_claim_new_inode:2313 ERROR: status = -30
+[  162.467691][T10938] (syz.0.17,10938,0):ocfs2_mknod_locked:638 ERROR: status = -30
+[  162.468884][T10938] (syz.0.17,10938,0):ocfs2_mknod:385 ERROR: status = -30
+[  162.473897][T10938] (syz.0.17,10938,0):ocfs2_mknod:502 ERROR: status = -30
+[  162.475052][T10938] (syz.0.17,10938,0):ocfs2_create:675 ERROR: status = -30
+[  162.492046][T10523] ocfs2: Unmounting device (7,0) on (node local)
+[  163.046566][   T54] Bluetooth: hci0: command tx timeout
+[  163.142166][T10949] loop0: detected capacity change from 0 to 32768
+[  163.205611][T10949] ocfs2: Mounting device (7,0) on (node local, slot 0) with ordered data mode.
+[  163.231796][T10949] OCFS2: ERROR (device loop0): ocfs2_validate_gd_self: Group descriptor #0 has bad signature 
+[  163.263191][T10949] On-disk corruption discovered. Please run fsck.ocfs2 once the filesystem is unmounted.
+[  163.264784][T10949] OCFS2: File system is now read-only.
+[  163.269827][T10949] (syz.0.18,10949,1):ocfs2_search_chain:1817 ERROR: status = -30
+[  163.271963][T10949] (syz.0.18,10949,1):ocfs2_search_chain:1940 ERROR: status = -30
+[  163.273561][T10949] (syz.0.18,10949,1):ocfs2_claim_suballoc_bits:2010 ERROR: status = -30
+[  163.279675][T10949] (syz.0.18,10949,1):ocfs2_claim_suballoc_bits:2063 ERROR: status = -30
+[  163.281916][T10949] (syz.0.18,10949,1):ocfs2_claim_new_inode:2298 ERROR: status = -30
+[  163.283803][T10949] (syz.0.18,10949,1):ocfs2_claim_new_inode:2313 ERROR: status = -30
+[  163.294731][T10949] (syz.0.18,10949,1):ocfs2_mknod_locked:638 ERROR: status = -30
+[  163.317951][T10949] (syz.0.18,10949,1):ocfs2_mknod:385 ERROR: status = -30
+[  163.346210][T10949] (syz.0.18,10949,1):ocfs2_mknod:502 ERROR: status = -30
+[  163.409364][T10949] (syz.0.18,10949,1):ocfs2_create:675 ERROR: status = -30
+[  163.455665][T10523] ocfs2: Unmounting device (7,0) on (node local)
+[  163.966842][T10960] loop0: detected capacity change from 0 to 32768
+[  163.987870][T10960] ocfs2: Mounting device (7,0) on (node local, slot 0) with ordered data mode.
+[  163.997750][T10960] OCFS2: ERROR (device loop0): ocfs2_validate_gd_self: Group descriptor #0 has bad signature 
+[  163.999563][T10960] On-disk corruption discovered. Please run fsck.ocfs2 once the filesystem is unmounted.
+[  164.001102][T10960] OCFS2: File system is now read-only.
+[  164.002007][T10960] (syz.0.19,10960,0):ocfs2_search_chain:1817 ERROR: status = -30
+[  164.003264][T10960] (syz.0.19,10960,0):ocfs2_search_chain:1940 ERROR: status = -30
+[  164.004476][T10960] (syz.0.19,10960,0):ocfs2_claim_suballoc_bits:2010 ERROR: status = -30
+[  164.005760][T10960] (syz.0.19,10960,0):ocfs2_claim_suballoc_bits:2063 ERROR: status = -30
+[  164.030261][T10960] (syz.0.19,10960,0):ocfs2_claim_new_inode:2298 ERROR: status = -30
+[  164.032077][T10960] (syz.0.19,10960,0):ocfs2_claim_new_inode:2313 ERROR: status = -30
+[  164.033370][T10960] (syz.0.19,10960,0):ocfs2_mknod_locked:638 ERROR: status = -30
+[  164.034641][T10960] (syz.0.19,10960,0):ocfs2_mknod:385 ERROR: status = -30
+[  164.035875][T10960] (syz.0.19,10960,0):ocfs2_mknod:502 ERROR: status = -30
+[  164.046782][T10960] (syz.0.19,10960,0):ocfs2_create:675 ERROR: status = -30
+[  164.063802][T10523] ocfs2: Unmounting device (7,0) on (node local)
+[  164.385812][T10969] loop0: detected capacity change from 0 to 32768
+[  164.428587][T10969] ocfs2: Mounting device (7,0) on (node local, slot 0) with ordered data mode.
+[  164.437571][T10969] OCFS2: ERROR (device loop0): ocfs2_validate_gd_self: Group descriptor #0 has bad signature 
+[  164.439742][T10969] On-disk corruption discovered. Please run fsck.ocfs2 once the filesystem is unmounted.
+[  164.441649][T10969] OCFS2: File system is now read-only.
+[  164.442821][T10969] (syz.0.20,10969,0):ocfs2_search_chain:1817 ERROR: status = -30
+[  164.444290][T10969] (syz.0.20,10969,0):ocfs2_search_chain:1940 ERROR: status = -30
+[  164.458777][T10969] (syz.0.20,10969,0):ocfs2_claim_suballoc_bits:2010 ERROR: status = -30
+[  164.471314][T10969] (syz.0.20,10969,0):ocfs2_claim_suballoc_bits:2063 ERROR: status = -30
+[  164.477813][T10969] (syz.0.20,10969,0):ocfs2_claim_new_inode:2298 ERROR: status = -30
+[  164.479861][T10969] (syz.0.20,10969,0):ocfs2_claim_new_inode:2313 ERROR: status = -30
+[  164.481415][T10969] (syz.0.20,10969,0):ocfs2_mknod_locked:638 ERROR: status = -30
+[  164.483741][T10969] (syz.0.20,10969,0):ocfs2_mknod:385 ERROR: status = -30
+[  164.485683][T10969] (syz.0.20,10969,0):ocfs2_mknod:502 ERROR: status = -30
+[  164.516920][T10969] (syz.0.20,10969,0):ocfs2_create:675 ERROR: status = -30
+[  164.559209][T10523] ocfs2: Unmounting device (7,0) on (node local)
+[  164.986117][T10978] loop0: detected capacity change from 0 to 32768
+[  165.013946][T10978] ocfs2: Mounting device (7,0) on (node local, slot 0) with ordered data mode.
+[  165.029853][T10978] OCFS2: ERROR (device loop0): ocfs2_validate_gd_self: Group descriptor #0 has bad signature 
+[  165.031636][T10978] On-disk corruption discovered. Please run fsck.ocfs2 once the filesystem is unmounted.
+[  165.033188][T10978] OCFS2: File system is now read-only.
+[  165.034089][T10978] (syz.0.21,10978,1):ocfs2_search_chain:1817 ERROR: status = -30
+[  165.035331][T10978] (syz.0.21,10978,1):ocfs2_search_chain:1940 ERROR: status = -30
+[  165.037686][T10978] (syz.0.21,10978,1):ocfs2_claim_suballoc_bits:2010 ERROR: status = -30
+[  165.039024][T10978] (syz.0.21,10978,1):ocfs2_claim_suballoc_bits:2063 ERROR: status = -30
+[  165.040295][T10978] (syz.0.21,10978,1):ocfs2_claim_new_inode:2298 ERROR: status = -30
+[  165.041514][T10978] (syz.0.21,10978,1):ocfs2_claim_new_inode:2313 ERROR: status = -30
+[  165.042775][T10978] (syz.0.21,10978,1):ocfs2_mknod_locked:638 ERROR: status = -30
+[  165.043961][T10978] (syz.0.21,10978,1):ocfs2_mknod:385 ERROR: status = -30
+[  165.045214][T10978] (syz.0.21,10978,1):ocfs2_mknod:502 ERROR: status = -30
+[  165.075985][T10978] (syz.0.21,10978,1):ocfs2_create:675 ERROR: status = -30
+[  165.115609][T10523] ocfs2: Unmounting device (7,0) on (node local)
+[  165.151500][   T54] Bluetooth: hci0: command tx timeout
+[  165.564197][T10988] loop0: detected capacity change from 0 to 32768
+[  165.605336][T10988] ocfs2: Mounting device (7,0) on (node local, slot 0) with ordered data mode.
+[  165.622047][T10988] OCFS2: ERROR (device loop0): ocfs2_validate_gd_self: Group descriptor #0 has bad signature 
+[  165.624017][T10988] On-disk corruption discovered. Please run fsck.ocfs2 once the filesystem is unmounted.
+[  165.625896][T10988] OCFS2: File system is now read-only.
+[  165.628213][T10988] (syz.0.22,10988,1):ocfs2_search_chain:1817 ERROR: status = -30
+[  165.629824][T10988] (syz.0.22,10988,1):ocfs2_search_chain:1940 ERROR: status = -30
+[  165.631397][T10988] (syz.0.22,10988,1):ocfs2_claim_suballoc_bits:2010 ERROR: status = -30
+[  165.632967][T10988] (syz.0.22,10988,1):ocfs2_claim_suballoc_bits:2063 ERROR: status = -30
+[  165.634606][T10988] (syz.0.22,10988,1):ocfs2_claim_new_inode:2298 ERROR: status = -30
+[  165.636103][T10988] (syz.0.22,10988,1):ocfs2_claim_new_inode:2313 ERROR: status = -30
+[  165.671251][T10988] (syz.0.22,10988,1):ocfs2_mknod_locked:638 ERROR: status = -30
+[  165.672472][T10988] (syz.0.22,10988,1):ocfs2_mknod:385 ERROR: status = -30
+[  165.673856][T10988] (syz.0.22,10988,1):ocfs2_mknod:502 ERROR: status = -30
+[  165.675265][T10988] (syz.0.22,10988,1):ocfs2_create:675 ERROR: status = -30
+[  165.701490][T10523] ocfs2: Unmounting device (7,0) on (node local)
+[  166.300448][T11001] loop0: detected capacity change from 0 to 32768
+[  166.323583][T11001] ocfs2: Mounting device (7,0) on (node local, slot 0) with ordered data mode.
+[  166.334475][T11001] OCFS2: ERROR (device loop0): ocfs2_validate_gd_self: Group descriptor #0 has bad signature 
+[  166.336158][T11001] On-disk corruption discovered. Please run fsck.ocfs2 once the filesystem is unmounted.
+[  166.339765][T11001] OCFS2: File system is now read-only.
+[  166.342326][T11001] (syz.0.23,11001,0):ocfs2_search_chain:1817 ERROR: status = -30
+[  166.345720][T11001] (syz.0.23,11001,0):ocfs2_search_chain:1940 ERROR: status = -30
+[  166.349985][T11001] (syz.0.23,11001,0):ocfs2_claim_suballoc_bits:2010 ERROR: status = -30
+[  166.358013][T11001] (syz.0.23,11001,0):ocfs2_claim_suballoc_bits:2063 ERROR: status = -30
+[  166.359397][T11001] (syz.0.23,11001,0):ocfs2_claim_new_inode:2298 ERROR: status = -30
+[  166.360649][T11001] (syz.0.23,11001,0):ocfs2_claim_new_inode:2313 ERROR: status = -30
+[  166.361909][T11001] (syz.0.23,11001,0):ocfs2_mknod_locked:638 ERROR: status = -30
+[  166.363196][T11001] (syz.0.23,11001,0):ocfs2_mknod:385 ERROR: status = -30
+[  166.364495][T11001] (syz.0.23,11001,0):ocfs2_mknod:502 ERROR: status = -30
+[  166.365615][T11001] (syz.0.23,11001,0):ocfs2_create:675 ERROR: status = -30
+[  166.415486][T10523] ocfs2: Unmounting device (7,0) on (node local)
+[  166.954634][T11012] loop0: detected capacity change from 0 to 32768
+[  166.978977][T11012] ocfs2: Mounting device (7,0) on (node local, slot 0) with ordered data mode.
+[  166.987825][T11012] OCFS2: ERROR (device loop0): ocfs2_validate_gd_self: Group descriptor #0 has bad signature 
+[  166.989484][T11012] On-disk corruption discovered. Please run fsck.ocfs2 once the filesystem is unmounted.
+[  166.990997][T11012] OCFS2: File system is now read-only.
+[  166.991844][T11012] (syz.0.24,11012,0):ocfs2_search_chain:1817 ERROR: status = -30
+[  166.993034][T11012] (syz.0.24,11012,0):ocfs2_search_chain:1940 ERROR: status = -30
+[  166.994274][T11012] (syz.0.24,11012,0):ocfs2_claim_suballoc_bits:2010 ERROR: status = -30
+[  166.995599][T11012] (syz.0.24,11012,0):ocfs2_claim_suballoc_bits:2063 ERROR: status = -30
+[  167.016520][T11012] (syz.0.24,11012,0):ocfs2_claim_new_inode:2298 ERROR: status = -30
+[  167.018090][T11012] (syz.0.24,11012,0):ocfs2_claim_new_inode:2313 ERROR: status = -30
+[  167.019562][T11012] (syz.0.24,11012,0):ocfs2_mknod_locked:638 ERROR: status = -30
+[  167.020989][T11012] (syz.0.24,11012,0):ocfs2_mknod:385 ERROR: status = -30
+[  167.022518][T11012] (syz.0.24,11012,0):ocfs2_mknod:502 ERROR: status = -30
+[  167.023818][T11012] (syz.0.24,11012,0):ocfs2_create:675 ERROR: status = -30
+[  167.042391][T10523] ocfs2: Unmounting device (7,0) on (node local)
+2025/07/03 01:49:48 executed programs: 11
+[  167.535712][T11022] loop0: detected capacity change from 0 to 32768
+[  167.553762][T11022] ocfs2: Mounting device (7,0) on (node local, slot 0) with ordered data mode.
+[  167.559152][T11022] OCFS2: ERROR (device loop0): ocfs2_validate_gd_self: Group descriptor #0 has bad signature 
+[  167.560945][T11022] On-disk corruption discovered. Please run fsck.ocfs2 once the filesystem is unmounted.
+[  167.562677][T11022] OCFS2: File system is now read-only.
+[  167.563535][T11022] (syz.0.25,11022,0):ocfs2_search_chain:1817 ERROR: status = -30
+[  167.564781][T11022] (syz.0.25,11022,0):ocfs2_search_chain:1940 ERROR: status = -30
+[  167.565958][T11022] (syz.0.25,11022,0):ocfs2_claim_suballoc_bits:2010 ERROR: status = -30
+[  167.575108][T11022] (syz.0.25,11022,0):ocfs2_claim_suballoc_bits:2063 ERROR: status = -30
+[  167.576506][T11022] (syz.0.25,11022,0):ocfs2_claim_new_inode:2298 ERROR: status = -30
+[  167.577734][T11022] (syz.0.25,11022,0):ocfs2_claim_new_inode:2313 ERROR: status = -30
+[  167.579257][T11022] (syz.0.25,11022,0):ocfs2_mknod_locked:638 ERROR: status = -30
+[  167.581409][T11022] (syz.0.25,11022,0):ocfs2_mknod:385 ERROR: status = -30
+[  167.582936][T11022] (syz.0.25,11022,0):ocfs2_mknod:502 ERROR: status = -30
+[  167.584287][T11022] (syz.0.25,11022,0):ocfs2_create:675 ERROR: status = -30
+[  167.624594][T10523] ocfs2: Unmounting device (7,0) on (node local)
+[  168.061776][T11033] loop0: detected capacity change from 0 to 32768
+[  168.102586][T11033] ocfs2: Mounting device (7,0) on (node local, slot 0) with ordered data mode.
+[  168.109497][T11033] OCFS2: ERROR (device loop0): ocfs2_validate_gd_self: Group descriptor #0 has bad signature 
+[  168.114062][T11033] On-disk corruption discovered. Please run fsck.ocfs2 once the filesystem is unmounted.
+[  168.115891][T11033] OCFS2: File system is now read-only.
+[  168.127012][T11033] (syz.0.26,11033,0):ocfs2_search_chain:1817 ERROR: status = -30
+[  168.128329][T11033] (syz.0.26,11033,0):ocfs2_search_chain:1940 ERROR: status = -30
+[  168.129545][T11033] (syz.0.26,11033,0):ocfs2_claim_suballoc_bits:2010 ERROR: status = -30
+[  168.130924][T11033] (syz.0.26,11033,0):ocfs2_claim_suballoc_bits:2063 ERROR: status = -30
+[  168.132658][T11033] (syz.0.26,11033,0):ocfs2_claim_new_inode:2298 ERROR: status = -30
+[  168.134343][T11033] (syz.0.26,11033,0):ocfs2_claim_new_inode:2313 ERROR: status = -30
+[  168.135780][T11033] (syz.0.26,11033,0):ocfs2_mknod_locked:638 ERROR: status = -30
+[  168.142292][T11033] (syz.0.26,11033,0):ocfs2_mknod:385 ERROR: status = -30
+[  168.143656][T11033] (syz.0.26,11033,0):ocfs2_mknod:502 ERROR: status = -30
+[  168.144753][T11033] (syz.0.26,11033,0):ocfs2_create:675 ERROR: status = -30
+[  168.160623][T10523] ocfs2: Unmounting device (7,0) on (node local)
+[  168.600474][T11040] loop0: detected capacity change from 0 to 32768
+[  168.633335][T11040] ocfs2: Mounting device (7,0) on (node local, slot 0) with ordered data mode.
+[  168.651296][T11040] OCFS2: ERROR (device loop0): ocfs2_validate_gd_self: Group descriptor #0 has bad signature 
+[  168.653097][T11040] On-disk corruption discovered. Please run fsck.ocfs2 once the filesystem is unmounted.
+[  168.700700][T11040] OCFS2: File system is now read-only.
+[  168.701845][T11040] (syz.0.27,11040,0):ocfs2_search_chain:1817 ERROR: status = -30
+[  168.703392][T11040] (syz.0.27,11040,0):ocfs2_search_chain:1940 ERROR: status = -30
+[  168.704811][T11040] (syz.0.27,11040,0):ocfs2_claim_suballoc_bits:2010 ERROR: status = -30
+[  168.707139][T11040] (syz.0.27,11040,0):ocfs2_claim_suballoc_bits:2063 ERROR: status = -30
+[  168.708681][T11040] (syz.0.27,11040,0):ocfs2_claim_new_inode:2298 ERROR: status = -30
+[  168.710102][T11040] (syz.0.27,11040,0):ocfs2_claim_new_inode:2313 ERROR: status = -30
+[  168.711646][T11040] (syz.0.27,11040,0):ocfs2_mknod_locked:638 ERROR: status = -30
+[  168.713263][T11040] (syz.0.27,11040,0):ocfs2_mknod:385 ERROR: status = -30
+[  168.714977][T11040] (syz.0.27,11040,0):ocfs2_mknod:502 ERROR: status = -30
+[  168.719494][T11040] (syz.0.27,11040,0):ocfs2_create:675 ERROR: status = -30
+[  168.773027][T10523] ocfs2: Unmounting device (7,0) on (node local)
+[  169.116168][T11051] loop0: detected capacity change from 0 to 32768
+[  169.148014][T11051] ocfs2: Mounting device (7,0) on (node local, slot 0) with ordered data mode.
+[  169.152002][T11051] OCFS2: ERROR (device loop0): ocfs2_validate_gd_self: Group descriptor #0 has bad signature 
+[  169.153937][T11051] On-disk corruption discovered. Please run fsck.ocfs2 once the filesystem is unmounted.
+[  169.155689][T11051] OCFS2: File system is now read-only.
+[  169.156899][T11051] (syz.0.28,11051,1):ocfs2_search_chain:1817 ERROR: status = -30
+[  169.158393][T11051] (syz.0.28,11051,1):ocfs2_search_chain:1940 ERROR: status = -30
+[  169.159796][T11051] (syz.0.28,11051,1):ocfs2_claim_suballoc_bits:2010 ERROR: status = -30
+[  169.161345][T11051] (syz.0.28,11051,1):ocfs2_claim_suballoc_bits:2063 ERROR: status = -30
+[  169.162965][T11051] (syz.0.28,11051,1):ocfs2_claim_new_inode:2298 ERROR: status = -30
+[  169.164423][T11051] (syz.0.28,11051,1):ocfs2_claim_new_inode:2313 ERROR: status = -30
+[  169.165886][T11051] (syz.0.28,11051,1):ocfs2_mknod_locked:638 ERROR: status = -30
+[  169.168237][T11051] (syz.0.28,11051,1):ocfs2_mknod:385 ERROR: status = -30
+[  169.169685][T11051] (syz.0.28,11051,1):ocfs2_mknod:502 ERROR: status = -30
+[  169.171035][T11051] (syz.0.28,11051,1):ocfs2_create:675 ERROR: status = -30
+[  169.199960][T10523] ocfs2: Unmounting device (7,0) on (node local)
+[  169.512676][T11061] loop0: detected capacity change from 0 to 32768
+[  169.532636][T11061] ocfs2: Mounting device (7,0) on (node local, slot 0) with ordered data mode.
+[  169.537677][T11061] OCFS2: ERROR (device loop0): ocfs2_validate_gd_self: Group descriptor #0 has bad signature 
+[  169.539338][T11061] On-disk corruption discovered. Please run fsck.ocfs2 once the filesystem is unmounted.
+[  169.540805][T11061] OCFS2: File system is now read-only.
+[  169.543606][T11061] (syz.0.29,11061,1):ocfs2_search_chain:1817 ERROR: status = -30
+[  169.544972][T11061] (syz.0.29,11061,1):ocfs2_search_chain:1940 ERROR: status = -30
+[  169.546162][T11061] (syz.0.29,11061,1):ocfs2_claim_suballoc_bits:2010 ERROR: status = -30
+[  169.553727][T11061] (syz.0.29,11061,1):ocfs2_claim_suballoc_bits:2063 ERROR: status = -30
+[  169.555088][T11061] (syz.0.29,11061,1):ocfs2_claim_new_inode:2298 ERROR: status = -30
+[  169.561622][T11061] (syz.0.29,11061,1):ocfs2_claim_new_inode:2313 ERROR: status = -30
+[  169.563075][T11061] (syz.0.29,11061,1):ocfs2_mknod_locked:638 ERROR: status = -30
+[  169.568576][T11061] (syz.0.29,11061,1):ocfs2_mknod:385 ERROR: status = -30
+[  169.571459][T11061] (syz.0.29,11061,1):ocfs2_mknod:502 ERROR: status = -30
+[  169.572709][T11061] (syz.0.29,11061,1):ocfs2_create:675 ERROR: status = -30
+[  169.592827][T10523] ocfs2: Unmounting device (7,0) on (node local)
+[  170.013912][T11075] loop0: detected capacity change from 0 to 32768
+[  170.038359][T11075] ocfs2: Mounting device (7,0) on (node local, slot 0) with ordered data mode.
+[  170.058504][T11075] OCFS2: ERROR (device loop0): ocfs2_validate_gd_self: Group descriptor #0 has bad signature 
+[  170.060157][T11075] On-disk corruption discovered. Please run fsck.ocfs2 once the filesystem is unmounted.
+[  170.061638][T11075] OCFS2: File system is now read-only.
+[  170.062539][T11075] (syz.0.30,11075,1):ocfs2_search_chain:1817 ERROR: status = -30
+[  170.065896][T11075] (syz.0.30,11075,1):ocfs2_search_chain:1940 ERROR: status = -30
+[  170.070141][T11075] (syz.0.30,11075,1):ocfs2_claim_suballoc_bits:2010 ERROR: status = -30
+[  170.071538][T11075] (syz.0.30,11075,1):ocfs2_claim_suballoc_bits:2063 ERROR: status = -30
+[  170.072840][T11075] (syz.0.30,11075,1):ocfs2_claim_new_inode:2298 ERROR: status = -30
+[  170.074075][T11075] (syz.0.30,11075,1):ocfs2_claim_new_inode:2313 ERROR: status = -30
+[  170.075383][T11075] (syz.0.30,11075,1):ocfs2_mknod_locked:638 ERROR: status = -30
+[  170.086137][T11075] (syz.0.30,11075,1):ocfs2_mknod:385 ERROR: status = -30
+[  170.087672][T11075] (syz.0.30,11075,1):ocfs2_mknod:502 ERROR: status = -30
+[  170.088792][T11075] (syz.0.30,11075,1):ocfs2_create:675 ERROR: status = -30
+[  170.104223][T10523] ocfs2: Unmounting device (7,0) on (node local)
+[  170.473835][T11083] loop0: detected capacity change from 0 to 32768
+[  170.527299][T11083] ocfs2: Mounting device (7,0) on (node local, slot 0) with ordered data mode.
+[  170.540126][T11083] OCFS2: ERROR (device loop0): ocfs2_validate_gd_self: Group descriptor #0 has bad signature 
+[  170.542274][T11083] On-disk corruption discovered. Please run fsck.ocfs2 once the filesystem is unmounted.
+[  170.543792][T11083] OCFS2: File system is now read-only.
+[  170.544637][T11083] (syz.0.31,11083,1):ocfs2_search_chain:1817 ERROR: status = -30
+[  170.545832][T11083] (syz.0.31,11083,1):ocfs2_search_chain:1940 ERROR: status = -30
+[  170.554320][T11083] (syz.0.31,11083,1):ocfs2_claim_suballoc_bits:2010 ERROR: status = -30
+[  170.558023][T11083] (syz.0.31,11083,1):ocfs2_claim_suballoc_bits:2063 ERROR: status = -30
+[  170.559578][T11083] (syz.0.31,11083,1):ocfs2_claim_new_inode:2298 ERROR: status = -30
+[  170.560869][T11083] (syz.0.31,11083,1):ocfs2_claim_new_inode:2313 ERROR: status = -30
+[  170.562132][T11083] (syz.0.31,11083,1):ocfs2_mknod_locked:638 ERROR: status = -30
+[  170.563589][T11083] (syz.0.31,11083,1):ocfs2_mknod:385 ERROR: status = -30
+[  170.576750][T11083] (syz.0.31,11083,1):ocfs2_mknod:502 ERROR: status = -30
+[  170.577885][T11083] (syz.0.31,11083,1):ocfs2_create:675 ERROR: status = -30
+[  170.589512][T10523] ocfs2: Unmounting device (7,0) on (node local)
+[  171.111257][T11096] loop0: detected capacity change from 0 to 32768
+[  171.161644][T11096] ocfs2: Mounting device (7,0) on (node local, slot 0) with ordered data mode.
+[  171.173560][T11096] OCFS2: ERROR (device loop0): ocfs2_validate_gd_self: Group descriptor #0 has bad signature 
+[  171.194323][T11096] On-disk corruption discovered. Please run fsck.ocfs2 once the filesystem is unmounted.
+[  171.198273][T11096] OCFS2: File system is now read-only.
+[  171.199253][T11096] (syz.0.32,11096,0):ocfs2_search_chain:1817 ERROR: status = -30
+[  171.200530][T11096] (syz.0.32,11096,0):ocfs2_search_chain:1940 ERROR: status = -30
+[  171.201711][T11096] (syz.0.32,11096,0):ocfs2_claim_suballoc_bits:2010 ERROR: status = -30
+[  171.203073][T11096] (syz.0.32,11096,0):ocfs2_claim_suballoc_bits:2063 ERROR: status = -30
+[  171.204349][T11096] (syz.0.32,11096,0):ocfs2_claim_new_inode:2298 ERROR: status = -30
+[  171.205638][T11096] (syz.0.32,11096,0):ocfs2_claim_new_inode:2313 ERROR: status = -30
+[  171.208035][T11096] (syz.0.32,11096,0):ocfs2_mknod_locked:638 ERROR: status = -30
+[  171.209763][T11096] (syz.0.32,11096,0):ocfs2_mknod:385 ERROR: status = -30
+[  171.211802][T11096] (syz.0.32,11096,0):ocfs2_mknod:502 ERROR: status = -30
+[  171.213176][T11096] (syz.0.32,11096,0):ocfs2_create:675 ERROR: status = -30
+[  171.238744][T10523] ocfs2: Unmounting device (7,0) on (node local)
+[  171.652260][T11106] loop0: detected capacity change from 0 to 32768
+[  171.669756][T11106] ocfs2: Mounting device (7,0) on (node local, slot 0) with ordered data mode.
+[  171.673982][T11106] OCFS2: ERROR (device loop0): ocfs2_validate_gd_self: Group descriptor #0 has bad signature 
+[  171.675731][T11106] On-disk corruption discovered. Please run fsck.ocfs2 once the filesystem is unmounted.
+[  171.679878][T11106] OCFS2: File system is now read-only.
+[  171.681362][T11106] (syz.0.33,11106,1):ocfs2_search_chain:1817 ERROR: status = -30
+[  171.682608][T11106] (syz.0.33,11106,1):ocfs2_search_chain:1940 ERROR: status = -30
+[  171.683789][T11106] (syz.0.33,11106,1):ocfs2_claim_suballoc_bits:2010 ERROR: status = -30
+[  171.685100][T11106] (syz.0.33,11106,1):ocfs2_claim_suballoc_bits:2063 ERROR: status = -30
+[  171.688161][T11106] (syz.0.33,11106,1):ocfs2_claim_new_inode:2298 ERROR: status = -30
+[  171.689606][T11106] (syz.0.33,11106,1):ocfs2_claim_new_inode:2313 ERROR: status = -30
+[  171.690945][T11106] (syz.0.33,11106,1):ocfs2_mknod_locked:638 ERROR: status = -30
+[  171.692125][T11106] (syz.0.33,11106,1):ocfs2_mknod:385 ERROR: status = -30
+[  171.693575][T11106] (syz.0.33,11106,1):ocfs2_mknod:502 ERROR: status = -30
+[  171.694770][T11106] (syz.0.33,11106,1):ocfs2_create:675 ERROR: status = -30
+[  171.717578][T10523] ocfs2: Unmounting device (7,0) on (node local)
+[  172.150176][T11116] loop0: detected capacity change from 0 to 32768
+[  172.199897][T11116] ocfs2: Mounting device (7,0) on (node local, slot 0) with ordered data mode.
+[  172.207772][T11116] OCFS2: ERROR (device loop0): ocfs2_validate_gd_self: Group descriptor #0 has bad signature 
+[  172.209541][T11116] On-disk corruption discovered. Please run fsck.ocfs2 once the filesystem is unmounted.
+[  172.211172][T11116] OCFS2: File system is now read-only.
+[  172.212030][T11116] (syz.0.34,11116,0):ocfs2_search_chain:1817 ERROR: status = -30
+[  172.213238][T11116] (syz.0.34,11116,0):ocfs2_search_chain:1940 ERROR: status = -30
+[  172.214614][T11116] (syz.0.34,11116,0):ocfs2_claim_suballoc_bits:2010 ERROR: status = -30
+[  172.216232][T11116] (syz.0.34,11116,0):ocfs2_claim_suballoc_bits:2063 ERROR: status = -30
+[  172.223265][T11116] (syz.0.34,11116,0):ocfs2_claim_new_inode:2298 ERROR: status = -30
+[  172.224845][T11116] (syz.0.34,11116,0):ocfs2_claim_new_inode:2313 ERROR: status = -30
+[  172.227908][T11116] (syz.0.34,11116,0):ocfs2_mknod_locked:638 ERROR: status = -30
+[  172.229291][T11116] (syz.0.34,11116,0):ocfs2_mknod:385 ERROR: status = -30
+[  172.230848][T11116] (syz.0.34,11116,0):ocfs2_mknod:502 ERROR: status = -30
+[  172.232208][T11116] (syz.0.34,11116,0):ocfs2_create:675 ERROR: status = -30
+[  172.243535][T10523] ocfs2: Unmounting device (7,0) on (node local)
+2025/07/03 01:49:54 executed programs: 21
+[  172.647749][T11122] loop0: detected capacity change from 0 to 32768
+[  172.674129][T11122] ocfs2: Mounting device (7,0) on (node local, slot 0) with ordered data mode.
+[  172.684174][T11122] OCFS2: ERROR (device loop0): ocfs2_validate_gd_self: Group descriptor #0 has bad signature 
+[  172.685972][T11122] On-disk corruption discovered. Please run fsck.ocfs2 once the filesystem is unmounted.
+[  172.695879][T11122] OCFS2: File system is now read-only.
+[  172.699610][T11122] (syz.0.35,11122,1):ocfs2_search_chain:1817 ERROR: status = -30
+[  172.700888][T11122] (syz.0.35,11122,1):ocfs2_search_chain:1940 ERROR: status = -30
+[  172.702325][T11122] (syz.0.35,11122,1):ocfs2_claim_suballoc_bits:2010 ERROR: status = -30
+[  172.703886][T11122] (syz.0.35,11122,1):ocfs2_claim_suballoc_bits:2063 ERROR: status = -30
+[  172.705561][T11122] (syz.0.35,11122,1):ocfs2_claim_new_inode:2298 ERROR: status = -30
+[  172.714377][T11122] (syz.0.35,11122,1):ocfs2_claim_new_inode:2313 ERROR: status = -30
+[  172.715613][T11122] (syz.0.35,11122,1):ocfs2_mknod_locked:638 ERROR: status = -30
+[  172.718345][T11122] (syz.0.35,11122,1):ocfs2_mknod:385 ERROR: status = -30
+[  172.719601][T11122] (syz.0.35,11122,1):ocfs2_mknod:502 ERROR: status = -30
+[  172.720735][T11122] (syz.0.35,11122,1):ocfs2_create:675 ERROR: status = -30
+[  172.733653][T10523] ocfs2: Unmounting device (7,0) on (node local)
+[  173.071553][T11136] loop0: detected capacity change from 0 to 32768
+[  173.088552][T11136] ocfs2: Mounting device (7,0) on (node local, slot 0) with ordered data mode.
+[  173.098076][T11136] OCFS2: ERROR (device loop0): ocfs2_validate_gd_self: Group descriptor #0 has bad signature 
+[  173.099928][T11136] On-disk corruption discovered. Please run fsck.ocfs2 once the filesystem is unmounted.
+[  173.101400][T11136] OCFS2: File system is now read-only.
+[  173.102268][T11136] (syz.0.36,11136,0):ocfs2_search_chain:1817 ERROR: status = -30
+[  173.103462][T11136] (syz.0.36,11136,0):ocfs2_search_chain:1940 ERROR: status = -30
+[  173.104673][T11136] (syz.0.36,11136,0):ocfs2_claim_suballoc_bits:2010 ERROR: status = -30
+[  173.105935][T11136] (syz.0.36,11136,0):ocfs2_claim_suballoc_bits:2063 ERROR: status = -30
+[  173.107581][T11136] (syz.0.36,11136,0):ocfs2_claim_new_inode:2298 ERROR: status = -30
+[  173.108832][T11136] (syz.0.36,11136,0):ocfs2_claim_new_inode:2313 ERROR: status = -30
+[  173.112798][T11136] (syz.0.36,11136,0):ocfs2_mknod_locked:638 ERROR: status = -30
+[  173.114433][T11136] (syz.0.36,11136,0):ocfs2_mknod:385 ERROR: status = -30
+[  173.115910][T11136] (syz.0.36,11136,0):ocfs2_mknod:502 ERROR: status = -30
+[  173.118650][T11136] (syz.0.36,11136,0):ocfs2_create:675 ERROR: status = -30
+[  173.140742][T10523] ocfs2: Unmounting device (7,0) on (node local)
+[  173.504046][T11144] loop0: detected capacity change from 0 to 32768
+[  173.550364][T11144] ocfs2: Mounting device (7,0) on (node local, slot 0) with ordered data mode.
+[  173.565270][T11144] OCFS2: ERROR (device loop0): ocfs2_validate_gd_self: Group descriptor #0 has bad signature 
+[  173.568648][T11144] On-disk corruption discovered. Please run fsck.ocfs2 once the filesystem is unmounted.
+[  173.570837][T11144] OCFS2: File system is now read-only.
+[  173.572109][T11144] (syz.0.37,11144,0):ocfs2_search_chain:1817 ERROR: status = -30
+[  173.573773][T11144] (syz.0.37,11144,0):ocfs2_search_chain:1940 ERROR: status = -30
+[  173.575417][T11144] (syz.0.37,11144,0):ocfs2_claim_suballoc_bits:2010 ERROR: status = -30
+[  173.578652][T11144] (syz.0.37,11144,0):ocfs2_claim_suballoc_bits:2063 ERROR: status = -30
+[  173.580542][T11144] (syz.0.37,11144,0):ocfs2_claim_new_inode:2298 ERROR: status = -30
+[  173.582385][T11144] (syz.0.37,11144,0):ocfs2_claim_new_inode:2313 ERROR: status = -30
+[  173.584929][T11144] (syz.0.37,11144,0):ocfs2_mknod_locked:638 ERROR: status = -30
+[  173.587293][T11144] (syz.0.37,11144,0):ocfs2_mknod:385 ERROR: status = -30
+[  173.589073][T11144] (syz.0.37,11144,0):ocfs2_mknod:502 ERROR: status = -30
+[  173.590879][T11144] (syz.0.37,11144,0):ocfs2_create:675 ERROR: status = -30
+[  173.620695][T10523] ocfs2: Unmounting device (7,0) on (node local)
+[  174.152990][T11157] loop0: detected capacity change from 0 to 32768
+[  174.195441][T11157] ocfs2: Mounting device (7,0) on (node local, slot 0) with ordered data mode.
+[  174.213456][T11157] ==================================================================
+[  174.214806][T11157] BUG: KASAN: use-after-free in ocfs2_claim_suballoc_bits+0x1f26/0x2010
+[  174.216193][T11157] Read of size 4 at addr ffff8880611c0000 by task syz.0.38/11157
+[  174.217475][T11157] 
+[  174.217897][T11157] CPU: 1 UID: 0 PID: 11157 Comm: syz.0.38 Not tainted 6.16.0-rc4 #1 PREEMPT(full) 
+[  174.217927][T11157] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.16.2-debian-1.16.2-1 04/01/2014
+[  174.217954][T11157] Call Trace:
+[  174.217964][T11157]  <TASK>
+[  174.217974][T11157]  dump_stack_lvl+0x116/0x1b0
+[  174.218026][T11157]  print_report+0xcd/0x640
+[  174.218051][T11157]  ? __phys_addr+0xee/0x170
+[  174.218090][T11157]  ? ocfs2_claim_suballoc_bits+0x1f26/0x2010
+[  174.218121][T11157]  kasan_report+0x96/0xd0
+[  174.218144][T11157]  ? ocfs2_claim_suballoc_bits+0x1f26/0x2010
+[  174.218178][T11157]  ocfs2_claim_suballoc_bits+0x1f26/0x2010
+[  174.218237][T11157]  ? __pfx_ocfs2_claim_suballoc_bits+0x10/0x10
+[  174.218269][T11157]  ? __lock_acquire+0xb6b/0x1f10
+[  174.218305][T11157]  ? add_transaction_credits+0x105/0xe00
+[  174.218350][T11157]  ocfs2_claim_new_inode+0x2ef/0x8d0
+[  174.218384][T11157]  ? __pfx_ocfs2_claim_new_inode+0x10/0x10
+[  174.218414][T11157]  ? start_this_handle+0x69f/0x1270
+[  174.218451][T11157]  ? write_comp_data+0x29/0x80
+[  174.218477][T11157]  ? __sanitizer_cov_trace_pc+0x20/0x50
+[  174.218504][T11157]  ? __sanitizer_cov_trace_pc+0x20/0x50
+[  174.218533][T11157]  ocfs2_mknod_locked.isra.25+0xfc/0x270
+[  174.218566][T11157]  ? __pfx_ocfs2_mknod_locked.isra.25+0x10/0x10
+[  174.218595][T11157]  ? __set_current_blocked+0xcf/0x110
+[  174.218632][T11157]  ? write_comp_data+0x29/0x80
+[  174.218656][T11157]  ? __sanitizer_cov_trace_pc+0x20/0x50
+[  174.218682][T11157]  ? dquot_alloc_inode+0x43b/0x840
+[  174.218710][T11157]  ? __pfx_sigprocmask+0x10/0x10
+[  174.218745][T11157]  ? write_comp_data+0x29/0x80
+[  174.218769][T11157]  ? __pfx_dquot_alloc_inode+0x10/0x10
+[  174.218797][T11157]  ? write_comp_data+0x29/0x80
+[  174.218821][T11157]  ? __sanitizer_cov_trace_pc+0x20/0x50
+[  174.218847][T11157]  ? ocfs2_block_signals+0x88/0xc0
+[  174.218872][T11157]  ? __pfx_ocfs2_block_signals+0x10/0x10
+[  174.218899][T11157]  ocfs2_mknod+0x1761/0x2550
+[  174.218931][T11157]  ? __pfx_ocfs2_mknod+0x10/0x10
+[  174.218956][T11157]  ? __pfx_ocfs2_read_inode_block_full+0x10/0x10
+[  174.218990][T11157]  ? write_comp_data+0x29/0x80
+[  174.219015][T11157]  ? __brelse+0x8c/0xb0
+[  174.219038][T11157]  ? __sanitizer_cov_trace_pc+0x20/0x50
+[  174.219063][T11157]  ? ocfs2_find_entry+0x696/0xe30
+[  174.219105][T11157]  ? look_up_lock_class.isra.37+0x5a/0x150
+[  174.219144][T11157]  ? register_lock_class+0x45/0x4c0
+[  174.219183][T11157]  ? __lock_acquire+0xb6b/0x1f10
+[  174.219215][T11157]  ? check_kcov_mode+0x50/0x50
+[  174.219246][T11157]  ? ocfs2_inode_unlock+0xbb/0x180
+[  174.219285][T11157]  ? __sanitizer_cov_trace_pc+0x20/0x50
+[  174.219313][T11157]  ocfs2_create+0x104/0x480
+[  174.219340][T11157]  ? free_percpu+0x1229/0x13c0
+[  174.219367][T11157]  ? __pfx_ocfs2_create+0x10/0x10
+[  174.219394][T11157]  ? security_inode_permission+0xbf/0x260
+[  174.219430][T11157]  ? __sanitizer_cov_trace_pc+0x20/0x50
+[  174.219455][T11157]  ? write_comp_data+0x29/0x80
+[  174.219479][T11157]  ? __sanitizer_cov_trace_pc+0x20/0x50
+[  174.219505][T11157]  ? __pfx_ocfs2_create+0x10/0x10
+[  174.219532][T11157]  lookup_open+0x11ed/0x1630
+[  174.219572][T11157]  ? __pfx_lookup_open+0x10/0x10
+[  174.219615][T11157]  ? __sanitizer_cov_trace_pc+0x20/0x50
+[  174.219643][T11157]  path_openat+0x101b/0x2920
+[  174.219672][T11157]  ? __pfx_path_openat+0x10/0x10
+[  174.219696][T11157]  ? __lock_acquire+0xb6b/0x1f10
+[  174.219730][T11157]  do_filp_open+0x1fe/0x2f0
+[  174.219754][T11157]  ? __pfx_do_filp_open+0x10/0x10
+[  174.219784][T11157]  ? do_raw_spin_unlock+0x175/0x260
+[  174.219822][T11157]  ? _raw_spin_unlock+0x28/0x50
+[  174.219860][T11157]  do_sys_openat2+0x5b2/0x6c0
+[  174.219886][T11157]  ? __pfx_do_sys_openat2+0x10/0x10
+[  174.219911][T11157]  ? __sanitizer_cov_trace_pc+0x20/0x50
+[  174.219939][T11157]  do_sys_open+0xcd/0x140
+[  174.219970][T11157]  ? __pfx_do_sys_open+0x10/0x10
+[  174.220002][T11157]  ? do_user_addr_fault+0x4e1/0x18c0
+[  174.220033][T11157]  __x64_sys_openat+0x9d/0x110
+[  174.220064][T11157]  ? lockdep_hardirqs_on+0x8c/0x120
+[  174.220099][T11157]  do_syscall_64+0xcf/0x490
+[  174.220138][T11157]  entry_SYSCALL_64_after_hwframe+0x77/0x7f
+[  174.220164][T11157] RIP: 0033:0x7f8a42f8eb29
+[  174.220194][T11157] Code: ff ff c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 40 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 a8 ff ff ff f7 d8 64 89 01 48
+[  174.220217][T11157] RSP: 002b:00007ffd675f9a68 EFLAGS: 00000246 ORIG_RAX: 0000000000000101
+[  174.220240][T11157] RAX: ffffffffffffffda RBX: 00007f8a431b5fa0 RCX: 00007f8a42f8eb29
+[  174.220257][T11157] RDX: 0000000000000042 RSI: 0000200000000040 RDI: ffffffffffffff9c
+[  174.220272][T11157] RBP: 00007f8a43011b39 R08: 0000000000000000 R09: 0000000000000000
+[  174.220287][T11157] R10: 00000000000001ff R11: 0000000000000246 R12: 0000000000000000
+[  174.220301][T11157] R13: 00007f8a431b5fa0 R14: 00007f8a431b5fa0 R15: 0000000000000004
+[  174.220325][T11157]  </TASK>
+[  174.220333][T11157] 
+[  174.292950][T11157] The buggy address belongs to the physical page:
+[  174.293953][T11157] page: refcount:0 mapcount:0 mapping:0000000000000000 index:0x6d7 pfn:0x611c0
+[  174.295377][T11157] flags: 0x4fff00000000000(node=1|zone=1|lastcpupid=0x7ff)
+[  174.296530][T11157] page_type: f0(buddy)
+[  174.297227][T11157] raw: 04fff00000000000 ffffea00016b5008 ffffea00018db008 0000000000000000
+[  174.298636][T11157] raw: 00000000000006d7 0000000000000006 00000000f0000000 0000000000000000
+[  174.300060][T11157] page dumped because: kasan: bad access detected
+[  174.301149][T11157] page_owner tracks the page as freed
+[  174.301987][T11157] page last allocated via order 0, migratetype Movable, gfp_mask 0x140cca(GFP_HIGHUSER_MOVABLE|__GFP_COMP), pid 11106, tgid 11106 (syz.0.33), ts 171543094022, free_ts 171781668007
+[  174.304654][T11157]  post_alloc_hook+0x146/0x160
+[  174.305419][T11157]  prep_new_page+0x16/0x70
+[  174.306161][T11157]  get_page_from_freelist+0xfa6/0x2550
+[  174.307106][T11157]  __alloc_frozen_pages_noprof+0x227/0x520
+[  174.308029][T11157]  alloc_pages_mpol+0x218/0x560
+[  174.308813][T11157]  folio_alloc_mpol_noprof+0x36/0x2e0
+[  174.309658][T11157]  shmem_alloc_folio+0x131/0x150
+[  174.310534][T11157]  shmem_alloc_and_add_folio+0x3a3/0xba0
+[  174.311483][T11157]  shmem_get_folio_gfp+0x479/0x1530
+[  174.312339][T11157]  shmem_write_begin+0x161/0x320
+[  174.313116][T11157]  generic_perform_write+0x37d/0x890
+[  174.314270][T11157]  shmem_file_write_iter+0x10e/0x140
+[  174.315698][T11157]  vfs_write+0xb92/0x10e0
+[  174.316807][T11157]  ksys_write+0x121/0x240
+[  174.317909][T11157]  do_syscall_64+0xcf/0x490
+[  174.319370][T11157]  entry_SYSCALL_64_after_hwframe+0x77/0x7f
+[  174.320739][T11157] page last free pid 10523 tgid 10523 stack trace:
+[  174.322335][T11157]  free_unref_folios+0x965/0x1300
+[  174.323656][T11157]  folios_put_refs+0x479/0x6e0
+[  174.325010][T11157]  shmem_undo_range+0x568/0x1130
+[  174.326284][T11157]  shmem_truncate_range+0x2f/0xd0
+[  174.327448][T11157]  shmem_evict_inode+0x31a/0xa20
+[  174.328884][T11157]  evict+0x3dd/0x870
+[  174.329902][T11157]  iput+0x517/0x830
+[  174.330860][T11157]  dentry_unlink_inode+0x2d1/0x4c0
+[  174.332121][T11157]  __dentry_kill+0x188/0x610
+[  174.333251][T11157]  dput.part.35+0x49f/0x990
+[  174.334570][T11157]  dput+0x1f/0x30
+[  174.335490][T11157]  __fput+0x51e/0xb60
+[  174.336157][T11157]  task_work_run+0x172/0x280
+[  174.336978][T11157]  exit_to_user_mode_loop+0xfd/0x120
+[  174.338118][T11157]  do_syscall_64+0x41b/0x490
+[  174.339321][T11157]  entry_SYSCALL_64_after_hwframe+0x77/0x7f
+[  174.340966][T11157] 
+[  174.341557][T11157] Memory state around the buggy address:
+[  174.342783][T11157]  ffff8880611bff00: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+[  174.344552][T11157]  ffff8880611bff80: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+[  174.346406][T11157] >ffff8880611c0000: ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+[  174.348453][T11157]                    ^
+[  174.349469][T11157]  ffff8880611c0080: ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+[  174.351697][T11157]  ffff8880611c0100: ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+[  174.353263][T11157] ==================================================================
+[  174.375772][T11157] Kernel panic - not syncing: KASAN: panic_on_warn set ...
+[  174.378062][T11157] CPU: 1 UID: 0 PID: 11157 Comm: syz.0.38 Not tainted 6.16.0-rc4 #1 PREEMPT(full) 
+[  174.380315][T11157] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.16.2-debian-1.16.2-1 04/01/2014
+[  174.382679][T11157] Call Trace:
+[  174.383497][T11157]  <TASK>
+[  174.384238][T11157]  dump_stack_lvl+0x3d/0x1b0
+[  174.385353][T11157]  panic+0x6ef/0x7a0
+[  174.386337][T11157]  ? __pfx_panic+0x10/0x10
+[  174.387404][T11157]  ? lockdep_hardirqs_on+0x8c/0x120
+[  174.388648][T11157]  ? preempt_schedule_thunk+0x16/0x30
+[  174.389888][T11157]  ? preempt_schedule_common+0x23/0xb0
+[  174.391173][T11157]  ? check_panic_on_warn+0x1f/0xb0
+[  174.392346][T11157]  ? ocfs2_claim_suballoc_bits+0x1f26/0x2010
+[  174.393760][T11157]  check_panic_on_warn+0xab/0xb0
+[  174.395010][T11157]  end_report+0x11f/0x180
+[  174.396043][T11157]  kasan_report+0xa4/0xd0
+[  174.397077][T11157]  ? ocfs2_claim_suballoc_bits+0x1f26/0x2010
+[  174.398580][T11157]  ocfs2_claim_suballoc_bits+0x1f26/0x2010
+[  174.399976][T11157]  ? __pfx_ocfs2_claim_suballoc_bits+0x10/0x10
+[  174.401430][T11157]  ? __lock_acquire+0xb6b/0x1f10
+[  174.402644][T11157]  ? add_transaction_credits+0x105/0xe00
+[  174.403991][T11157]  ocfs2_claim_new_inode+0x2ef/0x8d0
+[  174.405238][T11157]  ? __pfx_ocfs2_claim_new_inode+0x10/0x10
+[  174.406700][T11157]  ? start_this_handle+0x69f/0x1270
+[  174.407972][T11157]  ? write_comp_data+0x29/0x80
+[  174.409118][T11157]  ? __sanitizer_cov_trace_pc+0x20/0x50
+[  174.410477][T11157]  ? __sanitizer_cov_trace_pc+0x20/0x50
+[  174.411816][T11157]  ocfs2_mknod_locked.isra.25+0xfc/0x270
+[  174.413183][T11157]  ? __pfx_ocfs2_mknod_locked.isra.25+0x10/0x10
+[  174.414681][T11157]  ? __set_current_blocked+0xcf/0x110
+[  174.415971][T11157]  ? write_comp_data+0x29/0x80
+[  174.417093][T11157]  ? __sanitizer_cov_trace_pc+0x20/0x50
+[  174.418375][T11157]  ? dquot_alloc_inode+0x43b/0x840
+[  174.419541][T11157]  ? __pfx_sigprocmask+0x10/0x10
+[  174.420720][T11157]  ? write_comp_data+0x29/0x80
+[  174.421867][T11157]  ? __pfx_dquot_alloc_inode+0x10/0x10
+[  174.423212][T11157]  ? write_comp_data+0x29/0x80
+[  174.424365][T11157]  ? __sanitizer_cov_trace_pc+0x20/0x50
+[  174.425688][T11157]  ? ocfs2_block_signals+0x88/0xc0
+[  174.426955][T11157]  ? __pfx_ocfs2_block_signals+0x10/0x10
+[  174.428286][T11157]  ocfs2_mknod+0x1761/0x2550
+[  174.429373][T11157]  ? __pfx_ocfs2_mknod+0x10/0x10
+[  174.430528][T11157]  ? __pfx_ocfs2_read_inode_block_full+0x10/0x10
+[  174.431989][T11157]  ? write_comp_data+0x29/0x80
+[  174.433085][T11157]  ? __brelse+0x8c/0xb0
+[  174.434087][T11157]  ? __sanitizer_cov_trace_pc+0x20/0x50
+[  174.435428][T11157]  ? ocfs2_find_entry+0x696/0xe30
+[  174.436672][T11157]  ? look_up_lock_class.isra.37+0x5a/0x150
+[  174.438007][T11157]  ? register_lock_class+0x45/0x4c0
+[  174.439266][T11157]  ? __lock_acquire+0xb6b/0x1f10
+[  174.440413][T11157]  ? check_kcov_mode+0x50/0x50
+[  174.441535][T11157]  ? ocfs2_inode_unlock+0xbb/0x180
+[  174.442735][T11157]  ? __sanitizer_cov_trace_pc+0x20/0x50
+[  174.444040][T11157]  ocfs2_create+0x104/0x480
+[  174.445137][T11157]  ? free_percpu+0x1229/0x13c0
+[  174.446305][T11157]  ? __pfx_ocfs2_create+0x10/0x10
+[  174.447475][T11157]  ? security_inode_permission+0xbf/0x260
+[  174.448784][T11157]  ? __sanitizer_cov_trace_pc+0x20/0x50
+[  174.450006][T11157]  ? write_comp_data+0x29/0x80
+[  174.451144][T11157]  ? __sanitizer_cov_trace_pc+0x20/0x50
+[  174.452478][T11157]  ? __pfx_ocfs2_create+0x10/0x10
+[  174.453691][T11157]  lookup_open+0x11ed/0x1630
+[  174.454879][T11157]  ? __pfx_lookup_open+0x10/0x10
+[  174.456089][T11157]  ? __sanitizer_cov_trace_pc+0x20/0x50
+[  174.457373][T11157]  path_openat+0x101b/0x2920
+[  174.458494][T11157]  ? __pfx_path_openat+0x10/0x10
+[  174.459395][T11157]  ? __lock_acquire+0xb6b/0x1f10
+[  174.460210][T11157]  do_filp_open+0x1fe/0x2f0
+[  174.461046][T11157]  ? __pfx_do_filp_open+0x10/0x10
+[  174.462249][T11157]  ? do_raw_spin_unlock+0x175/0x260
+[  174.463529][T11157]  ? _raw_spin_unlock+0x28/0x50
+[  174.464745][T11157]  do_sys_openat2+0x5b2/0x6c0
+[  174.465814][T11157]  ? __pfx_do_sys_openat2+0x10/0x10
+[  174.466998][T11157]  ? __sanitizer_cov_trace_pc+0x20/0x50
+[  174.468234][T11157]  do_sys_open+0xcd/0x140
+[  174.469228][T11157]  ? __pfx_do_sys_open+0x10/0x10
+[  174.470514][T11157]  ? do_user_addr_fault+0x4e1/0x18c0
+[  174.471431][T11157]  __x64_sys_openat+0x9d/0x110
+[  174.472204][T11157]  ? lockdep_hardirqs_on+0x8c/0x120
+[  174.473042][T11157]  do_syscall_64+0xcf/0x490
+[  174.474081][T11157]  entry_SYSCALL_64_after_hwframe+0x77/0x7f
+[  174.475043][T11157] RIP: 0033:0x7f8a42f8eb29
+[  174.475753][T11157] Code: ff ff c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 40 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 a8 ff ff ff f7 d8 64 89 01 48
+[  174.478707][T11157] RSP: 002b:00007ffd675f9a68 EFLAGS: 00000246 ORIG_RAX: 0000000000000101
+[  174.479996][T11157] RAX: ffffffffffffffda RBX: 00007f8a431b5fa0 RCX: 00007f8a42f8eb29
+[  174.481205][T11157] RDX: 0000000000000042 RSI: 0000200000000040 RDI: ffffffffffffff9c
+[  174.482469][T11157] RBP: 00007f8a43011b39 R08: 0000000000000000 R09: 0000000000000000
+[  174.483847][T11157] R10: 00000000000001ff R11: 0000000000000246 R12: 0000000000000000
+[  174.485692][T11157] R13: 00007f8a431b5fa0 R14: 00007f8a431b5fa0 R15: 0000000000000004
+[  174.487622][T11157]  </TASK>
+[  174.488899][T11157] Kernel Offset: disabled
+[  174.489942][T11157] Rebooting in 86400 seconds..
+
+VM DIAGNOSIS:
+01:49:56  Registers:
+info registers vcpu 0
+
+CPU#0
+RAX=00000000000a3f31 RBX=0000000000000000 RCX=ffffffff8b796c1b RDX=0000000000000000
+RSI=0000000000000001 RDI=0000000000000000 RBP=dffffc0000000000 RSP=ffffffff8e007e00
+R8 =0000000000000001 R9 =ffffed10056c6646 R10=ffffed10056c6645 R11=ffff88802b63322b
+R12=0000000000000000 R13=ffffffff90844650 R14=ffffffff90844650 R15=0000000000000000
+RIP=ffffffff8b7953ce RFL=00000282 [--S----] CPL=0 II=0 A20=1 SMM=0 HLT=1
+ES =0000 0000000000000000 ffffffff 00c00000
+CS =0010 0000000000000000 ffffffff 00a09b00 DPL=0 CS64 [-RA]
+SS =0018 0000000000000000 ffffffff 00c09300 DPL=0 DS   [-WA]
+DS =0000 0000000000000000 ffffffff 00c00000
+FS =0000 0000000000000000 ffffffff 00c00000
+GS =0000 ffff888097af9000 ffffffff 00c00000
+LDT=0000 0000000000000000 ffffffff 00c00000
+TR =0040 fffffe0000003000 00004087 00008b00 DPL=0 TSS64-busy
+GDT=     fffffe0000001000 0000007f
+IDT=     fffffe0000000000 00000fff
+CR0=80050033 CR2=00007f8a42f73320 CR3=0000000025f18000 CR4=00002ef0
+DR0=0000000000000000 DR1=0000000000000000 DR2=0000000000000000 DR3=0000000000000000 
+DR6=00000000ffff0ff0 DR7=0000000000000400
+EFER=0000000000000d01
+FCW=037f FSW=0000 [ST=0] FTW=00 MXCSR=00001f80
+FPR0=0000000000000000 0000 FPR1=0000000000000000 0000
+FPR2=0000000000000000 0000 FPR3=0000000000000000 0000
+FPR4=0000000000000000 0000 FPR5=0000000000000000 0000
+FPR6=0000000000000000 0000 FPR7=0000000000000000 0000
+XMM00=0000000000000000 0000000000000000 XMM01=2525252525252525 2525252525252525
+XMM02=ffffff0f0e0d0c0b 0a09080706050403 XMM03=0000000000000000 0000000000000000
+XMM04=0000000000000000 00000000000000ff XMM05=0000000000000000 0000000000000000
+XMM06=ffffffffffffff00 ff000000000000ff XMM07=0000000000000000 0000000000000000
+XMM08=000056386cb321f0 000056386cb321d0 XMM09=6464646464646455 6464325c08da0934
+XMM10=646464646464202d 31313b2c302a3d37 XMM11=0000000000000000 0000000000000000
+XMM12=0000000000000000 0000000000000000 XMM13=0000000000000000 0000000000000000
+XMM14=0000000000000000 0000000000000000 XMM15=0000000000000000 0000000000000000
+info registers vcpu 1
+
+CPU#1
+RAX=0000000000000020 RBX=0000000000000000 RCX=0000000000000000 RDX=00000000000003f8
+RSI=ffff888045deb980 RDI=ffffffff9aed2a00 RBP=ffffffff9aed29c0 RSP=ffffc900076fea00
+R8 =ffffed1004106047 R9 =ffffed1004106047 R10=ffffed1004106046 R11=ffff888020830237
+R12=0000000000000000 R13=0000000000000020 R14=0000000000000020 R15=0000000000000000
+RIP=ffffffff855c901f RFL=00000002 [-------] CPL=0 II=0 A20=1 SMM=0 HLT=0
+ES =0000 0000000000000000 ffffffff 00c00000
+CS =0010 0000000000000000 ffffffff 00a09b00 DPL=0 CS64 [-RA]
+SS =0018 0000000000000000 ffffffff 00c09300 DPL=0 DS   [-WA]
+DS =0000 0000000000000000 ffffffff 00c00000
+FS =0000 000055557f293500 ffffffff 00c00000
+GS =0000 ffff8880eb2f9000 ffffffff 00c00000
+LDT=0000 0000000000000000 00000000 00000000
+TR =0040 fffffe000004a000 00004087 00008b00 DPL=0 TSS64-busy
+GDT=     fffffe0000048000 0000007f
+IDT=     fffffe0000000000 00000fff
+CR0=80050033 CR2=0000001b2d65ffff CR3=0000000025aa0000 CR4=00002ef0
+DR0=0000000000000000 DR1=0000000000000000 DR2=0000000000000000 DR3=0000000000000000 
+DR6=00000000ffff0ff0 DR7=0000000000000400
+EFER=0000000000000d01
+FCW=037f FSW=0000 [ST=0] FTW=00 MXCSR=00001f80
+FPR0=0000000000000000 0000 FPR1=0000000000000000 0000
+FPR2=0000000000000000 0000 FPR3=0000000000000000 0000
+FPR4=0000000000000000 0000 FPR5=0000000000000000 0000
+FPR6=0000000000000000 0000 FPR7=0000000000000000 0000
+XMM00=0000000000000000 0000000000000000 XMM01=0101010101010101 0101010000000000
+XMM02=6d695f746e756f6d 5f7a797300736678 XMM03=ffffffffffffffff ffffffffffffffff
+XMM04=0000000000000000 0000000000000000 XMM05=0000000000000000 00007ffd675f9110
+XMM06=00007ffd675f9110 00007ffd675f8f90 XMM07=00007ffd675f8fd0 00007ffd675f8fb0
+XMM08=0000000000000000 0000000000000000 XMM09=0000000000000000 00007f8a43012c91
+XMM10=0000000000000000 0000000000000000 XMM11=0000000000000000 0000000000000000
+XMM12=0000000000000000 0000000000000000 XMM13=0000000000000000 0000000000000000
+XMM14=0000000000000000 0000000000000000 XMM15=0000000000000000 0000000000000000

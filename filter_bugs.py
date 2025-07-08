@@ -1,7 +1,7 @@
 import os
 import shutil
 
-filtered_description = ["WARNING", "INFO: ", "possible deadlock"]
+filtered_description = ["WARNING", "INFO: ", "possible deadlock", "unregister_netdevice"]
 
 def remove_warning_subfolders(root_folder):
     for subdir, dirs, files in os.walk(root_folder):
@@ -13,6 +13,12 @@ def remove_warning_subfolders(root_folder):
                     content = f.read()
                 if any(s in content for s in filtered_description):
                     shutil.rmtree(os.path.join(subdir, d))
+            
+            repro_path = os.path.join(subdir, d, "repro.cprog")
+            if not os.path.isfile(repro_path):
+                # If repro.cprog does not exist, remove the subfolder
+                shutil.rmtree(os.path.join(subdir, d))
+
         # Prevent descending into subfolders we might delete
         break
 

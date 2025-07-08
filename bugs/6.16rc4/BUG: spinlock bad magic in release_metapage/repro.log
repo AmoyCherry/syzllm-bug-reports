@@ -1,0 +1,407 @@
+
+Debian GNU/Linux 11 syzkaller ttyS0
+
+Warning: Permanently added '[localhost]:55260' (ED25519) to the list of known hosts.
+2025/07/02 05:17:29 ignoring optional flag "sandboxArg"="0"
+2025/07/02 05:17:32 parsed 1 programs
+syzkaller login: [  182.608750][ T9758] cgroup: Unknown subsys name 'net'
+[  182.756324][ T9758] cgroup: Unknown subsys name 'cpuset'
+[  182.767446][ T9758] cgroup: Unknown subsys name 'rlimit'
+[  185.962977][ T9758] Adding 124996k swap on ./swap-file.  Priority:0 extents:1 across:124996k 
+[  195.149328][T10046] chnl_net:caif_netlink_parms(): no params data found
+[  195.304146][T10046] bridge0: port 1(bridge_slave_0) entered blocking state
+[  195.308075][T10046] bridge0: port 1(bridge_slave_0) entered disabled state
+[  195.309585][T10046] bridge_slave_0: entered allmulticast mode
+[  195.312381][T10046] bridge_slave_0: entered promiscuous mode
+[  195.318542][T10046] bridge0: port 2(bridge_slave_1) entered blocking state
+[  195.319846][T10046] bridge0: port 2(bridge_slave_1) entered disabled state
+[  195.321075][T10046] bridge_slave_1: entered allmulticast mode
+[  195.323727][T10046] bridge_slave_1: entered promiscuous mode
+[  195.388122][T10046] bond0: (slave bond_slave_0): Enslaving as an active interface with an up link
+[  195.393164][T10046] bond0: (slave bond_slave_1): Enslaving as an active interface with an up link
+[  195.448460][T10046] team0: Port device team_slave_0 added
+[  195.452701][T10046] team0: Port device team_slave_1 added
+[  195.510162][T10046] batman_adv: batadv0: Adding interface: batadv_slave_0
+[  195.511427][T10046] batman_adv: batadv0: The MTU of interface batadv_slave_0 is too small (1500) to handle the transport of batman-adv packets. Packets going over this interface will be fragmented on layer2 which could impact the performance. Setting the MTU to 1560 would solve the problem.
+[  195.516348][T10046] batman_adv: batadv0: Not using interface batadv_slave_0 (retrying later): interface not active
+[  195.521114][T10046] batman_adv: batadv0: Adding interface: batadv_slave_1
+[  195.522195][T10046] batman_adv: batadv0: The MTU of interface batadv_slave_1 is too small (1500) to handle the transport of batman-adv packets. Packets going over this interface will be fragmented on layer2 which could impact the performance. Setting the MTU to 1560 would solve the problem.
+[  195.526994][T10046] batman_adv: batadv0: Not using interface batadv_slave_1 (retrying later): interface not active
+[  195.604937][T10046] hsr_slave_0: entered promiscuous mode
+[  195.607242][T10046] hsr_slave_1: entered promiscuous mode
+[  195.849617][T10046] netdevsim netdevsim0 netdevsim0: renamed from eth0
+[  195.859770][T10046] netdevsim netdevsim0 netdevsim1: renamed from eth1
+[  195.866427][T10046] netdevsim netdevsim0 netdevsim2: renamed from eth2
+[  195.872018][T10046] netdevsim netdevsim0 netdevsim3: renamed from eth3
+[  195.937798][T10046] bridge0: port 2(bridge_slave_1) entered blocking state
+[  195.939822][T10046] bridge0: port 2(bridge_slave_1) entered forwarding state
+[  195.950776][T10046] bridge0: port 1(bridge_slave_0) entered blocking state
+[  195.952045][T10046] bridge0: port 1(bridge_slave_0) entered forwarding state
+[  196.024061][T10046] 8021q: adding VLAN 0 to HW filter on device bond0
+[  196.044091][ T1167] bridge0: port 1(bridge_slave_0) entered disabled state
+[  196.048544][ T1167] bridge0: port 2(bridge_slave_1) entered disabled state
+[  196.066692][T10046] 8021q: adding VLAN 0 to HW filter on device team0
+[  196.074231][ T1167] bridge0: port 1(bridge_slave_0) entered blocking state
+[  196.075567][ T1167] bridge0: port 1(bridge_slave_0) entered forwarding state
+[  196.085733][ T1167] bridge0: port 2(bridge_slave_1) entered blocking state
+[  196.087085][ T1167] bridge0: port 2(bridge_slave_1) entered forwarding state
+[  196.338655][T10046] 8021q: adding VLAN 0 to HW filter on device batadv0
+[  196.388480][T10046] veth0_vlan: entered promiscuous mode
+[  196.397639][T10046] veth1_vlan: entered promiscuous mode
+[  196.428560][T10046] veth0_macvtap: entered promiscuous mode
+[  196.434106][T10046] veth1_macvtap: entered promiscuous mode
+[  196.470324][T10046] batman_adv: batadv0: Interface activated: batadv_slave_0
+[  196.492472][T10046] batman_adv: batadv0: Interface activated: batadv_slave_1
+[  196.511502][T10046] netdevsim netdevsim0 netdevsim0: set [1, 0] type 2 family 0 port 6081 - 0
+[  196.515870][T10046] netdevsim netdevsim0 netdevsim1: set [1, 0] type 2 family 0 port 6081 - 0
+[  196.518026][T10046] netdevsim netdevsim0 netdevsim2: set [1, 0] type 2 family 0 port 6081 - 0
+[  196.520213][T10046] netdevsim netdevsim0 netdevsim3: set [1, 0] type 2 family 0 port 6081 - 0
+[  196.698463][   T13] netdevsim netdevsim0 netdevsim3 (unregistering): unset [1, 0] type 2 family 0 port 6081 - 0
+[  196.769755][   T13] netdevsim netdevsim0 netdevsim2 (unregistering): unset [1, 0] type 2 family 0 port 6081 - 0
+[  196.837357][   T13] netdevsim netdevsim0 netdevsim1 (unregistering): unset [1, 0] type 2 family 0 port 6081 - 0
+[  196.915431][   T13] netdevsim netdevsim0 netdevsim0 (unregistering): unset [1, 0] type 2 family 0 port 6081 - 0
+[  196.949424][ T1167] wlan0: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[  196.950836][ T1167] wlan0: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[  197.020943][   T67] wlan1: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[  197.022278][   T67] wlan1: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[  197.336384][ T5164] Bluetooth: hci0: unexpected cc 0x0c03 length: 249 > 1
+[  197.339184][ T5164] Bluetooth: hci0: unexpected cc 0x1003 length: 249 > 9
+[  197.340897][ T5164] Bluetooth: hci0: unexpected cc 0x1001 length: 249 > 9
+[  197.344492][ T5164] Bluetooth: hci0: unexpected cc 0x0c23 length: 249 > 4
+[  197.347075][ T5164] Bluetooth: hci0: unexpected cc 0x0c38 length: 249 > 2
+2025/07/02 05:17:53 executed programs: 0
+[  198.404839][   T55] Bluetooth: hci0: unexpected cc 0x0c03 length: 249 > 1
+[  198.407426][   T55] Bluetooth: hci0: unexpected cc 0x1003 length: 249 > 9
+[  198.409299][   T55] Bluetooth: hci0: unexpected cc 0x1001 length: 249 > 9
+[  198.411800][   T55] Bluetooth: hci0: unexpected cc 0x0c23 length: 249 > 4
+[  198.413764][   T55] Bluetooth: hci0: unexpected cc 0x0c38 length: 249 > 2
+[  198.709814][T10507] chnl_net:caif_netlink_parms(): no params data found
+[  198.834135][T10507] bridge0: port 1(bridge_slave_0) entered blocking state
+[  198.836525][T10507] bridge0: port 1(bridge_slave_0) entered disabled state
+[  198.839636][T10507] bridge_slave_0: entered allmulticast mode
+[  198.842267][T10507] bridge_slave_0: entered promiscuous mode
+[  198.848159][T10507] bridge0: port 2(bridge_slave_1) entered blocking state
+[  198.849579][T10507] bridge0: port 2(bridge_slave_1) entered disabled state
+[  198.850967][T10507] bridge_slave_1: entered allmulticast mode
+[  198.853643][T10507] bridge_slave_1: entered promiscuous mode
+[  198.927687][T10507] bond0: (slave bond_slave_0): Enslaving as an active interface with an up link
+[  198.953027][T10507] bond0: (slave bond_slave_1): Enslaving as an active interface with an up link
+[  199.119191][T10507] team0: Port device team_slave_0 added
+[  199.126916][T10507] team0: Port device team_slave_1 added
+[  199.214834][T10507] batman_adv: batadv0: Adding interface: batadv_slave_0
+[  199.216089][T10507] batman_adv: batadv0: The MTU of interface batadv_slave_0 is too small (1500) to handle the transport of batman-adv packets. Packets going over this interface will be fragmented on layer2 which could impact the performance. Setting the MTU to 1560 would solve the problem.
+[  199.220083][T10507] batman_adv: batadv0: Not using interface batadv_slave_0 (retrying later): interface not active
+[  199.242293][T10507] batman_adv: batadv0: Adding interface: batadv_slave_1
+[  199.243551][T10507] batman_adv: batadv0: The MTU of interface batadv_slave_1 is too small (1500) to handle the transport of batman-adv packets. Packets going over this interface will be fragmented on layer2 which could impact the performance. Setting the MTU to 1560 would solve the problem.
+[  199.248687][T10507] batman_adv: batadv0: Not using interface batadv_slave_1 (retrying later): interface not active
+[  199.365869][   T13] bridge_slave_1: left allmulticast mode
+[  199.368745][   T13] bridge_slave_1: left promiscuous mode
+[  199.370663][   T13] bridge0: port 2(bridge_slave_1) entered disabled state
+[  199.377965][   T13] bridge_slave_0: left allmulticast mode
+[  199.378987][   T13] bridge_slave_0: left promiscuous mode
+[  199.380823][   T13] bridge0: port 1(bridge_slave_0) entered disabled state
+[  199.673159][   T13] bond0 (unregistering): (slave bond_slave_0): Releasing backup interface
+[  199.677905][   T13] bond0 (unregistering): (slave bond_slave_1): Releasing backup interface
+[  199.680957][   T13] bond0 (unregistering): Released all slaves
+[  199.703276][T10507] hsr_slave_0: entered promiscuous mode
+[  199.705476][T10507] hsr_slave_1: entered promiscuous mode
+[  199.707270][T10507] debugfs: Directory 'hsr0' with parent 'hsr' already present!
+[  199.708791][T10507] Cannot create hsr debugfs directory
+[  199.795113][   T13] hsr_slave_0: left promiscuous mode
+[  199.798016][   T13] hsr_slave_1: left promiscuous mode
+[  199.800580][   T13] batman_adv: batadv0: Interface deactivated: batadv_slave_0
+[  199.802302][   T13] batman_adv: batadv0: Removing interface: batadv_slave_0
+[  199.810607][   T13] batman_adv: batadv0: Interface deactivated: batadv_slave_1
+[  199.812561][   T13] batman_adv: batadv0: Removing interface: batadv_slave_1
+[  199.829172][   T13] veth1_macvtap: left promiscuous mode
+[  199.830605][   T13] veth0_macvtap: left promiscuous mode
+[  199.831639][   T13] veth1_vlan: left promiscuous mode
+[  199.832664][   T13] veth0_vlan: left promiscuous mode
+[  200.273865][   T13] team0 (unregistering): Port device team_slave_1 removed
+[  200.302456][   T13] team0 (unregistering): Port device team_slave_0 removed
+[  200.510580][ T5164] Bluetooth: hci0: command tx timeout
+[  202.181921][T10507] netdevsim netdevsim0 netdevsim0: renamed from eth0
+[  202.191231][T10507] netdevsim netdevsim0 netdevsim1: renamed from eth1
+[  202.206978][T10507] netdevsim netdevsim0 netdevsim2: renamed from eth2
+[  202.219620][T10507] netdevsim netdevsim0 netdevsim3: renamed from eth3
+[  202.496366][T10507] 8021q: adding VLAN 0 to HW filter on device bond0
+[  202.539597][T10507] 8021q: adding VLAN 0 to HW filter on device team0
+[  202.559636][   T85] bridge0: port 1(bridge_slave_0) entered blocking state
+[  202.561599][   T85] bridge0: port 1(bridge_slave_0) entered forwarding state
+[  202.584846][ T5164] Bluetooth: hci0: command tx timeout
+[  202.586901][   T85] bridge0: port 2(bridge_slave_1) entered blocking state
+[  202.588640][   T85] bridge0: port 2(bridge_slave_1) entered forwarding state
+[  202.873356][T10507] 8021q: adding VLAN 0 to HW filter on device batadv0
+[  202.931547][T10507] veth0_vlan: entered promiscuous mode
+[  202.940598][T10507] veth1_vlan: entered promiscuous mode
+[  202.998117][T10507] veth0_macvtap: entered promiscuous mode
+[  203.007294][T10507] veth1_macvtap: entered promiscuous mode
+[  203.032807][T10507] batman_adv: batadv0: Interface activated: batadv_slave_0
+[  203.041639][T10507] batman_adv: batadv0: Interface activated: batadv_slave_1
+[  203.049662][T10507] netdevsim netdevsim0 netdevsim0: set [1, 0] type 2 family 0 port 6081 - 0
+[  203.051188][T10507] netdevsim netdevsim0 netdevsim1: set [1, 0] type 2 family 0 port 6081 - 0
+[  203.052587][T10507] netdevsim netdevsim0 netdevsim2: set [1, 0] type 2 family 0 port 6081 - 0
+[  203.054001][T10507] netdevsim netdevsim0 netdevsim3: set [1, 0] type 2 family 0 port 6081 - 0
+[  203.181709][ T3504] wlan0: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[  203.183085][ T3504] wlan0: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[  203.219623][   T29] wlan1: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[  203.220914][   T29] wlan1: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[  203.619912][T10914] loop0: detected capacity change from 0 to 32768
+2025/07/02 05:17:58 executed programs: 3
+[  205.006925][  T118] BUG: spinlock bad magic on CPU#1, jfsCommit/118
+[  205.008508][  T118]  lock: 0xffff88805303dcd8, .magic: ffffffff, .owner: /768, .owner_cpu: 768
+[  205.010581][  T118] CPU: 1 UID: 0 PID: 118 Comm: jfsCommit Not tainted 6.16.0-rc4 #1 PREEMPT(full) 
+[  205.010630][  T118] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.16.2-debian-1.16.2-1 04/01/2014
+[  205.010676][  T118] Call Trace:
+[  205.010691][  T118]  <TASK>
+[  205.010707][  T118]  dump_stack_lvl+0x116/0x1b0
+[  205.010822][  T118]  do_raw_spin_lock+0x22e/0x2d0
+[  205.010890][  T118]  ? __pfx_do_raw_spin_lock+0x10/0x10
+[  205.010959][  T118]  ? _raw_spin_lock_irqsave+0x4f/0x60
+[  205.011019][  T118]  _raw_spin_lock_irqsave+0x3f/0x60
+[  205.011075][  T118]  ? __wake_up_common_lock+0x1d/0x60
+[  205.011135][  T118]  __wake_up_common_lock+0x1d/0x60
+[  205.011195][  T118]  release_metapage+0x10f/0x870
+[  205.011276][  T118]  xtTruncate+0x1ec0/0x2850
+[  205.011348][  T118]  ? __pfx_xtTruncate+0x10/0x10
+[  205.011412][  T118]  ? __sanitizer_cov_trace_pc+0x20/0x50
+[  205.011457][  T118]  ? write_comp_data+0x29/0x80
+[  205.011502][  T118]  ? folio_mark_accessed+0x158/0xca0
+[  205.011557][  T118]  ? __pfx_folio_mark_accessed+0x10/0x10
+[  205.011611][  T118]  ? write_comp_data+0x29/0x80
+[  205.011654][  T118]  ? __sanitizer_cov_trace_pc+0x20/0x50
+[  205.011700][  T118]  ? __dquot_initialize+0x502/0xe40
+[  205.011751][  T118]  ? __lock_acquire+0xb6b/0x1f10
+[  205.011810][  T118]  ? write_comp_data+0x29/0x80
+[  205.011858][  T118]  jfs_free_zero_link+0x349/0x4a0
+[  205.011915][  T118]  ? __pfx_jfs_free_zero_link+0x10/0x10
+[  205.011977][  T118]  ? evict+0x3a4/0x870
+[  205.012030][  T118]  jfs_evict_inode+0x428/0x4c0
+[  205.012083][  T118]  ? __pfx_jfs_evict_inode+0x10/0x10
+[  205.012135][  T118]  evict+0x3dd/0x870
+[  205.012186][  T118]  ? __pfx_evict+0x10/0x10
+[  205.012235][  T118]  ? find_held_lock+0x2d/0xa0
+[  205.012278][  T118]  ? iput+0x50f/0x830
+[  205.012333][  T118]  iput+0x517/0x830
+[  205.012384][  T118]  txUpdateMap+0x979/0xb60
+[  205.012429][  T118]  ? __pfx_txUpdateMap+0x10/0x10
+[  205.012495][  T118]  ? _raw_spin_unlock_irqrestore+0x58/0x70
+[  205.012560][  T118]  jfs_lazycommit+0x499/0xbb0
+[  205.012603][  T118]  ? __pfx_jfs_lazycommit+0x10/0x10
+[  205.012640][  T118]  ? _raw_spin_unlock_irqrestore+0x58/0x70
+[  205.012699][  T118]  ? __pfx_default_wake_function+0x10/0x10
+[  205.012769][  T118]  ? __sanitizer_cov_trace_pc+0x20/0x50
+[  205.012813][  T118]  ? __kthread_parkme+0x187/0x240
+[  205.012857][  T118]  ? __kthread_parkme+0x19f/0x240
+[  205.012901][  T118]  ? __pfx_jfs_lazycommit+0x10/0x10
+[  205.012940][  T118]  kthread+0x439/0x890
+[  205.012993][  T118]  ? __pfx_kthread+0x10/0x10
+[  205.013047][  T118]  ? _raw_spin_unlock_irq+0x23/0x50
+[  205.013103][  T118]  ? __pfx_kthread+0x10/0x10
+[  205.013157][  T118]  ret_from_fork+0x52a/0x700
+[  205.013196][  T118]  ? __pfx_kthread+0x10/0x10
+[  205.013245][  T118]  ? __pfx_kthread+0x10/0x10
+[  205.013297][  T118]  ret_from_fork_asm+0x1a/0x30
+[  205.013350][  T118]  </TASK>
+[  205.013378][  T118] ------------[ cut here ]------------
+[  205.087019][  T118] UBSAN: array-index-out-of-bounds in kernel/locking/qspinlock.h:68:9
+[  205.089597][  T118] index 8946 is out of range for type 'long unsigned int [8]'
+[  205.091363][  T118] CPU: 1 UID: 0 PID: 118 Comm: jfsCommit Not tainted 6.16.0-rc4 #1 PREEMPT(full) 
+[  205.091392][  T118] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.16.2-debian-1.16.2-1 04/01/2014
+[  205.091408][  T118] Call Trace:
+[  205.091422][  T118]  <TASK>
+[  205.091435][  T118]  dump_stack_lvl+0x116/0x1b0
+[  205.091480][  T118]  ubsan_epilogue+0xa/0x40
+[  205.091519][  T118]  __ubsan_handle_out_of_bounds+0xa1/0xc0
+[  205.091562][  T118]  __pv_queued_spin_lock_slowpath+0xef3/0xf70
+[  205.091605][  T118]  ? __pfx___pv_queued_spin_lock_slowpath+0x10/0x10
+[  205.091648][  T118]  ? write_comp_data+0x29/0x80
+[  205.091674][  T118]  ? write_comp_data+0x29/0x80
+[  205.091700][  T118]  do_raw_spin_lock+0x20c/0x2d0
+[  205.091739][  T118]  ? __pfx_do_raw_spin_lock+0x10/0x10
+[  205.091778][  T118]  ? _raw_spin_lock_irqsave+0x4f/0x60
+[  205.091812][  T118]  _raw_spin_lock_irqsave+0x3f/0x60
+[  205.091843][  T118]  ? __wake_up_common_lock+0x1d/0x60
+[  205.091878][  T118]  __wake_up_common_lock+0x1d/0x60
+[  205.091912][  T118]  release_metapage+0x10f/0x870
+[  205.091948][  T118]  xtTruncate+0x1ec0/0x2850
+[  205.091992][  T118]  ? __pfx_xtTruncate+0x10/0x10
+[  205.092026][  T118]  ? __sanitizer_cov_trace_pc+0x20/0x50
+[  205.092051][  T118]  ? write_comp_data+0x29/0x80
+[  205.092076][  T118]  ? folio_mark_accessed+0x158/0xca0
+[  205.092108][  T118]  ? __pfx_folio_mark_accessed+0x10/0x10
+[  205.092138][  T118]  ? write_comp_data+0x29/0x80
+[  205.092162][  T118]  ? __sanitizer_cov_trace_pc+0x20/0x50
+[  205.092187][  T118]  ? __dquot_initialize+0x502/0xe40
+[  205.092217][  T118]  ? __lock_acquire+0xb6b/0x1f10
+[  205.092250][  T118]  ? write_comp_data+0x29/0x80
+[  205.092277][  T118]  jfs_free_zero_link+0x349/0x4a0
+[  205.092309][  T118]  ? __pfx_jfs_free_zero_link+0x10/0x10
+[  205.092344][  T118]  ? evict+0x3a4/0x870
+[  205.092374][  T118]  jfs_evict_inode+0x428/0x4c0
+[  205.092403][  T118]  ? __pfx_jfs_evict_inode+0x10/0x10
+[  205.092432][  T118]  evict+0x3dd/0x870
+[  205.092461][  T118]  ? __pfx_evict+0x10/0x10
+[  205.092489][  T118]  ? find_held_lock+0x2d/0xa0
+[  205.092512][  T118]  ? iput+0x50f/0x830
+[  205.092542][  T118]  iput+0x517/0x830
+[  205.092572][  T118]  txUpdateMap+0x979/0xb60
+[  205.092596][  T118]  ? __pfx_txUpdateMap+0x10/0x10
+[  205.092634][  T118]  ? _raw_spin_unlock_irqrestore+0x58/0x70
+[  205.092669][  T118]  jfs_lazycommit+0x499/0xbb0
+[  205.092693][  T118]  ? __pfx_jfs_lazycommit+0x10/0x10
+[  205.092713][  T118]  ? _raw_spin_unlock_irqrestore+0x58/0x70
+[  205.092746][  T118]  ? __pfx_default_wake_function+0x10/0x10
+[  205.092786][  T118]  ? __sanitizer_cov_trace_pc+0x20/0x50
+[  205.092812][  T118]  ? __kthread_parkme+0x187/0x240
+[  205.092837][  T118]  ? __kthread_parkme+0x19f/0x240
+[  205.092861][  T118]  ? __pfx_jfs_lazycommit+0x10/0x10
+[  205.092883][  T118]  kthread+0x439/0x890
+[  205.092913][  T118]  ? __pfx_kthread+0x10/0x10
+[  205.092943][  T118]  ? _raw_spin_unlock_irq+0x23/0x50
+[  205.092975][  T118]  ? __pfx_kthread+0x10/0x10
+[  205.093005][  T118]  ret_from_fork+0x52a/0x700
+[  205.093027][  T118]  ? __pfx_kthread+0x10/0x10
+[  205.093056][  T118]  ? __pfx_kthread+0x10/0x10
+[  205.093085][  T118]  ret_from_fork_asm+0x1a/0x30
+[  205.093115][  T118]  </TASK>
+[  205.093123][  T118] ---[ end trace ]---
+[  205.142865][  T118] Kernel panic - not syncing: UBSAN: panic_on_warn set ...
+[  205.144026][  T118] CPU: 1 UID: 0 PID: 118 Comm: jfsCommit Not tainted 6.16.0-rc4 #1 PREEMPT(full) 
+[  205.145492][  T118] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.16.2-debian-1.16.2-1 04/01/2014
+[  205.147205][  T118] Call Trace:
+[  205.147779][  T118]  <TASK>
+[  205.148295][  T118]  dump_stack_lvl+0x3d/0x1b0
+[  205.149107][  T118]  panic+0x6ef/0x7a0
+[  205.149813][  T118]  ? __pfx_panic+0x10/0x10
+[  205.150640][  T118]  ? __pfx__printk+0x10/0x10
+[  205.151422][  T118]  ? check_panic_on_warn+0x1f/0xb0
+[  205.152239][  T118]  check_panic_on_warn+0xab/0xb0
+[  205.153033][  T118]  __ubsan_handle_out_of_bounds+0xa1/0xc0
+[  205.153949][  T118]  __pv_queued_spin_lock_slowpath+0xef3/0xf70
+[  205.154961][  T118]  ? __pfx___pv_queued_spin_lock_slowpath+0x10/0x10
+[  205.156009][  T118]  ? write_comp_data+0x29/0x80
+[  205.156783][  T118]  ? write_comp_data+0x29/0x80
+[  205.157572][  T118]  do_raw_spin_lock+0x20c/0x2d0
+[  205.158377][  T118]  ? __pfx_do_raw_spin_lock+0x10/0x10
+[  205.159300][  T118]  ? _raw_spin_lock_irqsave+0x4f/0x60
+[  205.160190][  T118]  _raw_spin_lock_irqsave+0x3f/0x60
+[  205.161037][  T118]  ? __wake_up_common_lock+0x1d/0x60
+[  205.161895][  T118]  __wake_up_common_lock+0x1d/0x60
+[  205.162783][  T118]  release_metapage+0x10f/0x870
+[  205.163579][  T118]  xtTruncate+0x1ec0/0x2850
+[  205.164330][  T118]  ? __pfx_xtTruncate+0x10/0x10
+[  205.165139][  T118]  ? __sanitizer_cov_trace_pc+0x20/0x50
+[  205.166055][  T118]  ? write_comp_data+0x29/0x80
+[  205.166863][  T118]  ? folio_mark_accessed+0x158/0xca0
+[  205.167709][  T118]  ? __pfx_folio_mark_accessed+0x10/0x10
+[  205.168607][  T118]  ? write_comp_data+0x29/0x80
+[  205.169370][  T118]  ? __sanitizer_cov_trace_pc+0x20/0x50
+[  205.170288][  T118]  ? __dquot_initialize+0x502/0xe40
+[  205.171205][  T118]  ? __lock_acquire+0xb6b/0x1f10
+[  205.172008][  T118]  ? write_comp_data+0x29/0x80
+[  205.172772][  T118]  jfs_free_zero_link+0x349/0x4a0
+[  205.173583][  T118]  ? __pfx_jfs_free_zero_link+0x10/0x10
+[  205.174472][  T118]  ? evict+0x3a4/0x870
+[  205.175197][  T118]  jfs_evict_inode+0x428/0x4c0
+[  205.175966][  T118]  ? __pfx_jfs_evict_inode+0x10/0x10
+[  205.176822][  T118]  evict+0x3dd/0x870
+[  205.177477][  T118]  ? __pfx_evict+0x10/0x10
+[  205.178196][  T118]  ? find_held_lock+0x2d/0xa0
+[  205.179002][  T118]  ? iput+0x50f/0x830
+[  205.179669][  T118]  iput+0x517/0x830
+[  205.180306][  T118]  txUpdateMap+0x979/0xb60
+[  205.181034][  T118]  ? __pfx_txUpdateMap+0x10/0x10
+[  205.181844][  T118]  ? _raw_spin_unlock_irqrestore+0x58/0x70
+[  205.182849][  T118]  jfs_lazycommit+0x499/0xbb0
+[  205.183628][  T118]  ? __pfx_jfs_lazycommit+0x10/0x10
+[  205.184482][  T118]  ? _raw_spin_unlock_irqrestore+0x58/0x70
+[  205.185448][  T118]  ? __pfx_default_wake_function+0x10/0x10
+[  205.186431][  T118]  ? __sanitizer_cov_trace_pc+0x20/0x50
+[  205.187404][  T118]  ? __kthread_parkme+0x187/0x240
+[  205.188246][  T118]  ? __kthread_parkme+0x19f/0x240
+[  205.189045][  T118]  ? __pfx_jfs_lazycommit+0x10/0x10
+[  205.189889][  T118]  kthread+0x439/0x890
+[  205.190617][  T118]  ? __pfx_kthread+0x10/0x10
+[  205.191391][  T118]  ? _raw_spin_unlock_irq+0x23/0x50
+[  205.192255][  T118]  ? __pfx_kthread+0x10/0x10
+[  205.193031][  T118]  ret_from_fork+0x52a/0x700
+[  205.193803][  T118]  ? __pfx_kthread+0x10/0x10
+[  205.194636][  T118]  ? __pfx_kthread+0x10/0x10
+[  205.195419][  T118]  ret_from_fork_asm+0x1a/0x30
+[  205.196232][  T118]  </TASK>
+[  205.197012][  T118] Kernel Offset: disabled
+[  205.197740][  T118] Rebooting in 86400 seconds..
+
+VM DIAGNOSIS:
+05:18:00  Registers:
+info registers vcpu 0
+
+CPU#0
+RAX=0000000000000000 RBX=0000000000000000 RCX=ffffffff8b796c1b RDX=0000000000000001
+RSI=0000000000000001 RDI=ffffffff819071db RBP=dffffc0000000000 RSP=ffffffff8e007e00
+R8 =0000000000000000 R9 =ffffed10056c6646 R10=ffffed10056c6645 R11=ffff88802b63322b
+R12=0000000000000000 R13=ffffffff90844650 R14=ffffffff90844650 R15=0000000000000000
+RIP=ffffffff8b7953ce RFL=00000282 [--S----] CPL=0 II=0 A20=1 SMM=0 HLT=1
+ES =0000 0000000000000000 ffffffff 00c00000
+CS =0010 0000000000000000 ffffffff 00a09b00 DPL=0 CS64 [-RA]
+SS =0018 0000000000000000 ffffffff 00c09300 DPL=0 DS   [-WA]
+DS =0000 0000000000000000 ffffffff 00c00000
+FS =0000 0000000000000000 ffffffff 00c00000
+GS =0000 ffff888097af9000 ffffffff 00c00000
+LDT=0000 0000000000000000 ffffffff 00c00000
+TR =0040 fffffe0000003000 00004087 00008b00 DPL=0 TSS64-busy
+GDT=     fffffe0000001000 0000007f
+IDT=     fffffe0000000000 00000fff
+CR0=80050033 CR2=000055eccd939a18 CR3=000000004c038000 CR4=00002ef0
+DR0=0000000000000000 DR1=0000000000000000 DR2=0000000000000000 DR3=0000000000000000 
+DR6=00000000ffff0ff0 DR7=0000000000000400
+EFER=0000000000000d01
+FCW=037f FSW=0000 [ST=0] FTW=00 MXCSR=00001f80
+FPR0=0000000000000000 0000 FPR1=0000000000000000 0000
+FPR2=0000000000000000 0000 FPR3=0000000000000000 0000
+FPR4=0000000000000000 0000 FPR5=0000000000000000 0000
+FPR6=0000000000000000 0000 FPR7=0000000000000000 0000
+XMM00=0000000000000000 0000000000000001 XMM01=0000000000000004 000000000001df88
+XMM02=042210000c0171da 05f1800402f89e10 XMM03=ffffffffff040010 000fffffffffffff
+XMM04=0000000000000000 0000000000000000 XMM05=0000555577c323d3 0000555577c2c540
+XMM06=0000000000000000 0000000000000000 XMM07=ffffff042210000c 0171da05f1800402
+XMM08=f89e100002020002 f9800400100002f8 XMM09=0000000000000000 0000000000000000
+XMM10=0000000000000000 0000000000000000 XMM11=0000000000000000 0000000000000000
+XMM12=0000000000000000 0000000000000000 XMM13=0000000000000000 0000000000000000
+XMM14=0000000000000000 0000000000000000 XMM15=0000000000000000 0000000000000000
+info registers vcpu 1
+
+CPU#1
+RAX=0000000000000020 RBX=0000000000000000 RCX=0000000000000000 RDX=00000000000003f8
+RSI=ffff888044100000 RDI=ffffffff9aed2a00 RBP=ffffffff9aed29c0 RSP=ffffc90001eeefd0
+R8 =ffffed1008ca5047 R9 =ffffed1008ca5047 R10=ffffed1008ca5046 R11=ffff888046528237
+R12=0000000000000000 R13=0000000000000020 R14=0000000000000020 R15=0000000000000000
+RIP=ffffffff855c901f RFL=00000002 [-------] CPL=0 II=0 A20=1 SMM=0 HLT=0
+ES =0000 0000000000000000 ffffffff 00c00000
+CS =0010 0000000000000000 ffffffff 00a09b00 DPL=0 CS64 [-RA]
+SS =0018 0000000000000000 ffffffff 00c09300 DPL=0 DS   [-WA]
+DS =0000 0000000000000000 ffffffff 00c00000
+FS =0000 0000000000000000 ffffffff 00c00000
+GS =0000 ffff8880eb2f9000 ffffffff 00c00000
+LDT=0000 0000000000000000 00000000 00000000
+TR =0040 fffffe000004a000 00004087 00008b00 DPL=0 TSS64-busy
+GDT=     fffffe0000048000 0000007f
+IDT=     fffffe0000000000 00000fff
+CR0=80050033 CR2=00007fdfd1e37cb0 CR3=000000000e180000 CR4=00002ef0
+DR0=0000000000000000 DR1=0000000000000000 DR2=0000000000000000 DR3=0000000000000000 
+DR6=00000000ffff0ff0 DR7=0000000000000400
+EFER=0000000000000d01
+FCW=037f FSW=0000 [ST=0] FTW=00 MXCSR=00001fa0
+FPR0=0000000000000000 0000 FPR1=0000000000000000 0000
+FPR2=0000000000000000 0000 FPR3=0000000000000000 0000
+FPR4=0000000000000000 0000 FPR5=0000000000000000 0000
+FPR6=0000000000000000 0000 FPR7=0000000000000000 0000
+XMM00=b24152adb24152ad b24152adb24152ad XMM01=c83e2b8cc83e2b8c c83e2b8cc83e2b8c
+XMM02=27bd8eef27bd8eef 27bd8eef27bd8eef XMM03=ce5f8804ce5f8804 ce5f8804ce5f8804
+XMM04=6fcadad30fa97cd1 c8bad5e0e390a9b1 XMM05=39c4338e0cfa3c66 6d0fc5665753c6d8
+XMM06=08dbd69a5c7e2a2a e5aec7f18331ca3a XMM07=b078ca3d7771aaa9 ef8f3509043da62d
+XMM08=0d559f0e05df3471 8005d1740eafaf34 XMM09=c5dd08d360c45c5c f7fe06e543f7a2dc
+XMM10=33f146a2421b42a4 723b7e55a21757fb XMM11=5ee9f33f210979e6 6f9002fdd7488b29
+XMM12=aef9a40caef9a40c aef9a40caef9a40c XMM13=a312a694a312a694 a312a694a312a694
+XMM14=904b70c1904b70c1 904b70c1904b70c1 XMM15=0000000000000000 0000000000000000

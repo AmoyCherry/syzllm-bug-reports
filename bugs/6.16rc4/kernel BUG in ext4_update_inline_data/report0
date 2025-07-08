@@ -1,0 +1,57 @@
+------------[ cut here ]------------
+kernel BUG at fs/ext4/inline.c:357!
+Oops: invalid opcode: 0000 [#1] SMP KASAN PTI
+CPU: 0 UID: 0 PID: 29386 Comm: syz.7.1103 Not tainted 6.16.0-rc4 #1 PREEMPT(full) 
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.16.2-debian-1.16.2-1 04/01/2014
+RIP: 0010:ext4_update_inline_data+0x449/0x4b0 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux-6.16-rc4/fs/ext4/inline.c:357
+Code: 84 e0 fc ff ff e8 87 77 44 ff 48 89 ef e8 af b3 cf ff e9 ce fc ff ff 4c 89 ef e8 42 06 ab ff e9 a6 fc ff ff e8 68 77 44 ff 90 <0f> 0b e8 d0 57 03 09 4c 89 44 24 18 e8 86 06 ab ff 4c 8b 44 24 18
+RSP: 0018:ffffc90007537590 EFLAGS: 00010216
+RAX: 0000000000001ae2 RBX: 1ffff92000ea6eb6 RCX: 0000000000080000
+RDX: ffffc90016624000 RSI: ffff88801f058000 RDI: 0000000000000002
+RBP: ffff888050373268 R08: ffffffff8ba5d540 R09: 0000000000000000
+R10: ffffed100a06e604 R11: ffff888050373027 R12: 000000000000f000
+R13: ffff8880503737d4 R14: ffffc90007537610 R15: 00000000ffffffc3
+FS:  00007ff422b346c0(0000) GS:ffff888097af9000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00007ff421f693e0 CR3: 000000004c8a0000 CR4: 0000000000002ef0
+Call Trace:
+ <TASK>
+ ext4_prepare_inline_data+0x1ff/0x260 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux-6.16-rc4/fs/ext4/inline.c:415
+ ext4_generic_write_inline_data+0x1a6/0xbe0 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux-6.16-rc4/fs/ext4/inline.c:692
+ ext4_try_to_write_inline_data+0xb8/0x100 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux-6.16-rc4/fs/ext4/inline.c:763
+ ext4_write_begin+0xe34/0x12e0 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux-6.16-rc4/fs/ext4/inode.c:1281
+ ext4_da_write_begin+0x2a4/0xbf0 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux-6.16-rc4/fs/ext4/inode.c:3057
+ generic_perform_write+0x37d/0x890 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux-6.16-rc4/mm/filemap.c:4112
+ ext4_buffered_write_iter+0xdb/0x3f0 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux-6.16-rc4/fs/ext4/file.c:299
+ ext4_file_write_iter+0x5b3/0x1b40 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux-6.16-rc4/fs/ext4/file.c:723
+ new_sync_write home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux-6.16-rc4/fs/read_write.c:593 [inline]
+ vfs_write home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux-6.16-rc4/fs/read_write.c:686 [inline]
+ vfs_write+0xb92/0x10e0 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux-6.16-rc4/fs/read_write.c:666
+ ksys_write+0x121/0x240 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux-6.16-rc4/fs/read_write.c:738
+ do_syscall_x64 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux-6.16-rc4/arch/x86/entry/syscall_64.c:63 [inline]
+ do_syscall_64+0xcf/0x490 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux-6.16-rc4/arch/x86/entry/syscall_64.c:94
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7ff421d8eb29
+Code: ff ff c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 40 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 a8 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007ff422b34038 EFLAGS: 00000246 ORIG_RAX: 0000000000000001
+RAX: ffffffffffffffda RBX: 00007ff421fb6160 RCX: 00007ff421d8eb29
+RDX: 000000000000f000 RSI: 0000200000000180 RDI: 0000000000000004
+RBP: 00007ff421e11b39 R08: 0000000000000000 R09: 0000000000000000
+R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000000000
+R13: 0000000000000000 R14: 00007ff421fb6160 R15: 00007ffc2dc92d58
+ </TASK>
+Modules linked in:
+---[ end trace 0000000000000000 ]---
+RIP: 0010:ext4_update_inline_data+0x449/0x4b0 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux-6.16-rc4/fs/ext4/inline.c:357
+Code: 84 e0 fc ff ff e8 87 77 44 ff 48 89 ef e8 af b3 cf ff e9 ce fc ff ff 4c 89 ef e8 42 06 ab ff e9 a6 fc ff ff e8 68 77 44 ff 90 <0f> 0b e8 d0 57 03 09 4c 89 44 24 18 e8 86 06 ab ff 4c 8b 44 24 18
+RSP: 0018:ffffc90007537590 EFLAGS: 00010216
+RAX: 0000000000001ae2 RBX: 1ffff92000ea6eb6 RCX: 0000000000080000
+RDX: ffffc90016624000 RSI: ffff88801f058000 RDI: 0000000000000002
+RBP: ffff888050373268 R08: ffffffff8ba5d540 R09: 0000000000000000
+R10: ffffed100a06e604 R11: ffff888050373027 R12: 000000000000f000
+R13: ffff8880503737d4 R14: ffffc90007537610 R15: 00000000ffffffc3
+FS:  00007ff422b346c0(0000) GS:ffff8880eb2f9000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00007fac616e7d60 CR3: 000000004c8a0000 CR4: 0000000000002ef0
+DR0: 0000000000000400 DR1: 0000000000000000 DR2: 0000000000000000
+DR3: 0000000000000000 DR6: 00000000ffff0ff0 DR7: 0000000000000400
