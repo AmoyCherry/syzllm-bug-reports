@@ -1,9 +1,11 @@
 ## 1. Kernel
+> You can also download [the built images](https://drive.google.com/file/d/1ONe4N6_hCVUNN0QKUmQzJnOFzoLQ8TN4/view?usp=sharing) with required .config and go to `2. Root File System` directly.
+
 ### Download Linux 6.16-rc4
 
 > I found these bugs can also be reproduced on Linux 6.16-rc5 that just released on July 06.
 >
-> So you can download the [rc5](https://www.kernel.org/) version here instead of rc5 and the following repro steps are the same.
+> So you can download the [rc5](https://www.kernel.org/) version here instead of rc4 and the following repro steps are the same.
 
 ```bash
 wget https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/snapshot/linux-6.16-rc4.tar.gz
