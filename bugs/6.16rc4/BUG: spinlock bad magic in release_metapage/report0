@@ -1,0 +1,68 @@
+BUG: spinlock bad magic on CPU#1, jfsCommit/119
+ lock: 0xffff88807419b7f8, .magic: ffffffff, .owner: /768, .owner_cpu: 768
+CPU: 1 UID: 0 PID: 119 Comm: jfsCommit Not tainted 6.16.0-rc4 #1 PREEMPT(full) 
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.16.2-debian-1.16.2-1 04/01/2014
+Call Trace:
+ <TASK>
+ __dump_stack home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux-6.16-rc4/lib/dump_stack.c:94 [inline]
+ dump_stack_lvl+0x116/0x1b0 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux-6.16-rc4/lib/dump_stack.c:120
+ spin_bug home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux-6.16-rc4/kernel/locking/spinlock_debug.c:78 [inline]
+ debug_spin_lock_before home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux-6.16-rc4/kernel/locking/spinlock_debug.c:86 [inline]
+ do_raw_spin_lock+0x22e/0x2d0 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux-6.16-rc4/kernel/locking/spinlock_debug.c:115
+ __raw_spin_lock_irqsave home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux-6.16-rc4/include/linux/spinlock_api_smp.h:111 [inline]
+ _raw_spin_lock_irqsave+0x3f/0x60 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux-6.16-rc4/kernel/locking/spinlock.c:162
+ __wake_up_common_lock+0x1d/0x60 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux-6.16-rc4/kernel/sched/wait.c:105
+ unlock_metapage home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux-6.16-rc4/fs/jfs/jfs_metapage.c:40 [inline]
+ release_metapage+0x10f/0x870 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux-6.16-rc4/fs/jfs/jfs_metapage.c:869
+ discard_metapage home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux-6.16-rc4/fs/jfs/jfs_metapage.h:88 [inline]
+ xtTruncate+0x1ec0/0x2850 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux-6.16-rc4/fs/jfs/jfs_xtree.c:2488
+ jfs_free_zero_link+0x349/0x4a0 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux-6.16-rc4/fs/jfs/namei.c:759
+ jfs_evict_inode+0x428/0x4c0 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux-6.16-rc4/fs/jfs/inode.c:153
+ evict+0x3dd/0x870 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux-6.16-rc4/fs/inode.c:810
+ iput_final home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux-6.16-rc4/fs/inode.c:1898 [inline]
+ iput+0x517/0x830 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux-6.16-rc4/fs/inode.c:1924
+ txUpdateMap+0x979/0xb60 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux-6.16-rc4/fs/jfs/jfs_txnmgr.c:2367
+ txLazyCommit home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux-6.16-rc4/fs/jfs/jfs_txnmgr.c:2664 [inline]
+ jfs_lazycommit+0x499/0xbb0 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux-6.16-rc4/fs/jfs/jfs_txnmgr.c:2733
+ kthread+0x439/0x890 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux-6.16-rc4/kernel/kthread.c:464
+ ret_from_fork+0x52a/0x700 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux-6.16-rc4/arch/x86/kernel/process.c:148
+ ret_from_fork_asm+0x1a/0x30 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux-6.16-rc4/arch/x86/entry/entry_64.S:245
+ </TASK>
+------------[ cut here ]------------
+UBSAN: array-index-out-of-bounds in kernel/locking/qspinlock.h:68:9
+index 8946 is out of range for type 'long unsigned int [8]'
+CPU: 1 UID: 0 PID: 119 Comm: jfsCommit Not tainted 6.16.0-rc4 #1 PREEMPT(full) 
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.16.2-debian-1.16.2-1 04/01/2014
+Call Trace:
+ <TASK>
+ __dump_stack home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux-6.16-rc4/lib/dump_stack.c:94 [inline]
+ dump_stack_lvl+0x116/0x1b0 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux-6.16-rc4/lib/dump_stack.c:120
+ ubsan_epilogue+0xa/0x40 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux-6.16-rc4/lib/ubsan.c:233
+ __ubsan_handle_out_of_bounds home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux-6.16-rc4/lib/ubsan.c:455 [inline]
+ __ubsan_handle_out_of_bounds+0xa1/0xc0 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux-6.16-rc4/lib/ubsan.c:442
+ decode_tail home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux-6.16-rc4/kernel/locking/qspinlock.h:68 [inline]
+ __pv_queued_spin_lock_slowpath+0xef3/0xf70 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux-6.16-rc4/kernel/locking/qspinlock.c:285
+ pv_queued_spin_lock_slowpath home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux-6.16-rc4/arch/x86/include/asm/paravirt.h:557 [inline]
+ queued_spin_lock_slowpath home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux-6.16-rc4/arch/x86/include/asm/qspinlock.h:51 [inline]
+ queued_spin_lock home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux-6.16-rc4/include/asm-generic/qspinlock.h:114 [inline]
+ do_raw_spin_lock+0x20c/0x2d0 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux-6.16-rc4/kernel/locking/spinlock_debug.c:116
+ __raw_spin_lock_irqsave home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux-6.16-rc4/include/linux/spinlock_api_smp.h:111 [inline]
+ _raw_spin_lock_irqsave+0x3f/0x60 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux-6.16-rc4/kernel/locking/spinlock.c:162
+ __wake_up_common_lock+0x1d/0x60 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux-6.16-rc4/kernel/sched/wait.c:105
+ unlock_metapage home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux-6.16-rc4/fs/jfs/jfs_metapage.c:40 [inline]
+ release_metapage+0x10f/0x870 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux-6.16-rc4/fs/jfs/jfs_metapage.c:869
+ discard_metapage home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux-6.16-rc4/fs/jfs/jfs_metapage.h:88 [inline]
+ xtTruncate+0x1ec0/0x2850 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux-6.16-rc4/fs/jfs/jfs_xtree.c:2488
+ jfs_free_zero_link+0x349/0x4a0 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux-6.16-rc4/fs/jfs/namei.c:759
+ jfs_evict_inode+0x428/0x4c0 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux-6.16-rc4/fs/jfs/inode.c:153
+ evict+0x3dd/0x870 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux-6.16-rc4/fs/inode.c:810
+ iput_final home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux-6.16-rc4/fs/inode.c:1898 [inline]
+ iput+0x517/0x830 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux-6.16-rc4/fs/inode.c:1924
+ txUpdateMap+0x979/0xb60 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux-6.16-rc4/fs/jfs/jfs_txnmgr.c:2367
+ txLazyCommit home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux-6.16-rc4/fs/jfs/jfs_txnmgr.c:2664 [inline]
+ jfs_lazycommit+0x499/0xbb0 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux-6.16-rc4/fs/jfs/jfs_txnmgr.c:2733
+ kthread+0x439/0x890 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux-6.16-rc4/kernel/kthread.c:464
+ ret_from_fork+0x52a/0x700 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux-6.16-rc4/arch/x86/kernel/process.c:148
+ ret_from_fork_asm+0x1a/0x30 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux-6.16-rc4/arch/x86/entry/entry_64.S:245
+ </TASK>
+---[ end trace ]---
