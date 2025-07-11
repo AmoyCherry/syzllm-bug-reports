@@ -1,0 +1,708 @@
+Warning: Permanently added '[localhost]:49887' (ED25519) to the list of known hosts.
+2025/07/11 11:29:01 ignoring optional flag "sandboxArg"="0"
+2025/07/11 11:29:04 parsed 1 programs
+syzkaller login: [  146.721856][ T9793] cgroup: Unknown subsys name 'net'
+[  146.821869][ T9793] cgroup: Unknown subsys name 'cpuset'
+[  146.832152][ T9793] cgroup: Unknown subsys name 'rlimit'
+[  150.514660][ T9793] Adding 124996k swap on ./swap-file.  Priority:0 extents:1 across:124996k 
+[  156.723638][ T5181] Bluetooth: hci0: unexpected cc 0x0c03 length: 249 > 1
+[  156.730319][ T5181] Bluetooth: hci0: unexpected cc 0x1003 length: 249 > 9
+[  156.732278][ T5181] Bluetooth: hci0: unexpected cc 0x1001 length: 249 > 9
+[  156.735697][ T5181] Bluetooth: hci0: unexpected cc 0x0c23 length: 249 > 4
+[  156.738354][ T5181] Bluetooth: hci0: unexpected cc 0x0c38 length: 249 > 2
+[  157.993959][   T26] wlan0: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[  157.995451][   T26] wlan0: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[  158.233872][ T1327] ieee802154 phy0 wpan0: encryption failed: -22
+[  158.235065][ T1327] ieee802154 phy1 wpan1: encryption failed: -22
+[  158.790640][   T54] Bluetooth: hci0: command tx timeout
+[  159.262764][   T33] wlan1: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[  159.264552][   T33] wlan1: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[  160.869270][   T54] Bluetooth: hci0: command tx timeout
+[  160.902891][T10030] chnl_net:caif_netlink_parms(): no params data found
+[  161.589595][T10030] bridge0: port 1(bridge_slave_0) entered blocking state
+[  161.592058][T10030] bridge0: port 1(bridge_slave_0) entered disabled state
+[  161.594283][T10030] bridge_slave_0: entered allmulticast mode
+[  161.613872][T10030] bridge_slave_0: entered promiscuous mode
+[  161.625790][T10030] bridge0: port 2(bridge_slave_1) entered blocking state
+[  161.630671][T10030] bridge0: port 2(bridge_slave_1) entered disabled state
+[  161.631995][T10030] bridge_slave_1: entered allmulticast mode
+[  161.651118][T10030] bridge_slave_1: entered promiscuous mode
+[  161.844564][T10030] bond0: (slave bond_slave_0): Enslaving as an active interface with an up link
+[  161.875241][T10030] bond0: (slave bond_slave_1): Enslaving as an active interface with an up link
+[  162.137641][T10030] team0: Port device team_slave_0 added
+[  162.143202][T10030] team0: Port device team_slave_1 added
+[  162.274746][T10030] batman_adv: batadv0: Adding interface: batadv_slave_0
+[  162.275975][T10030] batman_adv: batadv0: The MTU of interface batadv_slave_0 is too small (1500) to handle the transport of batman-adv packets. Packets going over this interface will be fragmented on layer2 which could impact the performance. Setting the MTU to 1560 would solve the problem.
+[  162.289717][T10030] batman_adv: batadv0: Not using interface batadv_slave_0 (retrying later): interface not active
+[  162.300462][T10030] batman_adv: batadv0: Adding interface: batadv_slave_1
+[  162.302205][T10030] batman_adv: batadv0: The MTU of interface batadv_slave_1 is too small (1500) to handle the transport of batman-adv packets. Packets going over this interface will be fragmented on layer2 which could impact the performance. Setting the MTU to 1560 would solve the problem.
+[  162.307522][T10030] batman_adv: batadv0: Not using interface batadv_slave_1 (retrying later): interface not active
+[  162.482516][T10030] hsr_slave_0: entered promiscuous mode
+[  162.484772][T10030] hsr_slave_1: entered promiscuous mode
+[  162.897431][T10030] netdevsim netdevsim5 netdevsim0: renamed from eth0
+[  162.923948][T10030] netdevsim netdevsim5 netdevsim1: renamed from eth1
+[  162.934806][T10030] netdevsim netdevsim5 netdevsim2: renamed from eth2
+[  162.950509][   T54] Bluetooth: hci0: command tx timeout
+[  162.955867][T10030] netdevsim netdevsim5 netdevsim3: renamed from eth3
+[  163.205260][T10030] 8021q: adding VLAN 0 to HW filter on device bond0
+[  163.260988][T10030] 8021q: adding VLAN 0 to HW filter on device team0
+[  163.316981][   T40] bridge0: port 1(bridge_slave_0) entered blocking state
+[  163.318492][   T40] bridge0: port 1(bridge_slave_0) entered forwarding state
+[  163.324623][   T40] bridge0: port 2(bridge_slave_1) entered blocking state
+[  163.326011][   T40] bridge0: port 2(bridge_slave_1) entered forwarding state
+[  163.576028][T10030] 8021q: adding VLAN 0 to HW filter on device batadv0
+[  163.921841][T10030] veth0_vlan: entered promiscuous mode
+[  163.931676][T10030] veth1_vlan: entered promiscuous mode
+[  163.962950][T10030] veth0_macvtap: entered promiscuous mode
+[  163.968236][T10030] veth1_macvtap: entered promiscuous mode
+[  163.987524][T10030] batman_adv: batadv0: Interface activated: batadv_slave_0
+[  163.997840][T10030] batman_adv: batadv0: Interface activated: batadv_slave_1
+[  164.006447][T10030] netdevsim netdevsim5 netdevsim0: set [1, 0] type 2 family 0 port 6081 - 0
+[  164.008020][T10030] netdevsim netdevsim5 netdevsim1: set [1, 0] type 2 family 0 port 6081 - 0
+[  164.009668][T10030] netdevsim netdevsim5 netdevsim2: set [1, 0] type 2 family 0 port 6081 - 0
+[  164.011186][T10030] netdevsim netdevsim5 netdevsim3: set [1, 0] type 2 family 0 port 6081 - 0
+2025/07/11 11:29:28 executed programs: 0
+[  164.283198][ T5181] Bluetooth: hci1: unexpected cc 0x0c03 length: 249 > 1
+[  164.287672][ T5181] Bluetooth: hci1: unexpected cc 0x1003 length: 249 > 9
+[  164.305705][ T9991] Bluetooth: hci1: unexpected cc 0x1001 length: 249 > 9
+[  164.311756][ T9991] Bluetooth: hci1: unexpected cc 0x0c23 length: 249 > 4
+[  164.313810][ T9991] Bluetooth: hci1: unexpected cc 0x0c38 length: 249 > 2
+[  164.316002][ T9991] Bluetooth: hci2: unexpected cc 0x0c03 length: 249 > 1
+[  164.318984][ T9991] Bluetooth: hci2: unexpected cc 0x1003 length: 249 > 9
+[  164.324826][ T9991] Bluetooth: hci2: unexpected cc 0x1001 length: 249 > 9
+[  164.344161][   T54] Bluetooth: hci2: unexpected cc 0x0c23 length: 249 > 4
+[  164.354520][ T9991] Bluetooth: hci2: unexpected cc 0x0c38 length: 249 > 2
+[  164.751674][ T5181] Bluetooth: hci3: unexpected cc 0x0c03 length: 249 > 1
+[  164.757101][ T5181] Bluetooth: hci3: unexpected cc 0x1003 length: 249 > 9
+[  164.764076][ T5181] Bluetooth: hci3: unexpected cc 0x1001 length: 249 > 9
+[  164.779690][ T5181] Bluetooth: hci3: unexpected cc 0x0c23 length: 249 > 4
+[  164.797641][ T5181] Bluetooth: hci3: unexpected cc 0x0c38 length: 249 > 2
+[  165.054228][ T9991] Bluetooth: hci4: unexpected cc 0x0c03 length: 249 > 1
+[  165.070043][ T9991] Bluetooth: hci4: unexpected cc 0x1003 length: 249 > 9
+[  165.073305][ T9991] Bluetooth: hci4: unexpected cc 0x1001 length: 249 > 9
+[  165.076250][ T9991] Bluetooth: hci4: unexpected cc 0x0c23 length: 249 > 4
+[  165.080612][ T9991] Bluetooth: hci4: unexpected cc 0x0c38 length: 249 > 2
+[  165.110572][T10572] Bluetooth: hci0: unexpected cc 0x0c03 length: 249 > 1
+[  165.112665][T10572] Bluetooth: hci0: unexpected cc 0x1003 length: 249 > 9
+[  165.115031][T10572] Bluetooth: hci0: unexpected cc 0x1001 length: 249 > 9
+[  165.117777][T10572] Bluetooth: hci0: unexpected cc 0x0c23 length: 249 > 4
+[  165.125467][T10617] Bluetooth: hci0: unexpected cc 0x0c38 length: 249 > 2
+[  165.129780][T10617] Bluetooth: hci6: unexpected cc 0x0c03 length: 249 > 1
+[  165.139974][   T54] Bluetooth: hci6: unexpected cc 0x1003 length: 249 > 9
+[  165.141534][T10617] Bluetooth: hci5: unexpected cc 0x0c03 length: 249 > 1
+[  165.143488][   T54] Bluetooth: hci6: unexpected cc 0x1001 length: 249 > 9
+[  165.146236][   T54] Bluetooth: hci5: unexpected cc 0x1003 length: 249 > 9
+[  165.148204][   T54] Bluetooth: hci5: unexpected cc 0x1001 length: 249 > 9
+[  165.149981][   T54] Bluetooth: hci6: unexpected cc 0x0c23 length: 249 > 4
+[  165.152532][   T54] Bluetooth: hci5: unexpected cc 0x0c23 length: 249 > 4
+[  165.154001][T10617] Bluetooth: hci6: unexpected cc 0x0c38 length: 249 > 2
+[  165.171916][T10617] Bluetooth: hci5: unexpected cc 0x0c38 length: 249 > 2
+[  165.245551][T10617] Bluetooth: hci7: unexpected cc 0x0c03 length: 249 > 1
+[  165.248469][T10617] Bluetooth: hci7: unexpected cc 0x1003 length: 249 > 9
+[  165.254138][T10617] Bluetooth: hci7: unexpected cc 0x1001 length: 249 > 9
+[  165.256434][T10617] Bluetooth: hci7: unexpected cc 0x0c23 length: 249 > 4
+[  165.258325][T10617] Bluetooth: hci7: unexpected cc 0x0c38 length: 249 > 2
+[  165.739044][   T12] netdevsim netdevsim5 netdevsim3 (unregistering): unset [1, 0] type 2 family 0 port 6081 - 0
+[  166.370293][   T12] netdevsim netdevsim5 netdevsim2 (unregistering): unset [1, 0] type 2 family 0 port 6081 - 0
+[  166.389722][ T9991] Bluetooth: hci1: command tx timeout
+[  166.525560][   T12] netdevsim netdevsim5 netdevsim1 (unregistering): unset [1, 0] type 2 family 0 port 6081 - 0
+[  166.550044][ T9991] Bluetooth: hci2: command tx timeout
+[  166.870240][ T9991] Bluetooth: hci3: command tx timeout
+[  166.912422][   T12] netdevsim netdevsim5 netdevsim0 (unregistering): unset [1, 0] type 2 family 0 port 6081 - 0
+[  167.109514][ T9991] Bluetooth: hci4: command tx timeout
+[  167.167249][T10563] chnl_net:caif_netlink_parms(): no params data found
+[  167.190928][ T9991] Bluetooth: hci0: command tx timeout
+[  167.192268][ T9991] Bluetooth: hci6: command tx timeout
+[  167.270843][T10617] Bluetooth: hci5: command tx timeout
+[  167.332470][T10565] chnl_net:caif_netlink_parms(): no params data found
+[  167.349994][T10617] Bluetooth: hci7: command tx timeout
+[  167.639441][T10584] chnl_net:caif_netlink_parms(): no params data found
+[  167.860648][T10588] chnl_net:caif_netlink_parms(): no params data found
+[  167.947386][T10607] chnl_net:caif_netlink_parms(): no params data found
+[  168.269419][T10606] chnl_net:caif_netlink_parms(): no params data found
+[  168.323907][T10563] bridge0: port 1(bridge_slave_0) entered blocking state
+[  168.325235][T10563] bridge0: port 1(bridge_slave_0) entered disabled state
+[  168.326600][T10563] bridge_slave_0: entered allmulticast mode
+[  168.332236][T10563] bridge_slave_0: entered promiscuous mode
+[  168.461302][T10565] bridge0: port 1(bridge_slave_0) entered blocking state
+[  168.462645][T10565] bridge0: port 1(bridge_slave_0) entered disabled state
+[  168.463951][T10565] bridge_slave_0: entered allmulticast mode
+[  168.466732][T10565] bridge_slave_0: entered promiscuous mode
+[  168.480562][T10617] Bluetooth: hci1: command tx timeout
+[  168.523862][T10595] chnl_net:caif_netlink_parms(): no params data found
+[  168.547610][T10563] bridge0: port 2(bridge_slave_1) entered blocking state
+[  168.548885][T10563] bridge0: port 2(bridge_slave_1) entered disabled state
+[  168.553282][T10563] bridge_slave_1: entered allmulticast mode
+[  168.556093][T10563] bridge_slave_1: entered promiscuous mode
+[  168.630780][T10617] Bluetooth: hci2: command tx timeout
+[  168.662467][T10565] bridge0: port 2(bridge_slave_1) entered blocking state
+[  168.663751][T10565] bridge0: port 2(bridge_slave_1) entered disabled state
+[  168.664982][T10565] bridge_slave_1: entered allmulticast mode
+[  168.667758][T10565] bridge_slave_1: entered promiscuous mode
+[  168.905995][   T12] bridge_slave_1: left allmulticast mode
+[  168.907280][   T12] bridge_slave_1: left promiscuous mode
+[  168.908863][   T12] bridge0: port 2(bridge_slave_1) entered disabled state
+[  168.928996][   T12] bridge_slave_0: left allmulticast mode
+[  168.930457][   T12] bridge_slave_0: left promiscuous mode
+[  168.931863][   T12] bridge0: port 1(bridge_slave_0) entered disabled state
+[  168.950296][T10617] Bluetooth: hci3: command tx timeout
+[  169.189466][T10617] Bluetooth: hci4: command tx timeout
+[  169.273164][ T9991] Bluetooth: hci0: command tx timeout
+[  169.274344][T10617] Bluetooth: hci6: command tx timeout
+[  169.354879][T10617] Bluetooth: hci5: command tx timeout
+[  169.386391][   T12] bond0 (unregistering): (slave bond_slave_0): Releasing backup interface
+[  169.392138][   T12] bond0 (unregistering): (slave bond_slave_1): Releasing backup interface
+[  169.395296][   T12] bond0 (unregistering): Released all slaves
+[  169.429541][T10617] Bluetooth: hci7: command tx timeout
+[  169.705855][T10565] bond0: (slave bond_slave_0): Enslaving as an active interface with an up link
+[  169.756414][T10565] bond0: (slave bond_slave_1): Enslaving as an active interface with an up link
+[  169.952383][T10563] bond0: (slave bond_slave_0): Enslaving as an active interface with an up link
+[  170.018764][T10588] bridge0: port 1(bridge_slave_0) entered blocking state
+[  170.025538][T10588] bridge0: port 1(bridge_slave_0) entered disabled state
+[  170.026878][T10588] bridge_slave_0: entered allmulticast mode
+[  170.030325][T10588] bridge_slave_0: entered promiscuous mode
+[  170.039462][T10630] chnl_net:caif_netlink_parms(): no params data found
+[  170.160823][T10584] bridge0: port 1(bridge_slave_0) entered blocking state
+[  170.162272][T10584] bridge0: port 1(bridge_slave_0) entered disabled state
+[  170.163579][T10584] bridge_slave_0: entered allmulticast mode
+[  170.166724][T10584] bridge_slave_0: entered promiscuous mode
+[  170.178963][T10584] bridge0: port 2(bridge_slave_1) entered blocking state
+[  170.180732][T10584] bridge0: port 2(bridge_slave_1) entered disabled state
+[  170.182112][T10584] bridge_slave_1: entered allmulticast mode
+[  170.184950][T10584] bridge_slave_1: entered promiscuous mode
+[  170.273842][T10563] bond0: (slave bond_slave_1): Enslaving as an active interface with an up link
+[  170.382635][T10588] bridge0: port 2(bridge_slave_1) entered blocking state
+[  170.384678][T10588] bridge0: port 2(bridge_slave_1) entered disabled state
+[  170.386790][T10588] bridge_slave_1: entered allmulticast mode
+[  170.394843][T10588] bridge_slave_1: entered promiscuous mode
+[  170.537748][T10606] bridge0: port 1(bridge_slave_0) entered blocking state
+[  170.539083][T10606] bridge0: port 1(bridge_slave_0) entered disabled state
+[  170.542373][T10606] bridge_slave_0: entered allmulticast mode
+[  170.545039][T10606] bridge_slave_0: entered promiscuous mode
+[  170.549816][T10617] Bluetooth: hci1: command tx timeout
+[  170.645293][T10563] team0: Port device team_slave_0 added
+[  170.711017][T10617] Bluetooth: hci2: command tx timeout
+[  170.765013][T10607] bridge0: port 1(bridge_slave_0) entered blocking state
+[  170.766384][T10607] bridge0: port 1(bridge_slave_0) entered disabled state
+[  170.767660][T10607] bridge_slave_0: entered allmulticast mode
+[  170.778959][T10607] bridge_slave_0: entered promiscuous mode
+[  170.795935][T10565] team0: Port device team_slave_0 added
+[  170.801082][T10565] team0: Port device team_slave_1 added
+[  170.848361][T10584] bond0: (slave bond_slave_0): Enslaving as an active interface with an up link
+[  170.853063][T10606] bridge0: port 2(bridge_slave_1) entered blocking state
+[  170.854310][T10606] bridge0: port 2(bridge_slave_1) entered disabled state
+[  170.855527][T10606] bridge_slave_1: entered allmulticast mode
+[  170.858230][T10606] bridge_slave_1: entered promiscuous mode
+[  170.931900][T10595] bridge0: port 1(bridge_slave_0) entered blocking state
+[  170.933582][T10595] bridge0: port 1(bridge_slave_0) entered disabled state
+[  170.934880][T10595] bridge_slave_0: entered allmulticast mode
+[  170.938417][T10595] bridge_slave_0: entered promiscuous mode
+[  170.951903][T10595] bridge0: port 2(bridge_slave_1) entered blocking state
+[  170.953083][T10595] bridge0: port 2(bridge_slave_1) entered disabled state
+[  170.954454][T10595] bridge_slave_1: entered allmulticast mode
+[  170.957091][T10595] bridge_slave_1: entered promiscuous mode
+[  171.008646][T10563] team0: Port device team_slave_1 added
+[  171.030701][T10617] Bluetooth: hci3: command tx timeout
+[  171.148953][T10607] bridge0: port 2(bridge_slave_1) entered blocking state
+[  171.157283][T10607] bridge0: port 2(bridge_slave_1) entered disabled state
+[  171.158513][T10607] bridge_slave_1: entered allmulticast mode
+[  171.182723][T10607] bridge_slave_1: entered promiscuous mode
+[  171.240622][T10584] bond0: (slave bond_slave_1): Enslaving as an active interface with an up link
+[  171.270949][T10617] Bluetooth: hci4: command tx timeout
+[  171.278014][T10606] bond0: (slave bond_slave_0): Enslaving as an active interface with an up link
+[  171.354188][ T9991] Bluetooth: hci0: command tx timeout
+[  171.355939][T10617] Bluetooth: hci6: command tx timeout
+[  171.429823][T10617] Bluetooth: hci5: command tx timeout
+[  171.440825][T10563] batman_adv: batadv0: Adding interface: batadv_slave_0
+[  171.442133][T10563] batman_adv: batadv0: The MTU of interface batadv_slave_0 is too small (1500) to handle the transport of batman-adv packets. Packets going over this interface will be fragmented on layer2 which could impact the performance. Setting the MTU to 1560 would solve the problem.
+[  171.446224][T10563] batman_adv: batadv0: Not using interface batadv_slave_0 (retrying later): interface not active
+[  171.453727][T10588] bond0: (slave bond_slave_0): Enslaving as an active interface with an up link
+[  171.461794][T10588] bond0: (slave bond_slave_1): Enslaving as an active interface with an up link
+[  171.509456][T10617] Bluetooth: hci7: command tx timeout
+[  171.604390][T10565] batman_adv: batadv0: Adding interface: batadv_slave_0
+[  171.605658][T10565] batman_adv: batadv0: The MTU of interface batadv_slave_0 is too small (1500) to handle the transport of batman-adv packets. Packets going over this interface will be fragmented on layer2 which could impact the performance. Setting the MTU to 1560 would solve the problem.
+[  171.612275][T10565] batman_adv: batadv0: Not using interface batadv_slave_0 (retrying later): interface not active
+[  171.618557][T10606] bond0: (slave bond_slave_1): Enslaving as an active interface with an up link
+[  171.669669][T10595] bond0: (slave bond_slave_0): Enslaving as an active interface with an up link
+[  171.674815][T10595] bond0: (slave bond_slave_1): Enslaving as an active interface with an up link
+[  171.727061][T10563] batman_adv: batadv0: Adding interface: batadv_slave_1
+[  171.728763][T10563] batman_adv: batadv0: The MTU of interface batadv_slave_1 is too small (1500) to handle the transport of batman-adv packets. Packets going over this interface will be fragmented on layer2 which could impact the performance. Setting the MTU to 1560 would solve the problem.
+[  171.746413][T10563] batman_adv: batadv0: Not using interface batadv_slave_1 (retrying later): interface not active
+[  171.902719][T10607] bond0: (slave bond_slave_0): Enslaving as an active interface with an up link
+[  171.905525][T10630] bridge0: port 1(bridge_slave_0) entered blocking state
+[  171.907847][T10630] bridge0: port 1(bridge_slave_0) entered disabled state
+[  171.909125][T10630] bridge_slave_0: entered allmulticast mode
+[  171.917532][T10630] bridge_slave_0: entered promiscuous mode
+[  171.927218][T10584] team0: Port device team_slave_0 added
+[  171.941506][T10565] batman_adv: batadv0: Adding interface: batadv_slave_1
+[  171.942736][T10565] batman_adv: batadv0: The MTU of interface batadv_slave_1 is too small (1500) to handle the transport of batman-adv packets. Packets going over this interface will be fragmented on layer2 which could impact the performance. Setting the MTU to 1560 would solve the problem.
+[  171.946935][T10565] batman_adv: batadv0: Not using interface batadv_slave_1 (retrying later): interface not active
+[  171.997372][   T12] hsr_slave_0: left promiscuous mode
+[  172.006094][   T12] hsr_slave_1: left promiscuous mode
+[  172.008013][   T12] batman_adv: batadv0: Interface deactivated: batadv_slave_0
+[  172.010872][   T12] batman_adv: batadv0: Removing interface: batadv_slave_0
+[  172.013232][   T12] batman_adv: batadv0: Interface deactivated: batadv_slave_1
+[  172.014488][   T12] batman_adv: batadv0: Removing interface: batadv_slave_1
+[  172.048298][   T12] veth1_macvtap: left promiscuous mode
+[  172.051284][   T12] veth0_macvtap: left promiscuous mode
+[  172.052327][   T12] veth1_vlan: left promiscuous mode
+[  172.053417][   T12] veth0_vlan: left promiscuous mode
+[  172.516850][   T12] team0 (unregistering): Port device team_slave_1 removed
+[  172.543132][   T12] team0 (unregistering): Port device team_slave_0 removed
+[  172.629836][T10617] Bluetooth: hci1: command tx timeout
+[  172.789894][T10617] Bluetooth: hci2: command tx timeout
+[  173.005803][T10595] team0: Port device team_slave_0 added
+[  173.098741][T10588] team0: Port device team_slave_0 added
+[  173.109804][T10617] Bluetooth: hci3: command tx timeout
+[  173.113049][T10588] team0: Port device team_slave_1 added
+[  173.131570][T10607] bond0: (slave bond_slave_1): Enslaving as an active interface with an up link
+[  173.212389][T10630] bridge0: port 2(bridge_slave_1) entered blocking state
+[  173.214559][T10630] bridge0: port 2(bridge_slave_1) entered disabled state
+[  173.215942][T10630] bridge_slave_1: entered allmulticast mode
+[  173.218730][T10630] bridge_slave_1: entered promiscuous mode
+[  173.263576][T10584] team0: Port device team_slave_1 added
+[  173.290515][T10606] team0: Port device team_slave_0 added
+[  173.317700][T10595] team0: Port device team_slave_1 added
+[  173.350665][T10617] Bluetooth: hci4: command tx timeout
+[  173.432053][T10617] Bluetooth: hci6: command tx timeout
+[  173.432094][ T9991] Bluetooth: hci0: command tx timeout
+[  173.509870][ T9991] Bluetooth: hci5: command tx timeout
+[  173.592315][ T9991] Bluetooth: hci7: command tx timeout
+[  173.695933][T10606] team0: Port device team_slave_1 added
+[  173.759890][T10595] batman_adv: batadv0: Adding interface: batadv_slave_0
+[  173.762057][T10595] batman_adv: batadv0: The MTU of interface batadv_slave_0 is too small (1500) to handle the transport of batman-adv packets. Packets going over this interface will be fragmented on layer2 which could impact the performance. Setting the MTU to 1560 would solve the problem.
+[  173.766162][T10595] batman_adv: batadv0: Not using interface batadv_slave_0 (retrying later): interface not active
+[  173.778019][T10563] hsr_slave_0: entered promiscuous mode
+[  173.781528][T10563] hsr_slave_1: entered promiscuous mode
+[  173.823091][T10607] team0: Port device team_slave_0 added
+[  173.826321][T10588] batman_adv: batadv0: Adding interface: batadv_slave_0
+[  173.827472][T10588] batman_adv: batadv0: The MTU of interface batadv_slave_0 is too small (1500) to handle the transport of batman-adv packets. Packets going over this interface will be fragmented on layer2 which could impact the performance. Setting the MTU to 1560 would solve the problem.
+[  173.845939][T10588] batman_adv: batadv0: Not using interface batadv_slave_0 (retrying later): interface not active
+[  173.857206][T10630] bond0: (slave bond_slave_0): Enslaving as an active interface with an up link
+[  173.884949][T10584] batman_adv: batadv0: Adding interface: batadv_slave_0
+[  173.886112][T10584] batman_adv: batadv0: The MTU of interface batadv_slave_0 is too small (1500) to handle the transport of batman-adv packets. Packets going over this interface will be fragmented on layer2 which could impact the performance. Setting the MTU to 1560 would solve the problem.
+[  173.892124][T10584] batman_adv: batadv0: Not using interface batadv_slave_0 (retrying later): interface not active
+[  173.942194][T10565] hsr_slave_0: entered promiscuous mode
+[  173.944564][T10565] hsr_slave_1: entered promiscuous mode
+[  173.948324][T10565] debugfs: Directory 'hsr0' with parent 'hsr' already present!
+[  173.950323][T10565] Cannot create hsr debugfs directory
+[  174.036751][T10595] batman_adv: batadv0: Adding interface: batadv_slave_1
+[  174.037960][T10595] batman_adv: batadv0: The MTU of interface batadv_slave_1 is too small (1500) to handle the transport of batman-adv packets. Packets going over this interface will be fragmented on layer2 which could impact the performance. Setting the MTU to 1560 would solve the problem.
+[  174.043389][T10595] batman_adv: batadv0: Not using interface batadv_slave_1 (retrying later): interface not active
+[  174.093087][T10607] team0: Port device team_slave_1 added
+[  174.097136][T10588] batman_adv: batadv0: Adding interface: batadv_slave_1
+[  174.098723][T10588] batman_adv: batadv0: The MTU of interface batadv_slave_1 is too small (1500) to handle the transport of batman-adv packets. Packets going over this interface will be fragmented on layer2 which could impact the performance. Setting the MTU to 1560 would solve the problem.
+[  174.108090][T10588] batman_adv: batadv0: Not using interface batadv_slave_1 (retrying later): interface not active
+[  174.154445][T10630] bond0: (slave bond_slave_1): Enslaving as an active interface with an up link
+[  174.158765][T10584] batman_adv: batadv0: Adding interface: batadv_slave_1
+[  174.169459][T10584] batman_adv: batadv0: The MTU of interface batadv_slave_1 is too small (1500) to handle the transport of batman-adv packets. Packets going over this interface will be fragmented on layer2 which could impact the performance. Setting the MTU to 1560 would solve the problem.
+[  174.175013][T10584] batman_adv: batadv0: Not using interface batadv_slave_1 (retrying later): interface not active
+[  174.234079][T10606] batman_adv: batadv0: Adding interface: batadv_slave_0
+[  174.235879][T10606] batman_adv: batadv0: The MTU of interface batadv_slave_0 is too small (1500) to handle the transport of batman-adv packets. Packets going over this interface will be fragmented on layer2 which could impact the performance. Setting the MTU to 1560 would solve the problem.
+[  174.244174][T10606] batman_adv: batadv0: Not using interface batadv_slave_0 (retrying later): interface not active
+[  174.383218][T10606] batman_adv: batadv0: Adding interface: batadv_slave_1
+[  174.384934][T10606] batman_adv: batadv0: The MTU of interface batadv_slave_1 is too small (1500) to handle the transport of batman-adv packets. Packets going over this interface will be fragmented on layer2 which could impact the performance. Setting the MTU to 1560 would solve the problem.
+[  174.399364][T10606] batman_adv: batadv0: Not using interface batadv_slave_1 (retrying later): interface not active
+[  174.666948][T10630] team0: Port device team_slave_0 added
+[  174.897086][T10595] hsr_slave_0: entered promiscuous mode
+[  174.899304][T10595] hsr_slave_1: entered promiscuous mode
+[  174.901045][T10595] debugfs: Directory 'hsr0' with parent 'hsr' already present!
+[  174.902264][T10595] Cannot create hsr debugfs directory
+[  174.962176][T10607] batman_adv: batadv0: Adding interface: batadv_slave_0
+[  174.963438][T10607] batman_adv: batadv0: The MTU of interface batadv_slave_0 is too small (1500) to handle the transport of batman-adv packets. Packets going over this interface will be fragmented on layer2 which could impact the performance. Setting the MTU to 1560 would solve the problem.
+[  174.974253][T10607] batman_adv: batadv0: Not using interface batadv_slave_0 (retrying later): interface not active
+[  174.978471][T10607] batman_adv: batadv0: Adding interface: batadv_slave_1
+[  174.980562][T10607] batman_adv: batadv0: The MTU of interface batadv_slave_1 is too small (1500) to handle the transport of batman-adv packets. Packets going over this interface will be fragmented on layer2 which could impact the performance. Setting the MTU to 1560 would solve the problem.
+[  174.985005][T10607] batman_adv: batadv0: Not using interface batadv_slave_1 (retrying later): interface not active
+[  175.024113][T10630] team0: Port device team_slave_1 added
+[  175.034907][T10588] hsr_slave_0: entered promiscuous mode
+[  175.036890][T10588] hsr_slave_1: entered promiscuous mode
+[  175.038602][T10588] debugfs: Directory 'hsr0' with parent 'hsr' already present!
+[  175.043732][T10588] Cannot create hsr debugfs directory
+[  175.075872][T10584] hsr_slave_0: entered promiscuous mode
+[  175.077984][T10584] hsr_slave_1: entered promiscuous mode
+[  175.081168][T10584] debugfs: Directory 'hsr0' with parent 'hsr' already present!
+[  175.082372][T10584] Cannot create hsr debugfs directory
+[  175.247902][T10606] hsr_slave_0: entered promiscuous mode
+[  175.255494][T10606] hsr_slave_1: entered promiscuous mode
+[  175.257155][T10606] debugfs: Directory 'hsr0' with parent 'hsr' already present!
+[  175.258403][T10606] Cannot create hsr debugfs directory
+[  175.324676][T10630] batman_adv: batadv0: Adding interface: batadv_slave_0
+[  175.325934][T10630] batman_adv: batadv0: The MTU of interface batadv_slave_0 is too small (1500) to handle the transport of batman-adv packets. Packets going over this interface will be fragmented on layer2 which could impact the performance. Setting the MTU to 1560 would solve the problem.
+[  175.335389][T10630] batman_adv: batadv0: Not using interface batadv_slave_0 (retrying later): interface not active
+[  175.446249][T10630] batman_adv: batadv0: Adding interface: batadv_slave_1
+[  175.447480][T10630] batman_adv: batadv0: The MTU of interface batadv_slave_1 is too small (1500) to handle the transport of batman-adv packets. Packets going over this interface will be fragmented on layer2 which could impact the performance. Setting the MTU to 1560 would solve the problem.
+[  175.457633][T10630] batman_adv: batadv0: Not using interface batadv_slave_1 (retrying later): interface not active
+[  175.873364][T10607] hsr_slave_0: entered promiscuous mode
+[  175.877283][T10607] hsr_slave_1: entered promiscuous mode
+[  175.902074][T10607] debugfs: Directory 'hsr0' with parent 'hsr' already present!
+[  175.906258][T10607] Cannot create hsr debugfs directory
+[  176.044722][T10630] hsr_slave_0: entered promiscuous mode
+[  176.047259][T10630] hsr_slave_1: entered promiscuous mode
+[  176.052764][T10630] debugfs: Directory 'hsr0' with parent 'hsr' already present!
+[  176.054383][T10630] Cannot create hsr debugfs directory
+[  177.172443][T10565] netdevsim netdevsim1 netdevsim0: renamed from eth0
+[  177.280670][T10565] netdevsim netdevsim1 netdevsim1: renamed from eth1
+[  177.293791][T10565] netdevsim netdevsim1 netdevsim2: renamed from eth2
+[  177.453807][T10565] netdevsim netdevsim1 netdevsim3: renamed from eth3
+[  177.895860][T10563] netdevsim netdevsim0 netdevsim0: renamed from eth0
+[  177.927624][T10563] netdevsim netdevsim0 netdevsim1: renamed from eth1
+[  177.944513][T10563] netdevsim netdevsim0 netdevsim2: renamed from eth2
+[  177.980368][T10563] netdevsim netdevsim0 netdevsim3: renamed from eth3
+[  178.103976][T10595] netdevsim netdevsim4 netdevsim0: renamed from eth0
+[  178.117087][T10595] netdevsim netdevsim4 netdevsim1: renamed from eth1
+[  178.136040][T10595] netdevsim netdevsim4 netdevsim2: renamed from eth2
+[  178.157896][T10595] netdevsim netdevsim4 netdevsim3: renamed from eth3
+[  178.317165][T10584] netdevsim netdevsim2 netdevsim0: renamed from eth0
+[  178.332298][T10584] netdevsim netdevsim2 netdevsim1: renamed from eth1
+[  178.344032][T10584] netdevsim netdevsim2 netdevsim2: renamed from eth2
+[  178.354035][T10584] netdevsim netdevsim2 netdevsim3: renamed from eth3
+[  178.442583][T10565] 8021q: adding VLAN 0 to HW filter on device bond0
+[  178.568944][T10565] 8021q: adding VLAN 0 to HW filter on device team0
+[  178.602827][T10588] netdevsim netdevsim3 netdevsim0: renamed from eth0
+[  178.621344][T10588] netdevsim netdevsim3 netdevsim1: renamed from eth1
+[  178.629023][T10588] netdevsim netdevsim3 netdevsim2: renamed from eth2
+[  178.665166][T10588] netdevsim netdevsim3 netdevsim3: renamed from eth3
+[  178.712661][ T4436] bridge0: port 1(bridge_slave_0) entered blocking state
+[  178.713956][ T4436] bridge0: port 1(bridge_slave_0) entered forwarding state
+[  178.755855][ T4436] bridge0: port 2(bridge_slave_1) entered blocking state
+[  178.757130][ T4436] bridge0: port 2(bridge_slave_1) entered forwarding state
+[  178.933446][T10563] 8021q: adding VLAN 0 to HW filter on device bond0
+[  178.989870][T10606] netdevsim netdevsim6 netdevsim0: renamed from eth0
+[  179.127876][T10606] netdevsim netdevsim6 netdevsim1: renamed from eth1
+[  179.144874][T10606] netdevsim netdevsim6 netdevsim2: renamed from eth2
+[  179.220451][T10606] netdevsim netdevsim6 netdevsim3: renamed from eth3
+[  179.289111][T10563] 8021q: adding VLAN 0 to HW filter on device team0
+[  179.335893][T10584] 8021q: adding VLAN 0 to HW filter on device bond0
+[  179.415928][   T64] bridge0: port 1(bridge_slave_0) entered blocking state
+[  179.417332][   T64] bridge0: port 1(bridge_slave_0) entered forwarding state
+[  179.470495][ T4436] bridge0: port 2(bridge_slave_1) entered blocking state
+[  179.471836][ T4436] bridge0: port 2(bridge_slave_1) entered forwarding state
+[  179.524925][T10595] 8021q: adding VLAN 0 to HW filter on device bond0
+[  179.553147][T10630] netdevsim netdevsim7 netdevsim0: renamed from eth0
+[  179.597801][T10584] 8021q: adding VLAN 0 to HW filter on device team0
+[  179.600258][T10630] netdevsim netdevsim7 netdevsim1: renamed from eth1
+[  179.618080][T10630] netdevsim netdevsim7 netdevsim2: renamed from eth2
+[  179.742373][T10630] netdevsim netdevsim7 netdevsim3: renamed from eth3
+[  179.766328][T10595] 8021q: adding VLAN 0 to HW filter on device team0
+[  179.811634][   T85] bridge0: port 1(bridge_slave_0) entered blocking state
+[  179.812947][   T85] bridge0: port 1(bridge_slave_0) entered forwarding state
+[  179.884624][   T85] bridge0: port 1(bridge_slave_0) entered blocking state
+[  179.885889][   T85] bridge0: port 1(bridge_slave_0) entered forwarding state
+[  179.890090][   T85] bridge0: port 2(bridge_slave_1) entered blocking state
+[  179.891362][   T85] bridge0: port 2(bridge_slave_1) entered forwarding state
+[  180.021962][T10588] 8021q: adding VLAN 0 to HW filter on device bond0
+[  180.039078][   T85] bridge0: port 2(bridge_slave_1) entered blocking state
+[  180.040367][   T85] bridge0: port 2(bridge_slave_1) entered forwarding state
+[  180.134655][T10565] 8021q: adding VLAN 0 to HW filter on device batadv0
+[  180.236232][T10588] 8021q: adding VLAN 0 to HW filter on device team0
+[  180.445491][  T184] bridge0: port 1(bridge_slave_0) entered blocking state
+[  180.447648][  T184] bridge0: port 1(bridge_slave_0) entered forwarding state
+[  180.676290][T10607] netdevsim netdevsim5 netdevsim0: renamed from eth0
+[  180.697877][T10607] netdevsim netdevsim5 netdevsim1: renamed from eth1
+[  180.738044][T10565] veth0_vlan: entered promiscuous mode
+[  180.757173][  T184] bridge0: port 2(bridge_slave_1) entered blocking state
+[  180.758507][  T184] bridge0: port 2(bridge_slave_1) entered forwarding state
+[  180.768421][T10607] netdevsim netdevsim5 netdevsim2: renamed from eth2
+[  180.802803][T10607] netdevsim netdevsim5 netdevsim3: renamed from eth3
+[  180.872265][T10606] 8021q: adding VLAN 0 to HW filter on device bond0
+[  181.016972][T10565] veth1_vlan: entered promiscuous mode
+[  181.095167][T10606] 8021q: adding VLAN 0 to HW filter on device team0
+[  181.122633][T10563] 8021q: adding VLAN 0 to HW filter on device batadv0
+[  181.178532][T10630] 8021q: adding VLAN 0 to HW filter on device bond0
+[  181.186927][   T33] bridge0: port 1(bridge_slave_0) entered blocking state
+[  181.188204][   T33] bridge0: port 1(bridge_slave_0) entered forwarding state
+[  181.236836][T10584] 8021q: adding VLAN 0 to HW filter on device batadv0
+[  181.243399][   T33] bridge0: port 2(bridge_slave_1) entered blocking state
+[  181.244638][   T33] bridge0: port 2(bridge_slave_1) entered forwarding state
+[  181.356887][T10565] veth0_macvtap: entered promiscuous mode
+[  181.415736][T10565] veth1_macvtap: entered promiscuous mode
+[  181.580307][T10630] 8021q: adding VLAN 0 to HW filter on device team0
+[  181.599746][T10595] 8021q: adding VLAN 0 to HW filter on device batadv0
+[  181.635499][T10565] batman_adv: batadv0: Interface activated: batadv_slave_0
+[  181.656026][   T33] bridge0: port 1(bridge_slave_0) entered blocking state
+[  181.657328][   T33] bridge0: port 1(bridge_slave_0) entered forwarding state
+[  181.701598][T10565] batman_adv: batadv0: Interface activated: batadv_slave_1
+[  181.707660][T10563] veth0_vlan: entered promiscuous mode
+[  181.713432][   T40] bridge0: port 2(bridge_slave_1) entered blocking state
+[  181.714678][   T40] bridge0: port 2(bridge_slave_1) entered forwarding state
+[  181.743090][T10565] netdevsim netdevsim1 netdevsim0: set [1, 0] type 2 family 0 port 6081 - 0
+[  181.744533][T10565] netdevsim netdevsim1 netdevsim1: set [1, 0] type 2 family 0 port 6081 - 0
+[  181.746026][T10565] netdevsim netdevsim1 netdevsim2: set [1, 0] type 2 family 0 port 6081 - 0
+[  181.747466][T10565] netdevsim netdevsim1 netdevsim3: set [1, 0] type 2 family 0 port 6081 - 0
+[  181.787626][T10588] 8021q: adding VLAN 0 to HW filter on device batadv0
+[  181.814754][T10563] veth1_vlan: entered promiscuous mode
+[  181.887091][T10584] veth0_vlan: entered promiscuous mode
+[  181.945049][T10584] veth1_vlan: entered promiscuous mode
+[  182.006837][T10607] 8021q: adding VLAN 0 to HW filter on device bond0
+[  182.243002][T10630] hsr0: Slave B (hsr_slave_1) is not up; please bring it up to get a fully working HSR network
+[  182.556433][T10563] veth0_macvtap: entered promiscuous mode
+[  182.606341][ T4436] wlan0: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[  182.607947][ T4436] wlan0: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[  182.697298][T10588] veth0_vlan: entered promiscuous mode
+[  182.722312][T10584] veth0_macvtap: entered promiscuous mode
+[  182.771725][T10607] 8021q: adding VLAN 0 to HW filter on device team0
+[  182.783380][T10606] 8021q: adding VLAN 0 to HW filter on device batadv0
+[  182.877469][T10588] veth1_vlan: entered promiscuous mode
+[  182.915658][T10584] veth1_macvtap: entered promiscuous mode
+[  182.930257][T10563] veth1_macvtap: entered promiscuous mode
+[  182.984718][   T64] bridge0: port 1(bridge_slave_0) entered blocking state
+[  182.986036][   T64] bridge0: port 1(bridge_slave_0) entered forwarding state
+[  183.053738][   T33] wlan1: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[  183.055042][   T33] wlan1: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[  183.062029][   T40] bridge0: port 2(bridge_slave_1) entered blocking state
+[  183.063330][   T40] bridge0: port 2(bridge_slave_1) entered forwarding state
+[  183.091939][T10563] batman_adv: batadv0: Interface activated: batadv_slave_0
+[  183.102546][T10584] batman_adv: batadv0: Interface activated: batadv_slave_0
+[  183.206783][T10584] batman_adv: batadv0: Interface activated: batadv_slave_1
+[  183.218135][T10595] veth0_vlan: entered promiscuous mode
+2025/07/11 11:29:47 executed programs: 16
+[  183.277383][T10563] batman_adv: batadv0: Interface activated: batadv_slave_1
+[  183.314790][T10584] netdevsim netdevsim2 netdevsim0: set [1, 0] type 2 family 0 port 6081 - 0
+[  183.316319][T10584] netdevsim netdevsim2 netdevsim1: set [1, 0] type 2 family 0 port 6081 - 0
+[  183.317765][T10584] netdevsim netdevsim2 netdevsim2: set [1, 0] type 2 family 0 port 6081 - 0
+[  183.335276][T10584] netdevsim netdevsim2 netdevsim3: set [1, 0] type 2 family 0 port 6081 - 0
+[  183.553687][T10630] 8021q: adding VLAN 0 to HW filter on device batadv0
+[  183.555620][T10595] veth1_vlan: entered promiscuous mode
+[  183.591302][T10563] netdevsim netdevsim0 netdevsim0: set [1, 0] type 2 family 0 port 6081 - 0
+[  183.592883][T10563] netdevsim netdevsim0 netdevsim1: set [1, 0] type 2 family 0 port 6081 - 0
+[  183.594386][T10563] netdevsim netdevsim0 netdevsim2: set [1, 0] type 2 family 0 port 6081 - 0
+[  183.595782][T10563] netdevsim netdevsim0 netdevsim3: set [1, 0] type 2 family 0 port 6081 - 0
+[  183.787944][T10588] veth0_macvtap: entered promiscuous mode
+[  183.822457][T10595] veth0_macvtap: entered promiscuous mode
+[  183.875454][T10588] veth1_macvtap: entered promiscuous mode
+[  183.968456][T10595] veth1_macvtap: entered promiscuous mode
+[  184.045225][T13364] loop1: detected capacity change from 0 to 32768
+[  184.263977][T10588] batman_adv: batadv0: Interface activated: batadv_slave_0
+[  184.313152][T10588] batman_adv: batadv0: Interface activated: batadv_slave_1
+[  184.358408][   T26] wlan0: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[  184.366294][   T26] wlan0: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[  184.543998][T10588] netdevsim netdevsim3 netdevsim0: set [1, 0] type 2 family 0 port 6081 - 0
+[  184.545650][T10588] netdevsim netdevsim3 netdevsim1: set [1, 0] type 2 family 0 port 6081 - 0
+[  184.547098][T10588] netdevsim netdevsim3 netdevsim2: set [1, 0] type 2 family 0 port 6081 - 0
+[  184.548510][T10588] netdevsim netdevsim3 netdevsim3: set [1, 0] type 2 family 0 port 6081 - 0
+[  184.739988][T10595] batman_adv: batadv0: Interface activated: batadv_slave_0
+[  184.908412][   T29] wlan0: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[  184.910677][   T29] wlan0: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[  184.917768][T10607] 8021q: adding VLAN 0 to HW filter on device batadv0
+[  184.976011][   T26] wlan1: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[  184.981791][   T26] wlan1: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[  184.983492][T10595] batman_adv: batadv0: Interface activated: batadv_slave_1
+[  185.074733][T10606] veth0_vlan: entered promiscuous mode
+[  185.123210][T10595] netdevsim netdevsim4 netdevsim0: set [1, 0] type 2 family 0 port 6081 - 0
+[  185.124776][T10595] netdevsim netdevsim4 netdevsim1: set [1, 0] type 2 family 0 port 6081 - 0
+[  185.126251][T10595] netdevsim netdevsim4 netdevsim2: set [1, 0] type 2 family 0 port 6081 - 0
+[  185.127696][T10595] netdevsim netdevsim4 netdevsim3: set [1, 0] type 2 family 0 port 6081 - 0
+[  185.162371][T13387] loop1: detected capacity change from 0 to 32768
+[  185.362031][T10630] veth0_vlan: entered promiscuous mode
+[  185.389716][T10606] veth1_vlan: entered promiscuous mode
+[  185.571796][ T1095] wlan1: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[  185.573360][ T1095] wlan1: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[  185.785791][T10630] veth1_vlan: entered promiscuous mode
+[  186.374048][T13408] loop0: detected capacity change from 0 to 32768
+[  186.408361][T13407] loop1: detected capacity change from 0 to 32768
+[  186.465303][T10606] veth0_macvtap: entered promiscuous mode
+[  186.625681][   T64] wlan0: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[  186.627126][   T64] wlan0: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[  186.712677][T10606] veth1_macvtap: entered promiscuous mode
+[  186.997598][T13419] loop2: detected capacity change from 0 to 32768
+[  187.583081][T10630] veth0_macvtap: entered promiscuous mode
+[  187.850015][T10630] veth1_macvtap: entered promiscuous mode
+[  187.900805][   T26] wlan1: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[  187.902361][   T26] wlan1: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[  187.953708][T13425] loop0: detected capacity change from 0 to 32768
+[  188.238318][T10606] batman_adv: batadv0: Interface activated: batadv_slave_0
+[  188.263610][T13436] loop1: detected capacity change from 0 to 32768
+2025/07/11 11:29:52 executed programs: 25
+[  188.461884][T10606] batman_adv: batadv0: Interface activated: batadv_slave_1
+[  188.480068][T13444] loop2: detected capacity change from 0 to 32768
+[  188.491731][   T29] wlan0: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[  188.493029][   T29] wlan0: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[  188.893090][T10606] netdevsim netdevsim6 netdevsim0: set [1, 0] type 2 family 0 port 6081 - 0
+[  188.894731][T10606] netdevsim netdevsim6 netdevsim1: set [1, 0] type 2 family 0 port 6081 - 0
+[  188.896164][T10606] netdevsim netdevsim6 netdevsim2: set [1, 0] type 2 family 0 port 6081 - 0
+[  188.897656][T10606] netdevsim netdevsim6 netdevsim3: set [1, 0] type 2 family 0 port 6081 - 0
+[  189.666421][   T64] wlan1: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[  189.731700][   T64] wlan1: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[  189.762659][T10630] batman_adv: batadv0: Interface activated: batadv_slave_0
+[  190.069093][T13454] loop0: detected capacity change from 0 to 32768
+[  190.124863][T10630] batman_adv: batadv0: Interface activated: batadv_slave_1
+[  190.132090][T10607] veth0_vlan: entered promiscuous mode
+[  190.296500][T10607] veth1_vlan: entered promiscuous mode
+[  190.514038][T13465] loop3: detected capacity change from 0 to 32768
+[  190.576002][T13464] loop1: detected capacity change from 0 to 32768
+[  190.625947][T10630] netdevsim netdevsim7 netdevsim0: set [1, 0] type 2 family 0 port 6081 - 0
+[  190.652527][T10630] netdevsim netdevsim7 netdevsim1: set [1, 0] type 2 family 0 port 6081 - 0
+[  190.653980][T10630] netdevsim netdevsim7 netdevsim2: set [1, 0] type 2 family 0 port 6081 - 0
+[  190.655423][T10630] netdevsim netdevsim7 netdevsim3: set [1, 0] type 2 family 0 port 6081 - 0
+[  190.676156][T13470] loop2: detected capacity change from 0 to 32768
+[  191.499719][T13475] loop0: detected capacity change from 0 to 32768
+[  191.803694][T10607] veth0_macvtap: entered promiscuous mode
+[  192.277253][   T29] wlan0: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[  192.279297][   T29] wlan0: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[  192.279555][T10607] veth1_macvtap: entered promiscuous mode
+[  192.628328][T13488] loop4: detected capacity change from 0 to 32768
+[  192.806398][T13492] loop2: detected capacity change from 0 to 32768
+[  192.909090][T13490] loop1: detected capacity change from 0 to 32768
+[  192.913263][T13489] loop3: detected capacity change from 0 to 32768
+[  193.020190][ T4436] wlan1: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[  193.024432][ T4436] wlan1: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[  193.131198][T10607] batman_adv: batadv0: Interface activated: batadv_slave_0
+[  193.264375][T10607] batman_adv: batadv0: Interface activated: batadv_slave_1
+[  193.420230][T10607] netdevsim netdevsim5 netdevsim0: set [1, 0] type 2 family 0 port 6081 - 0
+[  193.421801][T10607] netdevsim netdevsim5 netdevsim1: set [1, 0] type 2 family 0 port 6081 - 0
+[  193.423197][T10607] netdevsim netdevsim5 netdevsim2: set [1, 0] type 2 family 0 port 6081 - 0
+[  193.424604][T10607] netdevsim netdevsim5 netdevsim3: set [1, 0] type 2 family 0 port 6081 - 0
+[  193.577032][T13503] loop0: detected capacity change from 0 to 32768
+2025/07/11 11:29:57 executed programs: 38
+[  193.977277][   T64] wlan0: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[  193.978644][   T64] wlan0: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[  194.282907][T13514] loop2: detected capacity change from 0 to 32768
+[  194.440555][T13527] loop4: detected capacity change from 0 to 32768
+[  194.547798][   T66] wlan1: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[  194.552003][   T66] wlan1: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[  194.968298][T13530] loop3: detected capacity change from 0 to 32768
+[  195.082871][T13529] loop1: detected capacity change from 0 to 32768
+[  195.175194][   T29] wlan0: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[  195.176592][   T29] wlan0: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[  195.515804][T13536] loop6: detected capacity change from 0 to 32768
+[  195.663599][ T1095] wlan1: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[  195.665625][ T1095] wlan1: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[  196.017449][T13541] loop0: detected capacity change from 0 to 32768
+[  197.093047][T13557] loop2: detected capacity change from 0 to 32768
+[  197.217357][T13563] loop4: detected capacity change from 0 to 32768
+[  197.314114][T13564] loop7: detected capacity change from 0 to 32768
+[  197.534025][T10595] Oops: general protection fault, probably for non-canonical address 0xdffffc0000000006: 0000 [#1] SMP KASAN PTI
+[  197.536078][T10595] KASAN: null-ptr-deref in range [0x0000000000000030-0x0000000000000037]
+[  197.537554][T10595] CPU: 1 UID: 0 PID: 10595 Comm: syz-executor Not tainted 6.16.0-rc5 #1 PREEMPT(full) 
+[  197.539166][T10595] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.16.2-debian-1.16.2-1 04/01/2014
+[  197.541988][T10595] RIP: 0010:write_special_inodes+0xa8/0x170
+[  197.543460][T10595] Code: 30 e8 0c e2 3b 08 48 8d 7b 28 48 89 f8 48 c1 e8 03 80 3c 28 00 0f 85 af 00 00 00 4c 8b 6b 28 49 8d 7d 30 48 89 f8 48 c1 e8 03 <80> 3c 28 00 0f 85 8c 00 00 00 49 8b 7d 30 e8 d5 e1 3b 08 48 8d bb
+[  197.546769][T10595] RSP: 0018:ffffc9000337fc00 EFLAGS: 00010206
+[  197.547830][T10595] RAX: 0000000000000006 RBX: ffff88806bb9d000 RCX: ffffffff81f03d40
+[  197.549208][T10595] RDX: 0000000000000000 RSI: ffff8880217a0000 RDI: 0000000000000030
+[  197.550554][T10595] RBP: dffffc0000000000 R08: 0000000000000001 R09: 0000000000000001
+[  197.551872][T10595] R10: fffffbfff214b4ca R11: ffffffff90a5a657 R12: ffffffff81f10fd0
+[  197.553263][T10595] R13: 0000000000000000 R14: ffff888067985000 R15: ffff888069e43028
+[  197.554580][T10595] FS:  0000555565cfb500(0000) GS:ffff8880eb0bc000(0000) knlGS:0000000000000000
+[  197.556086][T10595] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[  197.557262][T10595] CR2: 00007f5f16400218 CR3: 000000004f5e8000 CR4: 0000000000002ef0
+[  197.558558][T10595] Call Trace:
+[  197.559141][T10595]  <TASK>
+[  197.559663][T10595]  jfs_flush_journal+0x324/0x950
+[  197.560535][T10595]  ? __pfx_jfs_flush_journal+0x10/0x10
+[  197.561519][T10595]  ? __pfx_dquot_disable+0x10/0x10
+[  197.562397][T10595]  ? __pfx_hook_sb_delete+0x10/0x10
+[  197.563289][T10595]  jfs_umount+0x17a/0x440
+[  197.564046][T10595]  jfs_put_super+0x88/0x1d0
+[  197.564817][T10595]  ? __pfx_jfs_put_super+0x10/0x10
+[  197.565736][T10595]  generic_shutdown_super+0x156/0x390
+[  197.566671][T10595]  kill_block_super+0x3b/0x90
+[  197.567482][T10595]  deactivate_locked_super+0xbd/0x130
+[  197.568423][T10595]  deactivate_super+0xd8/0xf0
+[  197.569330][T10595]  cleanup_mnt+0x339/0x4d0
+[  197.570139][T10595]  task_work_run+0x172/0x280
+[  197.570964][T10595]  ? __pfx_task_work_run+0x10/0x10
+[  197.571937][T10595]  ? do_user_addr_fault+0x4e1/0x18c0
+[  197.572842][T10595]  ? exit_to_user_mode_loop+0x59/0x120
+[  197.573798][T10595]  exit_to_user_mode_loop+0xfd/0x120
+[  197.574698][T10595]  do_syscall_64+0x41b/0x490
+[  197.575486][T10595]  entry_SYSCALL_64_after_hwframe+0x77/0x7f
+[  197.576432][T10595] RIP: 0033:0x7f2678f8fe57
+[  197.577251][T10595] Code: a8 ff ff ff f7 d8 64 89 01 48 83 c8 ff c3 0f 1f 44 00 00 31 f6 e9 09 00 00 00 66 0f 1f 84 00 00 00 00 00 b8 a6 00 00 00 0f 05 <48> 3d 00 f0 ff ff 77 01 c3 48 c7 c2 a8 ff ff ff f7 d8 64 89 02 b8
+[  197.580370][T10595] RSP: 002b:00007ffe3a1764b8 EFLAGS: 00000246 ORIG_RAX: 00000000000000a6
+[  197.581794][T10595] RAX: 0000000000000000 RBX: 00007f2679011925 RCX: 00007f2678f8fe57
+[  197.583158][T10595] RDX: 0000000000000000 RSI: 0000000000000009 RDI: 00007ffe3a176570
+[  197.584499][T10595] RBP: 00007ffe3a176570 R08: 0000000000000000 R09: 0000000000000000
+[  197.585858][T10595] R10: 00000000ffffffff R11: 0000000000000246 R12: 00007ffe3a177600
+[  197.587182][T10595] R13: 00007f2679011925 R14: 00000000000302b9 R15: 00007ffe3a177640
+[  197.588511][T10595]  </TASK>
+[  197.589061][T10595] Modules linked in:
+[  197.590861][T10595] ---[ end trace 0000000000000000 ]---
+[  197.739358][T10595] RIP: 0010:write_special_inodes+0xa8/0x170
+[  197.740888][T10595] Code: 30 e8 0c e2 3b 08 48 8d 7b 28 48 89 f8 48 c1 e8 03 80 3c 28 00 0f 85 af 00 00 00 4c 8b 6b 28 49 8d 7d 30 48 89 f8 48 c1 e8 03 <80> 3c 28 00 0f 85 8c 00 00 00 49 8b 7d 30 e8 d5 e1 3b 08 48 8d bb
+[  197.767265][T10595] RSP: 0018:ffffc9000337fc00 EFLAGS: 00010206
+[  197.768568][T10595] RAX: 0000000000000006 RBX: ffff88806bb9d000 RCX: ffffffff81f03d40
+[  197.771867][T10595] RDX: 0000000000000000 RSI: ffff8880217a0000 RDI: 0000000000000030
+[  197.773253][T10595] RBP: dffffc0000000000 R08: 0000000000000001 R09: 0000000000000001
+[  197.774608][T10595] R10: fffffbfff214b4ca R11: ffffffff90a5a657 R12: ffffffff81f10fd0
+[  197.821257][T10595] R13: 0000000000000000 R14: ffff888067985000 R15: ffff888069e43028
+[  197.822787][T10595] FS:  0000555565cfb500(0000) GS:ffff8880978bc000(0000) knlGS:0000000000000000
+[  197.824289][T10595] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[  197.825411][T10595] CR2: 00007ffe72c0fea8 CR3: 000000004f5e8000 CR4: 0000000000002ef0
+[  197.826741][T10595] Kernel panic - not syncing: Fatal exception
+[  197.827943][T10595] Kernel Offset: disabled
+[  197.828705][T10595] Rebooting in 86400 seconds..
+
+VM DIAGNOSIS:
+11:30:01  Registers:
+info registers vcpu 0
+
+CPU#0
+RAX=0000000000000000 RBX=ffff8880520f5668 RCX=ffffffff849151b0 RDX=0000000000000001
+RSI=0000000000000001 RDI=ffff88802041b200 RBP=ffff888045d6b980 RSP=ffffc90002e3f898
+R8 =fffffbfff35f7f19 R9 =fffffbfff35f7f19 R10=fffffbfff35f7f18 R11=ffffffff9afbf8c3
+R12=ffff88804040f000 R13=0000000000000001 R14=ffff8880520f5530 R15=ffff8880520f5668
+RIP=ffffffff81fd2224 RFL=00000246 [---Z-P-] CPL=0 II=0 A20=1 SMM=0 HLT=0
+ES =0000 0000000000000000 ffffffff 00c00000
+CS =0010 0000000000000000 ffffffff 00a09b00 DPL=0 CS64 [-RA]
+SS =0018 0000000000000000 ffffffff 00c09300 DPL=0 DS   [-WA]
+DS =0000 0000000000000000 ffffffff 00c00000
+FS =0000 0000555569595500 ffffffff 00c00000
+GS =0000 ffff8880978bc000 ffffffff 00c00000
+LDT=0000 0000000000000000 ffffffff 00c00000
+TR =0040 fffffe0000003000 00004087 00008b00 DPL=0 TSS64-busy
+GDT=     fffffe0000001000 0000007f
+IDT=     fffffe0000000000 00000fff
+CR0=80050033 CR2=0000001b31d20218 CR3=000000006bb6e000 CR4=00002ef0
+DR0=0000000000000000 DR1=0000000000000000 DR2=0000000000000000 DR3=0000000000000000 
+DR6=00000000ffff0ff0 DR7=0000000000000400
+EFER=0000000000000d01
+FCW=037f FSW=0000 [ST=0] FTW=00 MXCSR=00001f80
+FPR0=0000000000000000 0000 FPR1=0000000000000000 0000
+FPR2=0000000000000000 0000 FPR3=0000000000000000 0000
+FPR4=0000000000000000 0000 FPR5=0000000000000000 0000
+FPR6=0000000000000000 0000 FPR7=0000000000000000 0000
+XMM00=0000000000000000 0000000000000000 XMM01=ffffffffffffffff ffffffffffffffff
+XMM02=ffffffffffffffff ffffffffffffffff XMM03=ffffffffffffff00 ffffffffffffffff
+XMM04=0000000000000000 00000000000000ff XMM05=0000000000000000 0000000000000000
+XMM06=0000000000000000 000000524f525245 XMM07=0000000000000000 0000000000000000
+XMM08=0000000000000000 00524f5252450040 XMM09=0000000000000000 00007fb849212c91
+XMM10=0000000000000000 0000000000000000 XMM11=0000000000000000 0000000000000000
+XMM12=0000000000000000 0000000000000000 XMM13=0000000000000000 0000000000000000
+XMM14=0000000000000000 0000000000000000 XMM15=0000000000000000 0000000000000000
+info registers vcpu 1
+
+CPU#1
+RAX=0000000000000030 RBX=0000000000000000 RCX=0000000000000000 RDX=00000000000003f8
+RSI=ffff8880217a0000 RDI=ffffffff9b10f980 RBP=ffffffff9b10f940 RSP=ffffc9000337f428
+R8 =ffffed1008b7c047 R9 =ffffed1008b7c047 R10=ffffed1008b7c046 R11=ffff888045be0237
+R12=0000000000000000 R13=0000000000000030 R14=0000000000000030 R15=0000000000000000
+RIP=ffffffff855c700f RFL=00000002 [-------] CPL=0 II=0 A20=1 SMM=0 HLT=0
+ES =0000 0000000000000000 ffffffff 00c00000
+CS =0010 0000000000000000 ffffffff 00a09b00 DPL=0 CS64 [-RA]
+SS =0018 0000000000000000 ffffffff 00c09300 DPL=0 DS   [-WA]
+DS =0000 0000000000000000 ffffffff 00c00000
+FS =0000 0000555565cfb500 ffffffff 00c00000
+GS =0000 ffff8880eb0bc000 ffffffff 00c00000
+LDT=0000 0000000000000000 00000000 00000000
+TR =0040 fffffe000004a000 00004087 00008b00 DPL=0 TSS64-busy
+GDT=     fffffe0000048000 0000007f
+IDT=     fffffe0000000000 00000fff
+CR0=80050033 CR2=00007f5f16400218 CR3=000000004f5e8000 CR4=00002ef0
+DR0=0000000000000000 DR1=0000000000000000 DR2=0000000000000000 DR3=0000000000000000 
+DR6=00000000ffff0ff0 DR7=0000000000000400
+EFER=0000000000000d01
+FCW=037f FSW=0000 [ST=0] FTW=00 MXCSR=00001f80
+FPR0=0000000000000000 0000 FPR1=0000000000000000 0000
+FPR2=0000000000000000 0000 FPR3=0000000000000000 0000
+FPR4=0000000000000000 0000 FPR5=0000000000000000 0000
+FPR6=0000000000000000 0000 FPR7=0000000000000000 0000
+XMM00=0000000000000000 0000000000000000 XMM01=0000000000000000 00006c696146002f
+XMM02=ffffffffffffffff ff0f0e0d0c0b0a09 XMM03=ffffffffffffffff ffffff0000000000
+XMM04=ffffffffffffffff ffff000000000000 XMM05=00000000ffffffff ffffff00ffffffff
+XMM06=0000000000000000 0000000000000000 XMM07=0000000000000000 0000000000000000
+XMM08=0000000000000000 000000010000ff02 XMM09=6464646464646575 6464646451560808
+XMM10=0d0f02164b50551d 0c144b555556545c XMM11=0000000000000000 0000000000000000
+XMM12=0000000000000000 0000000000000000 XMM13=0000000000000000 0000000000000000
+XMM14=0000000000000000 0000000000000000 XMM15=0000000000000000 0000000000000000

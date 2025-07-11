@@ -1,0 +1,38 @@
+BUG at fs/jfs/jfs_txnmgr.c:931 assert(mp->nohomeok > 0)
+------------[ cut here ]------------
+kernel BUG at fs/jfs/jfs_txnmgr.c:931!
+Oops: invalid opcode: 0000 [#1] SMP KASAN PTI
+CPU: 1 UID: 0 PID: 120 Comm: jfsCommit Not tainted 6.16.0-rc5 #1 PREEMPT(full) 
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.16.2-debian-1.16.2-1 04/01/2014
+RIP: 0010:txUnlock+0x994/0xb50 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux/fs/jfs/jfs_txnmgr.c:931
+Code: e9 d4 fe ff ff e8 5c 29 71 fe 48 c7 c1 00 73 ed 8b ba a3 03 00 00 48 c7 c6 80 72 ed 8b 48 c7 c7 c0 72 ed 8b e8 1d 14 50 fe 90 <0f> 0b 4c 89 ef e8 c2 b8 d7 fe e9 04 f9 ff ff e8 28 29 71 fe 48 c7
+RSP: 0018:ffffc900015e7d18 EFLAGS: 00010282
+RAX: 0000000000000037 RBX: ffffc900019a2090 RCX: 0000000000000000
+RDX: 0000000000000000 RSI: ffff888043a1b980 RDI: 0000000000000002
+RBP: ffff88806d4d9ba0 R08: fffff520002bcf63 R09: fffff520002bcf63
+R10: fffff520002bcf62 R11: ffffc900015e7b17 R12: 0000000000000000
+R13: ffff88806d4d9c48 R14: 0000000000000002 R15: dffffc0000000000
+FS:  0000000000000000(0000) GS:ffff8880eb0bc000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00007fabf39f7990 CR3: 000000004ad20000 CR4: 0000000000002ef0
+Call Trace:
+ <TASK>
+ txLazyCommit home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux/fs/jfs/jfs_txnmgr.c:2682 [inline]
+ jfs_lazycommit+0x5dd/0xbb0 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux/fs/jfs/jfs_txnmgr.c:2733
+ kthread+0x439/0x890 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux/kernel/kthread.c:464
+ ret_from_fork+0x52a/0x700 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux/arch/x86/kernel/process.c:148
+ ret_from_fork_asm+0x1a/0x30 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux/arch/x86/entry/entry_64.S:245
+ </TASK>
+Modules linked in:
+---[ end trace 0000000000000000 ]---
+RIP: 0010:txUnlock+0x994/0xb50 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux/fs/jfs/jfs_txnmgr.c:931
+Code: e9 d4 fe ff ff e8 5c 29 71 fe 48 c7 c1 00 73 ed 8b ba a3 03 00 00 48 c7 c6 80 72 ed 8b 48 c7 c7 c0 72 ed 8b e8 1d 14 50 fe 90 <0f> 0b 4c 89 ef e8 c2 b8 d7 fe e9 04 f9 ff ff e8 28 29 71 fe 48 c7
+RSP: 0018:ffffc900015e7d18 EFLAGS: 00010282
+RAX: 0000000000000037 RBX: ffffc900019a2090 RCX: 0000000000000000
+RDX: 0000000000000000 RSI: ffff888043a1b980 RDI: 0000000000000002
+RBP: ffff88806d4d9ba0 R08: fffff520002bcf63 R09: fffff520002bcf63
+R10: fffff520002bcf62 R11: ffffc900015e7b17 R12: 0000000000000000
+R13: ffff88806d4d9c48 R14: 0000000000000002 R15: dffffc0000000000
+FS:  0000000000000000(0000) GS:ffff8880eb0bc000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00007fabf553f490 CR3: 0000000069b12000 CR4: 0000000000002ef0

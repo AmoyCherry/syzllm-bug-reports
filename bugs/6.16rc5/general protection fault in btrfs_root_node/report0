@@ -1,0 +1,81 @@
+Oops: general protection fault, probably for non-canonical address 0xdffffc0000000003: 0000 [#1] SMP KASAN PTI
+KASAN: null-ptr-deref in range [0x0000000000000018-0x000000000000001f]
+CPU: 0 UID: 0 PID: 13564 Comm: syz.3.99 Not tainted 6.16.0-rc5 #1 PREEMPT(full) 
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.16.2-debian-1.16.2-1 04/01/2014
+RIP: 0010:btrfs_root_node+0x87/0x400 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux/fs/btrfs/ctree.c:193
+Code: 07 5c 8e e8 4b 04 ca fd e8 86 24 b4 07 31 ff 89 c3 89 c6 e8 3b 93 ed fd 58 85 db 0f 85 dc 01 00 00 e8 ad 91 ed fd 48 8b 04 24 <80> 38 00 0f 85 4a 03 00 00 4d 8b 67 18 e8 57 24 b4 07 31 ff 89 c3
+RSP: 0018:ffffc90002b6f720 EFLAGS: 00010216
+RAX: dffffc0000000003 RBX: 0000000000000001 RCX: 0000000000080000
+RDX: ffffc90011ee3000 RSI: ffff8880745a1cc0 RDI: 0000000000000002
+RBP: 0000000000000000 R08: 0000000000000000 R09: 0000000000000001
+R10: 3bf7cffef3796d5b R11: 0000000000000001 R12: 0000000000000000
+R13: 0000000000000003 R14: dffffc0000000000 R15: 0000000000000000
+FS:  00007f253b7886c0(0000) GS:ffff8880978bc000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00007f75d0be9000 CR3: 0000000022af6000 CR4: 0000000000002ef0
+Call Trace:
+ <TASK>
+ btrfs_read_lock_root_node+0x5e/0x2d0 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux/fs/btrfs/locking.c:263
+ btrfs_build_ref_tree+0x14a/0x1540 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux/fs/btrfs/ref-verify.c:1006
+ open_ctree+0x38d6/0x50b0 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux/fs/btrfs/disk-io.c:3595
+ btrfs_fill_super home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux/fs/btrfs/super.c:968 [inline]
+ btrfs_get_tree_super home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux/fs/btrfs/super.c:1893 [inline]
+ btrfs_get_tree+0x1211/0x1c80 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux/fs/btrfs/super.c:2088
+ vfs_get_tree+0x8e/0x340 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux/fs/super.c:1804
+ fc_mount+0x18/0x110 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux/fs/namespace.c:1290
+ btrfs_get_tree_subvol home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux/fs/btrfs/super.c:2046 [inline]
+ btrfs_get_tree+0x7b1/0x1c80 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux/fs/btrfs/super.c:2089
+ vfs_get_tree+0x8e/0x340 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux/fs/super.c:1804
+ do_new_mount home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux/fs/namespace.c:3902 [inline]
+ path_mount+0x11aa/0x1c20 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux/fs/namespace.c:4226
+ do_mount+0xb3/0x110 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux/fs/namespace.c:4239
+ __do_sys_mount home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux/fs/namespace.c:4450 [inline]
+ __se_sys_mount home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux/fs/namespace.c:4427 [inline]
+ __x64_sys_mount+0x1dd/0x220 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux/fs/namespace.c:4427
+ do_syscall_x64 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux/arch/x86/entry/syscall_64.c:63 [inline]
+ do_syscall_64+0xcf/0x490 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux/arch/x86/entry/syscall_64.c:94
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7f253a9902da
+Code: 48 c7 c2 a8 ff ff ff f7 d8 64 89 02 48 c7 c0 ff ff ff ff eb 93 e8 d6 1a 00 00 66 0f 1f 44 00 00 49 89 ca b8 a5 00 00 00 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 a8 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007f253b787e68 EFLAGS: 00000246 ORIG_RAX: 00000000000000a5
+RAX: ffffffffffffffda RBX: 00007f253b787ef0 RCX: 00007f253a9902da
+RDX: 0000200000005100 RSI: 0000200000005140 RDI: 00007f253b787eb0
+RBP: 0000200000005100 R08: 00007f253b787ef0 R09: 0000000000000c41
+R10: 0000000000000c41 R11: 0000000000000246 R12: 0000200000005140
+R13: 00007f253b787eb0 R14: 0000000000005116 R15: 0000200000001100
+ </TASK>
+Modules linked in:
+---[ end trace 0000000000000000 ]---
+RIP: 0010:btrfs_root_node+0x87/0x400 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux/fs/btrfs/ctree.c:193
+Code: 07 5c 8e e8 4b 04 ca fd e8 86 24 b4 07 31 ff 89 c3 89 c6 e8 3b 93 ed fd 58 85 db 0f 85 dc 01 00 00 e8 ad 91 ed fd 48 8b 04 24 <80> 38 00 0f 85 4a 03 00 00 4d 8b 67 18 e8 57 24 b4 07 31 ff 89 c3
+RSP: 0018:ffffc90002b6f720 EFLAGS: 00010216
+RAX: dffffc0000000003 RBX: 0000000000000001 RCX: 0000000000080000
+RDX: ffffc90011ee3000 RSI: ffff8880745a1cc0 RDI: 0000000000000002
+RBP: 0000000000000000 R08: 0000000000000000 R09: 0000000000000001
+R10: 3bf7cffef3796d5b R11: 0000000000000001 R12: 0000000000000000
+R13: 0000000000000003 R14: dffffc0000000000 R15: 0000000000000000
+FS:  00007f253b7886c0(0000) GS:ffff8880eb0bc000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00007f75d0ed6000 CR3: 0000000022af6000 CR4: 0000000000002ef0
+----------------
+Code disassembly (best guess), 1 bytes skipped:
+   0:	5c                   	pop    %rsp
+   1:	8e e8                	mov    %eax,%gs
+   3:	4b 04 ca             	rex.WXB add $0xca,%al
+   6:	fd                   	std
+   7:	e8 86 24 b4 07       	call   0x7b42492
+   c:	31 ff                	xor    %edi,%edi
+   e:	89 c3                	mov    %eax,%ebx
+  10:	89 c6                	mov    %eax,%esi
+  12:	e8 3b 93 ed fd       	call   0xfded9352
+  17:	58                   	pop    %rax
+  18:	85 db                	test   %ebx,%ebx
+  1a:	0f 85 dc 01 00 00    	jne    0x1fc
+  20:	e8 ad 91 ed fd       	call   0xfded91d2
+  25:	48 8b 04 24          	mov    (%rsp),%rax
+* 29:	80 38 00             	cmpb   $0x0,(%rax) <-- trapping instruction
+  2c:	0f 85 4a 03 00 00    	jne    0x37c
+  32:	4d 8b 67 18          	mov    0x18(%r15),%r12
+  36:	e8 57 24 b4 07       	call   0x7b42492
+  3b:	31 ff                	xor    %edi,%edi
+  3d:	89 c3                	mov    %eax,%ebx
