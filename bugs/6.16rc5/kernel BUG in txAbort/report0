@@ -1,0 +1,55 @@
+read_mapping_page failed!
+BUG at fs/jfs/jfs_txnmgr.c:2796 assert(mp->nohomeok)
+------------[ cut here ]------------
+kernel BUG at fs/jfs/jfs_txnmgr.c:2796!
+Oops: invalid opcode: 0000 [#1] SMP KASAN PTI
+CPU: 0 UID: 0 PID: 12932 Comm: syz.2.31 Not tainted 6.16.0-rc5 #1 PREEMPT(full) 
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.16.2-debian-1.16.2-1 04/01/2014
+RIP: 0010:LogSyncRelease home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux/fs/jfs/jfs_txnmgr.c:2796 [inline]
+RIP: 0010:txAbort+0x51f/0x570 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux/fs/jfs/jfs_txnmgr.c:2621
+Code: e9 96 fd ff ff e8 61 bb 70 fe 48 c7 c1 a0 7f ed 8b ba ec 0a 00 00 48 c7 c6 80 72 ed 8b 48 c7 c7 c0 72 ed 8b e8 22 a6 4f fe 90 <0f> 0b e8 3a bb 70 fe 48 c7 c1 e0 7f ed 8b ba ed 0a 00 00 48 c7 c6
+RSP: 0018:ffffc9000307f968 EFLAGS: 00010286
+RAX: 0000000000000034 RBX: 0000000000000004 RCX: 0000000000000000
+RDX: 0000000000000000 RSI: ffff888045b85640 RDI: 0000000000000002
+RBP: dffffc0000000000 R08: ffffed10056c4842 R09: ffffed10056c4842
+R10: ffffed10056c4841 R11: ffff88802b62420b R12: 0000000000000000
+R13: ffffc90001841110 R14: ffff88804b0cec48 R15: ffff88804b0ceba0
+FS:  00007f596e7d36c0(0000) GS:ffff8880978bc000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00007fa2d316df98 CR3: 00000000272aa000 CR4: 0000000000002ef0
+Call Trace:
+ <TASK>
+ txCommit+0x2130/0x47c0 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux/fs/jfs/jfs_txnmgr.c:1354
+ jfs_symlink+0xcfa/0x11d0 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux/fs/jfs/namei.c:1040
+ vfs_symlink home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux/fs/namei.c:4739 [inline]
+ vfs_symlink+0x3fe/0x680 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux/fs/namei.c:4723
+ do_symlinkat+0x251/0x2f0 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux/fs/namei.c:4765
+ __do_sys_symlink home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux/fs/namei.c:4786 [inline]
+ __se_sys_symlink home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux/fs/namei.c:4784 [inline]
+ __x64_sys_symlink+0x75/0x90 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux/fs/namei.c:4784
+ do_syscall_x64 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux/arch/x86/entry/syscall_64.c:63 [inline]
+ do_syscall_64+0xcf/0x490 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux/arch/x86/entry/syscall_64.c:94
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7f596d98eb29
+Code: ff ff c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 40 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 a8 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007f596e7d3038 EFLAGS: 00000246 ORIG_RAX: 0000000000000058
+RAX: ffffffffffffffda RBX: 00007f596dbb5fa0 RCX: 00007f596d98eb29
+RDX: 0000000000000000 RSI: 0000200000000240 RDI: 0000200000000140
+RBP: 00007f596da11b39 R08: 0000000000000000 R09: 0000000000000000
+R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000000000
+R13: 0000000000000000 R14: 00007f596dbb5fa0 R15: 00007ffd27af75a8
+ </TASK>
+Modules linked in:
+---[ end trace 0000000000000000 ]---
+RIP: 0010:LogSyncRelease home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux/fs/jfs/jfs_txnmgr.c:2796 [inline]
+RIP: 0010:txAbort+0x51f/0x570 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux/fs/jfs/jfs_txnmgr.c:2621
+Code: e9 96 fd ff ff e8 61 bb 70 fe 48 c7 c1 a0 7f ed 8b ba ec 0a 00 00 48 c7 c6 80 72 ed 8b 48 c7 c7 c0 72 ed 8b e8 22 a6 4f fe 90 <0f> 0b e8 3a bb 70 fe 48 c7 c1 e0 7f ed 8b ba ed 0a 00 00 48 c7 c6
+RSP: 0018:ffffc9000307f968 EFLAGS: 00010286
+RAX: 0000000000000034 RBX: 0000000000000004 RCX: 0000000000000000
+RDX: 0000000000000000 RSI: ffff888045b85640 RDI: 0000000000000002
+RBP: dffffc0000000000 R08: ffffed10056c4842 R09: ffffed10056c4842
+R10: ffffed10056c4841 R11: ffff88802b62420b R12: 0000000000000000
+R13: ffffc90001841110 R14: ffff88804b0cec48 R15: ffff88804b0ceba0
+FS:  00007f596e7d36c0(0000) GS:ffff8880eb0bc000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00007f4a4569d030 CR3: 00000000272aa000 CR4: 0000000000002ef0
