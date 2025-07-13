@@ -1,0 +1,77 @@
+Oops: general protection fault, probably for non-canonical address 0xdffffc0000000006: 0000 [#1] SMP KASAN PTI
+KASAN: null-ptr-deref in range [0x0000000000000030-0x0000000000000037]
+CPU: 1 UID: 0 PID: 10598 Comm: syz-executor Not tainted 6.16.0-rc5 #1 PREEMPT(full) 
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.16.2-debian-1.16.2-1 04/01/2014
+RIP: 0010:diRead+0x4fc/0xc00 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux/fs/jfs/jfs_imap.c:342
+Code: 48 c1 ea 03 80 3c 02 00 0f 85 89 06 00 00 4d 8b ad a0 00 00 00 48 b8 00 00 00 00 00 fc ff df 49 8d 7d 34 48 89 fa 48 c1 ea 03 <0f> b6 14 02 48 89 f8 83 e0 07 83 c0 03 38 d0 7c 08 84 d2 0f 85 1c
+RSP: 0018:ffffc90006ddf7d8 EFLAGS: 00010207
+RAX: dffffc0000000000 RBX: ffff8880658f4df0 RCX: 0000000000000000
+RDX: 0000000000000006 RSI: ffff88801ef51cc0 RDI: 0000000000000034
+RBP: ffff88802a519a00 R08: ffffed100cb1e4b6 R09: ffffed100cb1e4b6
+R10: ffffed100cb1e4b5 R11: ffff8880658f25af R12: 000000000000001c
+R13: 0000000000000000 R14: ffff8880442b7c04 R15: 0000000000000000
+FS:  000055557dc7b500(0000) GS:ffff8880eb0bc000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 000000c00737e000 CR3: 000000004b1d2000 CR4: 0000000000002ef0
+Call Trace:
+ <TASK>
+ jfs_iget+0x8e/0x4b0 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux/fs/jfs/inode.c:35
+ jfs_lookup+0x284/0x350 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux/fs/jfs/namei.c:1469
+ __lookup_slow+0x26b/0x480 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux/fs/namei.c:1817
+ lookup_slow home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux/fs/namei.c:1834 [inline]
+ walk_component+0x34f/0x5b0 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux/fs/namei.c:2138
+ lookup_last home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux/fs/namei.c:2639 [inline]
+ path_lookupat.isra.45+0x17a/0x560 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux/fs/namei.c:2663
+ filename_lookup.part.64+0x1e0/0x420 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux/fs/namei.c:2692
+ filename_lookup home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux/fs/namei.c:3140 [inline]
+ user_path_at+0x70/0xa0 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux/fs/namei.c:3136
+ ksys_umount+0xb0/0x120 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux/fs/namespace.c:2147
+ __do_sys_umount home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux/fs/namespace.c:2155 [inline]
+ __se_sys_umount home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux/fs/namespace.c:2153 [inline]
+ __x64_sys_umount+0x54/0x80 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux/fs/namespace.c:2153
+ do_syscall_x64 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux/arch/x86/entry/syscall_64.c:63 [inline]
+ do_syscall_64+0xcf/0x490 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux/arch/x86/entry/syscall_64.c:94
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7fac6538fe57
+Code: a8 ff ff ff f7 d8 64 89 01 48 83 c8 ff c3 0f 1f 44 00 00 31 f6 e9 09 00 00 00 66 0f 1f 84 00 00 00 00 00 b8 a6 00 00 00 0f 05 <48> 3d 00 f0 ff ff 77 01 c3 48 c7 c2 a8 ff ff ff f7 d8 64 89 02 b8
+RSP: 002b:00007fffb09a8688 EFLAGS: 00000246 ORIG_RAX: 00000000000000a6
+RAX: ffffffffffffffda RBX: 00007fac65411925 RCX: 00007fac6538fe57
+RDX: 0000000000000000 RSI: 0000000000000009 RDI: 00007fffb09a8740
+RBP: 00007fffb09a8740 R08: 0000000000000000 R09: 0000000000000000
+R10: 00000000ffffffff R11: 0000000000000246 R12: 00007fffb09a9830
+R13: 00007fac65411925 R14: 000000000002b23e R15: 00007fffb09aa900
+ </TASK>
+Modules linked in:
+---[ end trace 0000000000000000 ]---
+RIP: 0010:diRead+0x4fc/0xc00 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux/fs/jfs/jfs_imap.c:342
+Code: 48 c1 ea 03 80 3c 02 00 0f 85 89 06 00 00 4d 8b ad a0 00 00 00 48 b8 00 00 00 00 00 fc ff df 49 8d 7d 34 48 89 fa 48 c1 ea 03 <0f> b6 14 02 48 89 f8 83 e0 07 83 c0 03 38 d0 7c 08 84 d2 0f 85 1c
+RSP: 0018:ffffc90006ddf7d8 EFLAGS: 00010207
+RAX: dffffc0000000000 RBX: ffff8880658f4df0 RCX: 0000000000000000
+RDX: 0000000000000006 RSI: ffff88801ef51cc0 RDI: 0000000000000034
+RBP: ffff88802a519a00 R08: ffffed100cb1e4b6 R09: ffffed100cb1e4b6
+R10: ffffed100cb1e4b5 R11: ffff8880658f25af R12: 000000000000001c
+R13: 0000000000000000 R14: ffff8880442b7c04 R15: 0000000000000000
+FS:  000055557dc7b500(0000) GS:ffff8880978bc000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00007fffb09a7ed8 CR3: 000000004b1d2000 CR4: 0000000000002ef0
+----------------
+Code disassembly (best guess):
+   0:	48 c1 ea 03          	shr    $0x3,%rdx
+   4:	80 3c 02 00          	cmpb   $0x0,(%rdx,%rax,1)
+   8:	0f 85 89 06 00 00    	jne    0x697
+   e:	4d 8b ad a0 00 00 00 	mov    0xa0(%r13),%r13
+  15:	48 b8 00 00 00 00 00 	movabs $0xdffffc0000000000,%rax
+  1c:	fc ff df
+  1f:	49 8d 7d 34          	lea    0x34(%r13),%rdi
+  23:	48 89 fa             	mov    %rdi,%rdx
+  26:	48 c1 ea 03          	shr    $0x3,%rdx
+* 2a:	0f b6 14 02          	movzbl (%rdx,%rax,1),%edx <-- trapping instruction
+  2e:	48 89 f8             	mov    %rdi,%rax
+  31:	83 e0 07             	and    $0x7,%eax
+  34:	83 c0 03             	add    $0x3,%eax
+  37:	38 d0                	cmp    %dl,%al
+  39:	7c 08                	jl     0x43
+  3b:	84 d2                	test   %dl,%dl
+  3d:	0f                   	.byte 0xf
+  3e:	85                   	.byte 0x85
+  3f:	1c                   	.byte 0x1c

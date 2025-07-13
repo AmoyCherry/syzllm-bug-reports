@@ -1,0 +1,32 @@
+------------[ cut here ]------------
+UBSAN: shift-out-of-bounds in drivers/comedi/drivers/pcl812.c:1152:10
+shift exponent 160 is too large for 32-bit type 'int'
+CPU: 0 UID: 0 PID: 21746 Comm: syz.7.857 Not tainted 6.16.0-rc5 #1 PREEMPT(full) 
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.16.2-debian-1.16.2-1 04/01/2014
+Call Trace:
+ <TASK>
+ __dump_stack home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux/lib/dump_stack.c:94 [inline]
+ dump_stack_lvl+0x180/0x1b0 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux/lib/dump_stack.c:120
+ ubsan_epilogue+0xa/0x40 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux/lib/ubsan.c:233
+ __ubsan_handle_shift_out_of_bounds+0xf0/0x1e0 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux/lib/ubsan.c:494
+ pcl812_attach.cold.11+0x1a/0x1f home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux/drivers/comedi/drivers/pcl812.c:1152
+ comedi_device_attach+0x3ab/0x8f0 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux/drivers/comedi/drivers.c:996
+ do_devconfig_ioctl+0x190/0x650 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux/drivers/comedi/comedi_fops.c:855
+ comedi_unlocked_ioctl+0xa24/0x2a10 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux/drivers/comedi/comedi_fops.c:2136
+ vfs_ioctl home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux/fs/ioctl.c:51 [inline]
+ __do_sys_ioctl home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux/fs/ioctl.c:907 [inline]
+ __se_sys_ioctl home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux/fs/ioctl.c:893 [inline]
+ __x64_sys_ioctl+0x190/0x210 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux/fs/ioctl.c:893
+ do_syscall_x64 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux/arch/x86/entry/syscall_64.c:63 [inline]
+ do_syscall_64+0xcf/0x490 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux/arch/x86/entry/syscall_64.c:94
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7f7b5e18eb29
+Code: ff ff c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 40 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 a8 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007f7b5ef82038 EFLAGS: 00000246 ORIG_RAX: 0000000000000010
+RAX: ffffffffffffffda RBX: 00007f7b5e3b5fa0 RCX: 00007f7b5e18eb29
+RDX: 0000200000000b80 RSI: 0000000040946400 RDI: 0000000000000004
+RBP: 00007f7b5e211b39 R08: 0000000000000000 R09: 0000000000000000
+R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000000000
+R13: 0000000000000000 R14: 00007f7b5e3b5fa0 R15: 00007ffce3717f98
+ </TASK>
+---[ end trace ]---

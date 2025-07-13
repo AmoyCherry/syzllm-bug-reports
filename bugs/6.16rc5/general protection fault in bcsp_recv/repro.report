@@ -1,0 +1,66 @@
+Oops: general protection fault, probably for non-canonical address 0xdffffc0000000021: 0000 [#1] SMP KASAN PTI
+KASAN: null-ptr-deref in range [0x0000000000000108-0x000000000000010f]
+CPU: 1 UID: 0 PID: 14040 Comm: syz.3.181 Not tainted 6.16.0-rc5 #1 PREEMPT(full) 
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.16.2-debian-1.16.2-1 04/01/2014
+RIP: 0010:bcsp_recv+0x119/0x1630 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux/drivers/bluetooth/hci_bcsp.c:590
+Code: 28 48 c1 e8 03 48 01 e8 48 89 04 24 48 8d 83 78 01 00 00 48 89 44 24 40 48 c1 e8 03 48 89 44 24 08 e8 9b 86 57 f9 48 8b 04 24 <80> 38 00 0f 85 e6 10 00 00 4c 8b ab 08 01 00 00 31 ff 4c 89 ee e8
+RSP: 0018:ffffc9000f257b58 EFLAGS: 00010246
+RAX: dffffc0000000021 RBX: 0000000000000000 RCX: ffffffff8862b5f1
+RDX: 0000000080000000 RSI: ffff8880225b0000 RDI: 0000000000000002
+RBP: dffffc0000000000 R08: ffffed100d9f4504 R09: ffffed100d9f4504
+R10: ffffed100d9f4503 R11: ffff88806cfa281f R12: 0000000000000001
+R13: ffffc9000f257d38 R14: ffff88806cfa2800 R15: ffffc9000f257d38
+FS:  00007fa8074496c0(0000) GS:ffff8880eb0bc000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 0000200000000000 CR3: 0000000051976000 CR4: 0000000000002ef0
+Call Trace:
+ <TASK>
+ hci_uart_tty_receive+0x24e/0x7d0 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux/drivers/bluetooth/hci_ldisc.c:627
+ tiocsti home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux/drivers/tty/tty_io.c:2290 [inline]
+ tty_ioctl+0x74a/0x1610 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux/drivers/tty/tty_io.c:2706
+ vfs_ioctl home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux/fs/ioctl.c:51 [inline]
+ __do_sys_ioctl home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux/fs/ioctl.c:907 [inline]
+ __se_sys_ioctl home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux/fs/ioctl.c:893 [inline]
+ __x64_sys_ioctl+0x190/0x210 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux/fs/ioctl.c:893
+ do_syscall_x64 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux/arch/x86/entry/syscall_64.c:63 [inline]
+ do_syscall_64+0xcf/0x490 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux/arch/x86/entry/syscall_64.c:94
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7fa80658eb29
+Code: ff ff c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 40 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 a8 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007fa807449038 EFLAGS: 00000246 ORIG_RAX: 0000000000000010
+RAX: ffffffffffffffda RBX: 00007fa8067b5fa0 RCX: 00007fa80658eb29
+RDX: 0000200000000180 RSI: 0000000000005412 RDI: 0000000000000005
+RBP: 00007fa806611b39 R08: 0000000000000000 R09: 0000000000000000
+R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000000000
+R13: 0000000000000000 R14: 00007fa8067b5fa0 R15: 00007fff51d3cef8
+ </TASK>
+Modules linked in:
+---[ end trace 0000000000000000 ]---
+RIP: 0010:bcsp_recv+0x119/0x1630 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/temp/linux/drivers/bluetooth/hci_bcsp.c:590
+Code: 28 48 c1 e8 03 48 01 e8 48 89 04 24 48 8d 83 78 01 00 00 48 89 44 24 40 48 c1 e8 03 48 89 44 24 08 e8 9b 86 57 f9 48 8b 04 24 <80> 38 00 0f 85 e6 10 00 00 4c 8b ab 08 01 00 00 31 ff 4c 89 ee e8
+RSP: 0018:ffffc9000f257b58 EFLAGS: 00010246
+RAX: dffffc0000000021 RBX: 0000000000000000 RCX: ffffffff8862b5f1
+RDX: 0000000080000000 RSI: ffff8880225b0000 RDI: 0000000000000002
+RBP: dffffc0000000000 R08: ffffed100d9f4504 R09: ffffed100d9f4504
+R10: ffffed100d9f4503 R11: ffff88806cfa281f R12: 0000000000000001
+R13: ffffc9000f257d38 R14: ffff88806cfa2800 R15: ffffc9000f257d38
+FS:  00007fa8074496c0(0000) GS:ffff8880eb0bc000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 0000001b3025ffff CR3: 0000000051976000 CR4: 0000000000002ef0
+----------------
+Code disassembly (best guess):
+   0:	28 48 c1             	sub    %cl,-0x3f(%rax)
+   3:	e8 03 48 01 e8       	call   0xe801480b
+   8:	48 89 04 24          	mov    %rax,(%rsp)
+   c:	48 8d 83 78 01 00 00 	lea    0x178(%rbx),%rax
+  13:	48 89 44 24 40       	mov    %rax,0x40(%rsp)
+  18:	48 c1 e8 03          	shr    $0x3,%rax
+  1c:	48 89 44 24 08       	mov    %rax,0x8(%rsp)
+  21:	e8 9b 86 57 f9       	call   0xf95786c1
+  26:	48 8b 04 24          	mov    (%rsp),%rax
+* 2a:	80 38 00             	cmpb   $0x0,(%rax) <-- trapping instruction
+  2d:	0f 85 e6 10 00 00    	jne    0x1119
+  33:	4c 8b ab 08 01 00 00 	mov    0x108(%rbx),%r13
+  3a:	31 ff                	xor    %edi,%edi
+  3c:	4c 89 ee             	mov    %r13,%rsi
+  3f:	e8                   	.byte 0xe8
