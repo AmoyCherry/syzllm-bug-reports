@@ -32,5 +32,5 @@ def remove_warning_subfolders(root_folder):
         break
 
 if __name__ == "__main__":
-    root_folder = "./workdir/crashes"
+    root_folder = "./workdir-617-rc2/crashes"
     remove_warning_subfolders(root_folder)
