@@ -1,0 +1,81 @@
+Oops: general protection fault, maybe for address 0x0: 0000 [#1] SMP KASAN PTI
+CPU: 1 UID: 0 PID: 10639 Comm: syz-executor Not tainted 6.17.0-rc2 #1 PREEMPT(full) 
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.16.2-debian-1.16.2-1 04/01/2014
+RIP: 0010:cpu_max_bits_warn home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/linux/include/linux/cpumask.h:135 [inline]
+RIP: 0010:cpumask_check home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/linux/include/linux/cpumask.h:142 [inline]
+RIP: 0010:cpumask_test_cpu home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/linux/include/linux/cpumask.h:646 [inline]
+RIP: 0010:cpu_online home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/linux/include/linux/cpumask.h:1205 [inline]
+RIP: 0010:__do_trace_ocfs2_prepare_dir_for_insert home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/linux/fs/ocfs2/ocfs2_trace.h:2152 [inline]
+RIP: 0010:trace_ocfs2_prepare_dir_for_insert home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/linux/fs/ocfs2/ocfs2_trace.h:2152 [inline]
+RIP: 0010:ocfs2_prepare_dir_for_insert+0x15dd/0x1810 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/linux/fs/ocfs2/dir.c:4270
+Code: f5 ff ff bd fe ff ff ff e9 a6 fd ff ff bd fe ff ff ff e9 ef fc ff ff e8 51 ec 0f fe 90 0f 0b 90 e9 46 f6 ff ff e8 43 ec 0f fe <a0> 01 00 00 00 00 fc ff df 84 c0 74 08 3c 01 0f 8e e5 01 00 00 a0
+RSP: 0018:ffffc90010a07730 EFLAGS: 00010246
+RAX: 0000000000000000 RBX: ffff888054a8ddf8 RCX: ffff88805a15a0c8
+RDX: 0000000080000000 RSI: ffff888045e58000 RDI: 0000000000000002
+RBP: ffff88805a15a000 R08: d84c77d00b065307 R09: de42cf55e7e9ffb8
+R10: d84c77d00b065307 R11: de42cf55e7e9ffb8 R12: 00000000000001c0
+R13: 0000000000000000 R14: 0000000000000010 R15: ffff88802a9f8000
+FS:  00005555677d9500(0000) GS:ffff8880eb059000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 0000555567804658 CR3: 000000004ebe6000 CR4: 0000000000002ef0
+Call Trace:
+ <TASK>
+ __ocfs2_prepare_orphan_dir+0x149/0x360 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/linux/fs/ocfs2/namei.c:2179
+ ocfs2_prepare_orphan_dir+0xf4/0x590 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/linux/fs/ocfs2/namei.c:2224
+ ocfs2_unlink+0x172c/0x1d60 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/linux/fs/ocfs2/namei.c:962
+ vfs_rmdir home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/linux/fs/namei.c:4461 [inline]
+ vfs_rmdir+0x2a3/0x680 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/linux/fs/namei.c:4438
+ do_rmdir+0x3dd/0x430 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/linux/fs/namei.c:4516
+ __do_sys_unlinkat home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/linux/fs/namei.c:4690 [inline]
+ __se_sys_unlinkat home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/linux/fs/namei.c:4684 [inline]
+ __x64_sys_unlinkat+0xef/0x130 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/linux/fs/namei.c:4684
+ do_syscall_x64 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/linux/arch/x86/entry/syscall_64.c:63 [inline]
+ do_syscall_64+0xcf/0x490 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/linux/arch/x86/entry/syscall_64.c:94
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7fa13cd8e3c7
+Code: 73 01 c3 48 c7 c1 a8 ff ff ff f7 d8 64 89 01 48 83 c8 ff c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 44 00 00 b8 07 01 00 00 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 a8 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007fffd1ed8cc8 EFLAGS: 00000207 ORIG_RAX: 0000000000000107
+RAX: ffffffffffffffda RBX: 0000000000000065 RCX: 00007fa13cd8e3c7
+RDX: 0000000000000200 RSI: 00007fffd1ed9e70 RDI: 00000000ffffff9c
+RBP: 00007fa13ce11c05 R08: 00005555677fc67b R09: 0000000000000000
+R10: 0000000000001000 R11: 0000000000000207 R12: 00007fffd1ed9e70
+R13: 00007fa13ce11c05 R14: 0000000000030823 R15: 00007fffd1edc030
+ </TASK>
+Modules linked in:
+---[ end trace 0000000000000000 ]---
+RIP: 0010:cpu_max_bits_warn home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/linux/include/linux/cpumask.h:135 [inline]
+RIP: 0010:cpumask_check home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/linux/include/linux/cpumask.h:142 [inline]
+RIP: 0010:cpumask_test_cpu home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/linux/include/linux/cpumask.h:646 [inline]
+RIP: 0010:cpu_online home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/linux/include/linux/cpumask.h:1205 [inline]
+RIP: 0010:__do_trace_ocfs2_prepare_dir_for_insert home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/linux/fs/ocfs2/ocfs2_trace.h:2152 [inline]
+RIP: 0010:trace_ocfs2_prepare_dir_for_insert home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/linux/fs/ocfs2/ocfs2_trace.h:2152 [inline]
+RIP: 0010:ocfs2_prepare_dir_for_insert+0x15dd/0x1810 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/linux/fs/ocfs2/dir.c:4270
+Code: f5 ff ff bd fe ff ff ff e9 a6 fd ff ff bd fe ff ff ff e9 ef fc ff ff e8 51 ec 0f fe 90 0f 0b 90 e9 46 f6 ff ff e8 43 ec 0f fe <a0> 01 00 00 00 00 fc ff df 84 c0 74 08 3c 01 0f 8e e5 01 00 00 a0
+RSP: 0018:ffffc90010a07730 EFLAGS: 00010246
+RAX: 0000000000000000 RBX: ffff888054a8ddf8 RCX: ffff88805a15a0c8
+RDX: 0000000080000000 RSI: ffff888045e58000 RDI: 0000000000000002
+RBP: ffff88805a15a000 R08: d84c77d00b065307 R09: de42cf55e7e9ffb8
+R10: d84c77d00b065307 R11: de42cf55e7e9ffb8 R12: 00000000000001c0
+R13: 0000000000000000 R14: 0000000000000010 R15: ffff88802a9f8000
+FS:  00005555677d9500(0000) GS:ffff8880eb059000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00007f3c00048018 CR3: 000000004ebe6000 CR4: 0000000000002ef0
+----------------
+Code disassembly (best guess), 3 bytes skipped:
+   0:	bd fe ff ff ff       	mov    $0xfffffffe,%ebp
+   5:	e9 a6 fd ff ff       	jmp    0xfffffdb0
+   a:	bd fe ff ff ff       	mov    $0xfffffffe,%ebp
+   f:	e9 ef fc ff ff       	jmp    0xfffffd03
+  14:	e8 51 ec 0f fe       	call   0xfe0fec6a
+  19:	90                   	nop
+  1a:	0f 0b                	ud2
+  1c:	90                   	nop
+  1d:	e9 46 f6 ff ff       	jmp    0xfffff668
+  22:	e8 43 ec 0f fe       	call   0xfe0fec6a
+* 27:	a0 01 00 00 00 00 fc 	movabs 0xdffffc0000000001,%al <-- trapping instruction
+  2e:	ff df
+  30:	84 c0                	test   %al,%al
+  32:	74 08                	je     0x3c
+  34:	3c 01                	cmp    $0x1,%al
+  36:	0f 8e e5 01 00 00    	jle    0x221
+  3c:	a0                   	.byte 0xa0

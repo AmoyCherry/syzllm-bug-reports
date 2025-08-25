@@ -1,0 +1,61 @@
+------------[ cut here ]------------
+kernel BUG at fs/ocfs2/suballoc.c:2569!
+Oops: invalid opcode: 0000 [#1] SMP KASAN PTI
+CPU: 1 UID: 0 PID: 10611 Comm: syz-executor Not tainted 6.17.0-rc2 #1 PREEMPT(full) 
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.16.2-debian-1.16.2-1 04/01/2014
+RIP: 0010:_ocfs2_free_suballoc_bits+0xfae/0x1390 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/linux/fs/ocfs2/suballoc.c:2569
+Code: ff ff e8 d5 14 04 fe 41 83 fc fc 0f 85 8d fe ff ff 41 bc fc ff ff ff e9 24 f8 ff ff e8 3b 13 04 fe 90 0f 0b e8 33 13 04 fe 90 <0f> 0b e8 2b 13 04 fe 90 0f 0b 90 e9 04 f2 ff ff e8 1d 13 04 fe 90
+RSP: 0018:ffffc9000734f8f0 EFLAGS: 00010246
+RAX: 0000000000000000 RBX: ffff88805caf2e00 RCX: ffffffff83b59955
+RDX: 0000000080000000 RSI: ffff88804be51cc0 RDI: 0000000000000002
+RBP: 0000000000000e00 R08: 0000000bee8cc000 R09: 00000000660a6865
+R10: fffffbfff214f432 R11: ffffffff90a7a197 R12: 0000000bee8cc000
+R13: 00000000660a6bc6 R14: 0000000000000e00 R15: ffff888053306000
+FS:  00005555740bf500(0000) GS:ffff8880eb059000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00007fffcb508ff8 CR3: 000000004afdc000 CR4: 0000000000002ef0
+Call Trace:
+ <TASK>
+ _ocfs2_free_clusters+0x51c/0x970 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/linux/fs/ocfs2/suballoc.c:2672
+ ocfs2_replay_truncate_records home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/linux/fs/ocfs2/alloc.c:5979 [inline]
+ __ocfs2_flush_truncate_log+0x486/0x1210 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/linux/fs/ocfs2/alloc.c:6062
+ ocfs2_flush_truncate_log+0x4a/0x70 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/linux/fs/ocfs2/alloc.c:6084
+ ocfs2_sync_fs+0x1d1/0x3e0 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/linux/fs/ocfs2/super.c:406
+ sync_filesystem home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/linux/fs/sync.c:66 [inline]
+ sync_filesystem+0x1d6/0x2a0 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/linux/fs/sync.c:30
+ generic_shutdown_super+0x74/0x390 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/linux/fs/super.c:622
+ kill_block_super+0x3b/0x90 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/linux/fs/super.c:1766
+ deactivate_locked_super+0xbd/0x130 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/linux/fs/super.c:474
+ deactivate_super home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/linux/fs/super.c:507 [inline]
+ deactivate_super+0xd8/0xf0 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/linux/fs/super.c:503
+ cleanup_mnt+0x339/0x4d0 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/linux/fs/namespace.c:1378
+ task_work_run+0x172/0x280 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/linux/kernel/task_work.c:227
+ resume_user_mode_work home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/linux/include/linux/resume_user_mode.h:50 [inline]
+ exit_to_user_mode_loop+0xfd/0x120 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/linux/kernel/entry/common.c:43
+ exit_to_user_mode_prepare home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/linux/include/linux/irq-entry-common.h:225 [inline]
+ syscall_exit_to_user_mode_work home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/linux/include/linux/entry-common.h:175 [inline]
+ syscall_exit_to_user_mode home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/linux/include/linux/entry-common.h:210 [inline]
+ do_syscall_64+0x41b/0x490 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/linux/arch/x86/entry/syscall_64.c:100
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7f1397590117
+Code: a8 ff ff ff f7 d8 64 89 01 48 83 c8 ff c3 0f 1f 44 00 00 31 f6 e9 09 00 00 00 66 0f 1f 84 00 00 00 00 00 b8 a6 00 00 00 0f 05 <48> 3d 00 f0 ff ff 77 01 c3 48 c7 c2 a8 ff ff ff f7 d8 64 89 02 b8
+RSP: 002b:00007fffcb509278 EFLAGS: 00000246 ORIG_RAX: 00000000000000a6
+RAX: 0000000000000000 RBX: 00007f1397611c05 RCX: 00007f1397590117
+RDX: 0000000000000000 RSI: 0000000000000009 RDI: 00007fffcb509330
+RBP: 00007fffcb509330 R08: 0000000000000000 R09: 0000000000000000
+R10: 00000000ffffffff R11: 0000000000000246 R12: 00007fffcb50a3c0
+R13: 00007f1397611c05 R14: 000000000002e56f R15: 00007fffcb50a400
+ </TASK>
+Modules linked in:
+---[ end trace 0000000000000000 ]---
+RIP: 0010:_ocfs2_free_suballoc_bits+0xfae/0x1390 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/linux/fs/ocfs2/suballoc.c:2569
+Code: ff ff e8 d5 14 04 fe 41 83 fc fc 0f 85 8d fe ff ff 41 bc fc ff ff ff e9 24 f8 ff ff e8 3b 13 04 fe 90 0f 0b e8 33 13 04 fe 90 <0f> 0b e8 2b 13 04 fe 90 0f 0b 90 e9 04 f2 ff ff e8 1d 13 04 fe 90
+RSP: 0018:ffffc9000734f8f0 EFLAGS: 00010246
+RAX: 0000000000000000 RBX: ffff88805caf2e00 RCX: ffffffff83b59955
+RDX: 0000000080000000 RSI: ffff88804be51cc0 RDI: 0000000000000002
+RBP: 0000000000000e00 R08: 0000000bee8cc000 R09: 00000000660a6865
+R10: fffffbfff214f432 R11: ffffffff90a7a197 R12: 0000000bee8cc000
+R13: 00000000660a6bc6 R14: 0000000000000e00 R15: ffff888053306000
+FS:  00005555740bf500(0000) GS:ffff8880eb059000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00007f11da316010 CR3: 000000004afdc000 CR4: 0000000000002ef0

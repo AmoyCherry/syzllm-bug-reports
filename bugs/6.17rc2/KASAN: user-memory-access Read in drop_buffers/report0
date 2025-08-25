@@ -1,0 +1,38 @@
+==================================================================
+BUG: KASAN: user-memory-access in instrument_atomic_read home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/linux/include/linux/instrumented.h:68 [inline]
+BUG: KASAN: user-memory-access in atomic_read home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/linux/include/linux/atomic/atomic-instrumented.h:32 [inline]
+BUG: KASAN: user-memory-access in buffer_busy home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/linux/fs/buffer.c:2886 [inline]
+BUG: KASAN: user-memory-access in drop_buffers+0x89/0x340 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/linux/fs/buffer.c:2898
+Read of size 4 at addr 0000000000003dbc by task kswapd1/94
+
+CPU: 0 UID: 0 PID: 94 Comm: kswapd1 Not tainted 6.17.0-rc2 #1 PREEMPT(full) 
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.16.2-debian-1.16.2-1 04/01/2014
+Call Trace:
+ <TASK>
+ __dump_stack home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/linux/lib/dump_stack.c:94 [inline]
+ dump_stack_lvl+0x116/0x1b0 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/linux/lib/dump_stack.c:120
+ print_report+0x3f5/0x5f0 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/linux/mm/kasan/report.c:485
+ kasan_report+0x96/0xd0 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/linux/mm/kasan/report.c:595
+ check_region_inline home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/linux/mm/kasan/generic.c:183 [inline]
+ kasan_check_range+0x139/0x1e0 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/linux/mm/kasan/generic.c:189
+ instrument_atomic_read home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/linux/include/linux/instrumented.h:68 [inline]
+ atomic_read home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/linux/include/linux/atomic/atomic-instrumented.h:32 [inline]
+ buffer_busy home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/linux/fs/buffer.c:2886 [inline]
+ drop_buffers+0x89/0x340 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/linux/fs/buffer.c:2898
+ try_to_free_buffers+0x213/0x2d0 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/linux/fs/buffer.c:2952
+ filemap_release_folio+0x223/0x290 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/linux/mm/filemap.c:4356
+ shrink_folio_list+0x289a/0x3da0 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/linux/mm/vmscan.c:1518
+ evict_folios+0x7cf/0x1ff0 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/linux/mm/vmscan.c:4744
+ try_to_shrink_lruvec+0x630/0x9e0 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/linux/mm/vmscan.c:4907
+ shrink_one+0x41a/0x7c0 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/linux/mm/vmscan.c:4952
+ shrink_many home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/linux/mm/vmscan.c:5015 [inline]
+ lru_gen_shrink_node home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/linux/mm/vmscan.c:5093 [inline]
+ shrink_node+0x2492/0x3390 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/linux/mm/vmscan.c:6078
+ kswapd_shrink_node home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/linux/mm/vmscan.c:6938 [inline]
+ balance_pgdat+0xbd0/0x16e0 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/linux/mm/vmscan.c:7121
+ kswapd+0x4af/0xc10 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/linux/mm/vmscan.c:7386
+ kthread+0x439/0x890 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/linux/kernel/kthread.c:463
+ ret_from_fork+0x52a/0x700 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/linux/arch/x86/kernel/process.c:148
+ ret_from_fork_asm+0x1a/0x30 home/parallels/github/syzkaller-docker/syzkaller-docker/syzkaller-data/linux/arch/x86/entry/entry_64.S:245
+ </TASK>
+==================================================================

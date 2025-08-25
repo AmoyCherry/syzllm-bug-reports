@@ -1,0 +1,565 @@
+Warning: Permanently added '[localhost]:38983' (ED25519) to the list of known hosts.
+2025/08/24 10:47:32 ignoring optional flag "sandboxArg"="0"
+2025/08/24 10:47:48 parsed 1 programs
+[  669.393411][ T9828] cgroup: Unknown subsys name 'net'
+[  669.720881][ T9828] cgroup: Unknown subsys name 'cpuset'
+[  669.900646][ T9828] cgroup: Unknown subsys name 'rlimit'
+[  679.251312][ T9828] Adding 124996k swap on ./swap-file.  Priority:0 extents:1 across:124996k 
+[  699.214813][ T1332] ieee802154 phy0 wpan0: encryption failed: -22
+[  699.228058][ T1332] ieee802154 phy1 wpan1: encryption failed: -22
+[  707.344686][ T9958] chnl_net:caif_netlink_parms(): no params data found
+[  707.979185][ T9958] bridge0: port 1(bridge_slave_0) entered blocking state
+[  708.044532][ T9958] bridge0: port 1(bridge_slave_0) entered disabled state
+[  708.058524][ T9958] bridge_slave_0: entered allmulticast mode
+[  708.085319][ T9958] bridge_slave_0: entered promiscuous mode
+[  708.157954][ T9958] bridge0: port 2(bridge_slave_1) entered blocking state
+[  708.209218][ T9958] bridge0: port 2(bridge_slave_1) entered disabled state
+[  708.214455][ T9958] bridge_slave_1: entered allmulticast mode
+[  708.301484][ T9958] bridge_slave_1: entered promiscuous mode
+[  708.621465][ T9958] bond0: (slave bond_slave_0): Enslaving as an active interface with an up link
+[  708.680678][ T9958] bond0: (slave bond_slave_1): Enslaving as an active interface with an up link
+[  708.913154][ T9958] team0: Port device team_slave_0 added
+[  708.948323][ T9958] team0: Port device team_slave_1 added
+[  709.199061][ T9958] batman_adv: batadv0: Adding interface: batadv_slave_0
+[  709.237942][ T9958] batman_adv: batadv0: The MTU of interface batadv_slave_0 is too small (1500) to handle the transport of batman-adv packets. Packets going over this interface will be fragmented on layer2 which could impact the performance. Setting the MTU to 1560 would solve the problem.
+[  709.345348][ T9958] batman_adv: batadv0: Not using interface batadv_slave_0 (retrying later): interface not active
+[  709.378458][ T9958] batman_adv: batadv0: Adding interface: batadv_slave_1
+[  709.427725][ T9958] batman_adv: batadv0: The MTU of interface batadv_slave_1 is too small (1500) to handle the transport of batman-adv packets. Packets going over this interface will be fragmented on layer2 which could impact the performance. Setting the MTU to 1560 would solve the problem.
+[  709.506908][ T9958] batman_adv: batadv0: Not using interface batadv_slave_1 (retrying later): interface not active
+[  709.701377][ T9958] hsr_slave_0: entered promiscuous mode
+[  709.753817][ T9958] hsr_slave_1: entered promiscuous mode
+[  710.863917][ T9958] netdevsim netdevsim0 netdevsim0: renamed from eth0
+[  710.894416][ T9958] netdevsim netdevsim0 netdevsim1: renamed from eth1
+[  710.921353][ T9958] netdevsim netdevsim0 netdevsim2: renamed from eth2
+[  710.940866][ T9958] netdevsim netdevsim0 netdevsim3: renamed from eth3
+[  711.772364][ T9958] 8021q: adding VLAN 0 to HW filter on device bond0
+[  711.926031][ T9958] 8021q: adding VLAN 0 to HW filter on device team0
+[  712.123085][   T29] bridge0: port 1(bridge_slave_0) entered blocking state
+[  712.142059][   T29] bridge0: port 1(bridge_slave_0) entered forwarding state
+[  712.250916][T10051] bridge0: port 2(bridge_slave_1) entered blocking state
+[  712.324766][T10051] bridge0: port 2(bridge_slave_1) entered forwarding state
+[  714.989897][ T9958] 8021q: adding VLAN 0 to HW filter on device batadv0
+[  715.354367][ T9958] veth0_vlan: entered promiscuous mode
+[  715.426176][ T9958] veth1_vlan: entered promiscuous mode
+[  715.807945][ T9958] veth0_macvtap: entered promiscuous mode
+[  716.059239][ T9958] veth1_macvtap: entered promiscuous mode
+[  716.266653][ T9958] batman_adv: batadv0: Interface activated: batadv_slave_0
+[  716.464244][ T9958] batman_adv: batadv0: Interface activated: batadv_slave_1
+[  716.751027][   T12] netdevsim netdevsim0 netdevsim0: set [1, 0] type 2 family 0 port 6081 - 0
+[  716.900188][   T12] netdevsim netdevsim0 netdevsim1: set [1, 0] type 2 family 0 port 6081 - 0
+[  716.930122][   T12] netdevsim netdevsim0 netdevsim2: set [1, 0] type 2 family 0 port 6081 - 0
+[  717.011024][   T12] netdevsim netdevsim0 netdevsim3: set [1, 0] type 2 family 0 port 6081 - 0
+[  717.930876][   T14] netdevsim netdevsim0 netdevsim3 (unregistering): unset [1, 0] type 2 family 0 port 6081 - 0
+[  718.097624][   T14] netdevsim netdevsim0 netdevsim2 (unregistering): unset [1, 0] type 2 family 0 port 6081 - 0
+[  718.224594][   T14] netdevsim netdevsim0 netdevsim1 (unregistering): unset [1, 0] type 2 family 0 port 6081 - 0
+[  718.488961][   T14] netdevsim netdevsim0 netdevsim0 (unregistering): unset [1, 0] type 2 family 0 port 6081 - 0
+[  719.681576][   T14] bridge_slave_1: left allmulticast mode
+[  719.697892][   T14] bridge_slave_1: left promiscuous mode
+[  719.712809][   T14] bridge0: port 2(bridge_slave_1) entered disabled state
+[  719.817684][   T14] bridge_slave_0: left allmulticast mode
+[  719.886743][   T14] bridge_slave_0: left promiscuous mode
+[  719.913279][   T14] bridge0: port 1(bridge_slave_0) entered disabled state
+[  721.121211][   T14] bond0 (unregistering): (slave bond_slave_0): Releasing backup interface
+[  721.185189][   T14] bond0 (unregistering): (slave bond_slave_1): Releasing backup interface
+[  721.224198][   T14] bond0 (unregistering): Released all slaves
+[  721.533017][   T14] hsr_slave_0: left promiscuous mode
+[  721.587724][   T14] hsr_slave_1: left promiscuous mode
+[  721.600491][   T14] batman_adv: batadv0: Interface deactivated: batadv_slave_0
+[  721.617364][   T14] batman_adv: batadv0: Removing interface: batadv_slave_0
+[  721.653915][   T14] batman_adv: batadv0: Interface deactivated: batadv_slave_1
+[  721.664299][   T14] batman_adv: batadv0: Removing interface: batadv_slave_1
+[  721.702119][   T14] veth1_macvtap: left promiscuous mode
+[  721.715546][   T14] veth0_macvtap: left promiscuous mode
+[  721.722608][   T14] veth1_vlan: left promiscuous mode
+[  721.747749][   T14] veth0_vlan: left promiscuous mode
+[  725.792869][   T14] team0 (unregistering): Port device team_slave_1 removed
+[  726.167616][   T14] team0 (unregistering): Port device team_slave_0 removed
+[  728.652497][ T5032] wlan0: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[  728.761377][ T5032] wlan0: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[  729.421038][   T80] wlan1: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[  729.424106][   T80] wlan1: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[  749.218069][   T55] Bluetooth: hci0: unexpected cc 0x0c03 length: 249 > 1
+[  749.327408][T10610] Bluetooth: hci0: unexpected cc 0x1003 length: 249 > 9
+[  749.340390][T10610] Bluetooth: hci0: unexpected cc 0x1001 length: 249 > 9
+[  749.354848][T10610] Bluetooth: hci0: unexpected cc 0x0c23 length: 249 > 4
+[  749.373755][T10610] Bluetooth: hci0: unexpected cc 0x0c38 length: 249 > 2
+2025/08/24 10:49:32 executed programs: 0
+[  755.166989][T10610] Bluetooth: hci0: unexpected cc 0x0c03 length: 249 > 1
+[  755.204409][T10610] Bluetooth: hci0: unexpected cc 0x1003 length: 249 > 9
+[  755.233283][T10610] Bluetooth: hci0: unexpected cc 0x1001 length: 249 > 9
+[  755.297681][T10610] Bluetooth: hci0: unexpected cc 0x0c23 length: 249 > 4
+[  755.349664][T10610] Bluetooth: hci0: unexpected cc 0x0c38 length: 249 > 2
+[  757.279411][T10671] chnl_net:caif_netlink_parms(): no params data found
+[  757.557877][T10610] Bluetooth: hci0: command tx timeout
+[  758.211321][T10671] bridge0: port 1(bridge_slave_0) entered blocking state
+[  758.220351][T10671] bridge0: port 1(bridge_slave_0) entered disabled state
+[  758.265168][T10671] bridge_slave_0: entered allmulticast mode
+[  758.300192][T10671] bridge_slave_0: entered promiscuous mode
+[  758.367401][T10671] bridge0: port 2(bridge_slave_1) entered blocking state
+[  758.390101][T10671] bridge0: port 2(bridge_slave_1) entered disabled state
+[  758.393649][T10671] bridge_slave_1: entered allmulticast mode
+[  758.403112][T10671] bridge_slave_1: entered promiscuous mode
+[  758.758358][T10671] bond0: (slave bond_slave_0): Enslaving as an active interface with an up link
+[  758.825168][T10671] bond0: (slave bond_slave_1): Enslaving as an active interface with an up link
+[  759.412856][T10671] team0: Port device team_slave_0 added
+[  759.581277][T10671] team0: Port device team_slave_1 added
+[  759.636446][T10610] Bluetooth: hci0: command tx timeout
+[  760.000366][T10671] batman_adv: batadv0: Adding interface: batadv_slave_0
+[  760.010652][T10671] batman_adv: batadv0: The MTU of interface batadv_slave_0 is too small (1500) to handle the transport of batman-adv packets. Packets going over this interface will be fragmented on layer2 which could impact the performance. Setting the MTU to 1560 would solve the problem.
+[  760.062314][T10671] batman_adv: batadv0: Not using interface batadv_slave_0 (retrying later): interface not active
+[  760.114033][T10671] batman_adv: batadv0: Adding interface: batadv_slave_1
+[  760.161720][T10671] batman_adv: batadv0: The MTU of interface batadv_slave_1 is too small (1500) to handle the transport of batman-adv packets. Packets going over this interface will be fragmented on layer2 which could impact the performance. Setting the MTU to 1560 would solve the problem.
+[  760.203842][T10671] batman_adv: batadv0: Not using interface batadv_slave_1 (retrying later): interface not active
+[  760.638112][ T1332] ieee802154 phy0 wpan0: encryption failed: -22
+[  760.645402][ T1332] ieee802154 phy1 wpan1: encryption failed: -22
+[  761.030454][T10671] hsr_slave_0: entered promiscuous mode
+[  761.050903][T10671] hsr_slave_1: entered promiscuous mode
+[  761.718536][T10610] Bluetooth: hci0: command tx timeout
+[  763.808105][T10610] Bluetooth: hci0: command tx timeout
+[  764.882626][T10671] netdevsim netdevsim0 netdevsim0: renamed from eth0
+[  764.962486][T10671] netdevsim netdevsim0 netdevsim1: renamed from eth1
+[  765.013463][T10671] netdevsim netdevsim0 netdevsim2: renamed from eth2
+[  765.044180][T10671] netdevsim netdevsim0 netdevsim3: renamed from eth3
+[  765.986436][T10671] 8021q: adding VLAN 0 to HW filter on device bond0
+[  766.234539][T10671] 8021q: adding VLAN 0 to HW filter on device team0
+[  766.371044][   T40] bridge0: port 1(bridge_slave_0) entered blocking state
+[  766.413507][   T40] bridge0: port 1(bridge_slave_0) entered forwarding state
+[  766.622957][   T40] bridge0: port 2(bridge_slave_1) entered blocking state
+[  766.641568][   T40] bridge0: port 2(bridge_slave_1) entered forwarding state
+[  769.667791][T10671] 8021q: adding VLAN 0 to HW filter on device batadv0
+[  771.535138][T10671] veth0_vlan: entered promiscuous mode
+[  771.859643][T10671] veth1_vlan: entered promiscuous mode
+[  772.703686][T10671] veth0_macvtap: entered promiscuous mode
+[  772.904568][T10671] veth1_macvtap: entered promiscuous mode
+[  773.434545][T10671] batman_adv: batadv0: Interface activated: batadv_slave_0
+[  773.721406][T10671] batman_adv: batadv0: Interface activated: batadv_slave_1
+[  773.817918][   T14] netdevsim netdevsim0 netdevsim0: set [1, 0] type 2 family 0 port 6081 - 0
+[  773.851249][   T14] netdevsim netdevsim0 netdevsim1: set [1, 0] type 2 family 0 port 6081 - 0
+[  773.955377][   T14] netdevsim netdevsim0 netdevsim2: set [1, 0] type 2 family 0 port 6081 - 0
+[  773.989107][   T14] netdevsim netdevsim0 netdevsim3: set [1, 0] type 2 family 0 port 6081 - 0
+[  775.407640][   T68] wlan0: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[  775.446722][   T68] wlan0: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[  776.329351][   T68] wlan1: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[  776.346034][   T68] wlan1: Creating new IBSS network, BSSID 50:50:50:50:50:50
+2025/08/24 10:49:55 executed programs: 2
+2025/08/24 10:50:02 executed programs: 4
+[  786.569820][T11051] loop0: detected capacity change from 0 to 32768
+[  786.691258][T11051] ocfs2: Mounting device (7,0) on (node local, slot 0) with ordered data mode.
+[  786.716596][   T14] (kworker/u8:1,14,0):ocfs2_check_dir_entry:325 ERROR: bad entry in directory #72: rec_len is smaller than minimal - offset=312, inode=0, rec_len=0, name_len=0
+[  786.866523][T10671] (syz-executor,10671,0):ocfs2_inode_is_valid_to_delete:948 ERROR: Skipping delete of system file 73
+[  786.950988][T10671] ocfs2: Unmounting device (7,0) on (node local)
+[  789.209691][T11057] loop0: detected capacity change from 0 to 32768
+[  789.360282][T11057] ocfs2: Mounting device (7,0) on (node local, slot 0) with ordered data mode.
+[  789.420157][   T14] (kworker/u8:1,14,1):ocfs2_check_dir_entry:325 ERROR: bad entry in directory #72: rec_len is smaller than minimal - offset=312, inode=0, rec_len=0, name_len=0
+[  789.582736][T10671] (syz-executor,10671,1):ocfs2_inode_is_valid_to_delete:948 ERROR: Skipping delete of system file 73
+[  789.683039][T10671] ocfs2: Unmounting device (7,0) on (node local)
+2025/08/24 10:50:07 executed programs: 6
+[  792.061136][T11067] loop0: detected capacity change from 0 to 32768
+[  792.375153][T11067] ocfs2: Mounting device (7,0) on (node local, slot 0) with ordered data mode.
+[  792.416574][   T14] (kworker/u8:1,14,0):ocfs2_check_dir_entry:325 ERROR: bad entry in directory #72: rec_len is smaller than minimal - offset=312, inode=0, rec_len=0, name_len=0
+[  792.680084][T10671] (syz-executor,10671,1):ocfs2_inode_is_valid_to_delete:948 ERROR: Skipping delete of system file 73
+[  792.770077][T10671] ocfs2: Unmounting device (7,0) on (node local)
+[  794.869832][T11073] loop0: detected capacity change from 0 to 32768
+[  794.984092][T11073] ocfs2: Mounting device (7,0) on (node local, slot 0) with ordered data mode.
+[  795.001402][   T14] (kworker/u8:1,14,1):ocfs2_check_dir_entry:325 ERROR: bad entry in directory #72: rec_len is smaller than minimal - offset=312, inode=0, rec_len=0, name_len=0
+[  795.172915][T10671] (syz-executor,10671,0):ocfs2_inode_is_valid_to_delete:948 ERROR: Skipping delete of system file 73
+2025/08/24 10:50:13 executed programs: 8
+[  795.312122][T10671] ocfs2: Unmounting device (7,0) on (node local)
+[  797.464036][T11083] loop0: detected capacity change from 0 to 32768
+[  797.643794][T11083] ocfs2: Mounting device (7,0) on (node local, slot 0) with ordered data mode.
+[  797.690409][   T14] (kworker/u8:1,14,1):ocfs2_check_dir_entry:325 ERROR: bad entry in directory #72: rec_len is smaller than minimal - offset=312, inode=0, rec_len=0, name_len=0
+[  797.850526][T10671] (syz-executor,10671,0):ocfs2_inode_is_valid_to_delete:948 ERROR: Skipping delete of system file 73
+[  797.970815][T10671] ocfs2: Unmounting device (7,0) on (node local)
+[  799.853914][T11089] loop0: detected capacity change from 0 to 32768
+[  799.977501][T11089] ocfs2: Mounting device (7,0) on (node local, slot 0) with ordered data mode.
+[  799.999155][T10287] (kworker/u8:3,10287,0):ocfs2_check_dir_entry:325 ERROR: bad entry in directory #72: rec_len is smaller than minimal - offset=312, inode=0, rec_len=0, name_len=0
+[  800.190436][T10671] (syz-executor,10671,0):ocfs2_inode_is_valid_to_delete:948 ERROR: Skipping delete of system file 73
+[  800.238388][T10671] ocfs2: Unmounting device (7,0) on (node local)
+2025/08/24 10:50:18 executed programs: 10
+[  801.939038][T11100] loop0: detected capacity change from 0 to 32768
+[  802.051122][T11100] ocfs2: Mounting device (7,0) on (node local, slot 0) with ordered data mode.
+[  802.079916][T10287] (kworker/u8:3,10287,0):ocfs2_check_dir_entry:325 ERROR: bad entry in directory #72: rec_len is smaller than minimal - offset=312, inode=0, rec_len=0, name_len=0
+[  802.291098][T10671] (syz-executor,10671,1):ocfs2_inode_is_valid_to_delete:948 ERROR: Skipping delete of system file 73
+[  802.321571][T10671] ocfs2: Unmounting device (7,0) on (node local)
+[  803.701051][T11106] loop0: detected capacity change from 0 to 32768
+[  803.835527][T11106] ocfs2: Mounting device (7,0) on (node local, slot 0) with ordered data mode.
+[  803.854488][T10287] (kworker/u8:3,10287,0):ocfs2_check_dir_entry:325 ERROR: bad entry in directory #72: rec_len is smaller than minimal - offset=312, inode=0, rec_len=0, name_len=0
+[  803.938601][T10671] (syz-executor,10671,0):ocfs2_inode_is_valid_to_delete:948 ERROR: Skipping delete of system file 73
+[  804.092187][T10671] ocfs2: Unmounting device (7,0) on (node local)
+[  805.548640][T11115] loop0: detected capacity change from 0 to 32768
+[  805.780649][T11115] ocfs2: Mounting device (7,0) on (node local, slot 0) with ordered data mode.
+[  805.859294][   T14] (kworker/u8:1,14,0):ocfs2_read_blocks_sync:112 ERROR: status = -12
+[  805.865366][   T14] (kworker/u8:1,14,0):ocfs2_read_locked_inode:597 ERROR: status = -12
+[  805.883165][   T14] (kworker/u8:1,14,0):ocfs2_check_dir_entry:325 ERROR: bad entry in directory #72: rec_len is smaller than minimal - offset=17728, inode=0, rec_len=0, name_len=0
+[  805.922307][T10671] (syz-executor,10671,1):ocfs2_inode_is_valid_to_delete:948 ERROR: Skipping delete of system file 73
+2025/08/24 10:50:23 executed programs: 13
+[  805.986586][T10671] ocfs2: Unmounting device (7,0) on (node local)
+[  807.678087][T11122] loop0: detected capacity change from 0 to 32768
+[  807.873013][T11122] ocfs2: Mounting device (7,0) on (node local, slot 0) with ordered data mode.
+[  807.897035][   T14] (kworker/u8:1,14,0):ocfs2_check_dir_entry:325 ERROR: bad entry in directory #72: rec_len is smaller than minimal - offset=312, inode=0, rec_len=0, name_len=0
+[  807.999752][T10671] (syz-executor,10671,0):ocfs2_inode_is_valid_to_delete:948 ERROR: Skipping delete of system file 73
+[  808.127706][T10671] ocfs2: Unmounting device (7,0) on (node local)
+[  810.037737][T11131] loop0: detected capacity change from 0 to 32768
+[  810.140649][T11131] ocfs2: Mounting device (7,0) on (node local, slot 0) with ordered data mode.
+[  810.153474][   T14] (kworker/u8:1,14,1):ocfs2_check_dir_entry:325 ERROR: bad entry in directory #72: rec_len is smaller than minimal - offset=312, inode=0, rec_len=0, name_len=0
+[  810.254793][T10671] (syz-executor,10671,1):ocfs2_inode_is_valid_to_delete:948 ERROR: Skipping delete of system file 73
+[  810.310099][T10671] ocfs2: Unmounting device (7,0) on (node local)
+[  812.098834][T11139] loop0: detected capacity change from 0 to 32768
+[  812.343362][T11139] ocfs2: Mounting device (7,0) on (node local, slot 0) with ordered data mode.
+[  812.361529][   T14] (kworker/u8:1,14,0):ocfs2_check_dir_entry:325 ERROR: bad entry in directory #72: rec_len is smaller than minimal - offset=312, inode=0, rec_len=0, name_len=0
+[  812.511152][T10671] (syz-executor,10671,0):ocfs2_inode_is_valid_to_delete:948 ERROR: Skipping delete of system file 73
+[  812.570790][T10671] ocfs2: Unmounting device (7,0) on (node local)
+2025/08/24 10:50:30 executed programs: 16
+[  814.158197][T11149] loop0: detected capacity change from 0 to 32768
+[  814.354954][T11149] ocfs2: Mounting device (7,0) on (node local, slot 0) with ordered data mode.
+[  814.387380][   T14] (kworker/u8:1,14,0):ocfs2_read_blocks_sync:112 ERROR: status = -12
+[  814.406900][   T14] (kworker/u8:1,14,0):ocfs2_read_locked_inode:597 ERROR: status = -12
+[  814.410908][   T14] (kworker/u8:1,14,0):ocfs2_check_dir_entry:325 ERROR: bad entry in directory #72: rec_len % 4 != 0 - offset=17728, inode=14339461213548192836, rec_len=38661, name_len=200
+[  814.536788][T10671] (syz-executor,10671,1):ocfs2_inode_is_valid_to_delete:948 ERROR: Skipping delete of system file 73
+[  814.581180][T10671] ocfs2: Unmounting device (7,0) on (node local)
+[  815.961084][T11157] loop0: detected capacity change from 0 to 32768
+[  816.010113][T11157] ocfs2: Mounting device (7,0) on (node local, slot 0) with ordered data mode.
+[  816.024341][   T14] (kworker/u8:1,14,1):ocfs2_check_dir_entry:325 ERROR: bad entry in directory #72: rec_len is smaller than minimal - offset=312, inode=0, rec_len=0, name_len=0
+[  816.092218][T10671] (syz-executor,10671,1):ocfs2_inode_is_valid_to_delete:948 ERROR: Skipping delete of system file 73
+[  816.132221][T10671] ocfs2: Unmounting device (7,0) on (node local)
+[  817.765461][T11165] loop0: detected capacity change from 0 to 32768
+[  817.849481][T11165] ocfs2: Mounting device (7,0) on (node local, slot 0) with ordered data mode.
+[  817.877780][   T14] (kworker/u8:1,14,0):ocfs2_check_dir_entry:325 ERROR: bad entry in directory #72: rec_len is smaller than minimal - offset=312, inode=0, rec_len=0, name_len=0
+[  817.926180][T10671] (syz-executor,10671,0):ocfs2_inode_is_valid_to_delete:948 ERROR: Skipping delete of system file 73
+[  818.014500][T10671] ocfs2: Unmounting device (7,0) on (node local)
+2025/08/24 10:50:36 executed programs: 19
+[  819.996355][T11173] loop0: detected capacity change from 0 to 32768
+[  820.101433][T11173] ocfs2: Mounting device (7,0) on (node local, slot 0) with ordered data mode.
+[  820.149582][   T14] (kworker/u8:1,14,1):ocfs2_check_dir_entry:325 ERROR: bad entry in directory #72: rec_len is smaller than minimal - offset=312, inode=0, rec_len=0, name_len=0
+[  820.272923][T10671] (syz-executor,10671,0):ocfs2_inode_is_valid_to_delete:948 ERROR: Skipping delete of system file 73
+[  820.298426][T10671] ocfs2: Unmounting device (7,0) on (node local)
+[  821.871249][T11182] loop0: detected capacity change from 0 to 32768
+[  822.043204][ T1332] ieee802154 phy0 wpan0: encryption failed: -22
+[  822.078785][ T1332] ieee802154 phy1 wpan1: encryption failed: -22
+[  822.340691][T11182] ocfs2: Mounting device (7,0) on (node local, slot 0) with ordered data mode.
+[  822.430234][   T12] (kworker/u8:0,12,0):ocfs2_read_blocks_sync:112 ERROR: status = -12
+[  822.471973][   T12] (kworker/u8:0,12,0):ocfs2_read_locked_inode:597 ERROR: status = -12
+[  822.480240][   T12] (kworker/u8:0,12,0):ocfs2_check_dir_entry:325 ERROR: bad entry in directory #72: rec_len is smaller than minimal - offset=17728, inode=0, rec_len=0, name_len=0
+[  822.534074][T10671] (syz-executor,10671,0):ocfs2_inode_is_valid_to_delete:948 ERROR: Skipping delete of system file 73
+[  822.592138][T10671] ocfs2: Unmounting device (7,0) on (node local)
+[  824.052744][T11192] loop0: detected capacity change from 0 to 32768
+[  824.196221][T11192] ocfs2: Mounting device (7,0) on (node local, slot 0) with ordered data mode.
+[  824.267436][   T14] (kworker/u8:1,14,1):ocfs2_check_dir_entry:325 ERROR: bad entry in directory #72: rec_len is smaller than minimal - offset=312, inode=0, rec_len=0, name_len=0
+[  824.371681][T10671] (syz-executor,10671,0):ocfs2_inode_is_valid_to_delete:948 ERROR: Skipping delete of system file 73
+2025/08/24 10:50:42 executed programs: 22
+[  824.420936][T10671] ocfs2: Unmounting device (7,0) on (node local)
+[  825.979409][T11198] loop0: detected capacity change from 0 to 32768
+[  826.070956][T11198] ocfs2: Mounting device (7,0) on (node local, slot 0) with ordered data mode.
+[  826.087561][   T14] (kworker/u8:1,14,0):ocfs2_check_dir_entry:325 ERROR: bad entry in directory #72: rec_len is smaller than minimal - offset=312, inode=0, rec_len=0, name_len=0
+[  826.224929][T10671] (syz-executor,10671,0):ocfs2_inode_is_valid_to_delete:948 ERROR: Skipping delete of system file 73
+[  826.283406][T10671] ocfs2: Unmounting device (7,0) on (node local)
+[  827.807532][T11208] loop0: detected capacity change from 0 to 32768
+[  827.912435][T11208] ocfs2: Mounting device (7,0) on (node local, slot 0) with ordered data mode.
+[  827.937284][   T12] (kworker/u8:0,12,0):ocfs2_check_dir_entry:325 ERROR: bad entry in directory #72: rec_len is smaller than minimal - offset=312, inode=0, rec_len=0, name_len=0
+[  828.063380][T10671] (syz-executor,10671,0):ocfs2_inode_is_valid_to_delete:948 ERROR: Skipping delete of system file 73
+[  828.100595][T10671] ocfs2: Unmounting device (7,0) on (node local)
+[  829.609271][T11216] loop0: detected capacity change from 0 to 32768
+[  829.851961][T11216] ocfs2: Mounting device (7,0) on (node local, slot 0) with ordered data mode.
+[  829.917926][   T12] (kworker/u8:0,12,1):ocfs2_check_dir_entry:325 ERROR: bad entry in directory #72: rec_len is smaller than minimal - offset=312, inode=0, rec_len=0, name_len=0
+2025/08/24 10:50:48 executed programs: 25
+[  830.109054][T10671] (syz-executor,10671,0):ocfs2_inode_is_valid_to_delete:948 ERROR: Skipping delete of system file 73
+[  830.161433][T10671] ocfs2: Unmounting device (7,0) on (node local)
+[  831.695311][T11222] loop0: detected capacity change from 0 to 32768
+[  831.753284][T11222] ocfs2: Mounting device (7,0) on (node local, slot 0) with ordered data mode.
+[  831.778524][   T12] (kworker/u8:0,12,1):ocfs2_check_dir_entry:325 ERROR: bad entry in directory #72: rec_len is smaller than minimal - offset=312, inode=0, rec_len=0, name_len=0
+[  831.878786][T10671] (syz-executor,10671,0):ocfs2_inode_is_valid_to_delete:948 ERROR: Skipping delete of system file 73
+[  831.909406][T10671] ocfs2: Unmounting device (7,0) on (node local)
+[  833.853871][T11232] loop0: detected capacity change from 0 to 32768
+[  834.020958][T11232] ocfs2: Mounting device (7,0) on (node local, slot 0) with ordered data mode.
+[  834.048935][   T12] (kworker/u8:0,12,1):ocfs2_check_dir_entry:325 ERROR: bad entry in directory #72: rec_len is smaller than minimal - offset=312, inode=0, rec_len=0, name_len=0
+[  834.173718][T10671] (syz-executor,10671,1):ocfs2_inode_is_valid_to_delete:948 ERROR: Skipping delete of system file 73
+[  834.284101][T10671] ocfs2: Unmounting device (7,0) on (node local)
+[  836.151357][T11240] loop0: detected capacity change from 0 to 32768
+[  836.413373][T11240] ocfs2: Mounting device (7,0) on (node local, slot 0) with ordered data mode.
+[  836.435333][   T12] (kworker/u8:0,12,0):ocfs2_read_blocks_sync:112 ERROR: status = -12
+[  836.457523][   T12] (kworker/u8:0,12,0):ocfs2_read_locked_inode:597 ERROR: status = -12
+[  836.513133][   T12] ==================================================================
+[  836.521190][   T12] BUG: KASAN: slab-out-of-bounds in ocfs2_check_dir_entry.isra.30+0x332/0x370
+[  836.527804][   T12] Read of size 2 at addr ffff888044998610 by task kworker/u8:0/12
+[  836.533929][   T12] 
+[  836.567335][   T12] CPU: 1 UID: 0 PID: 12 Comm: kworker/u8:0 Not tainted 6.17.0-rc2 #1 PREEMPT(full) 
+[  836.567754][   T12] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.16.2-debian-1.16.2-1 04/01/2014
+[  836.567809][   T12] Workqueue: ocfs2_wq ocfs2_complete_recovery
+[  836.567994][   T12] Call Trace:
+[  836.568033][   T12]  <TASK>
+[  836.568084][   T12]  dump_stack_lvl+0x116/0x1b0
+[  836.568307][   T12]  print_report+0xcd/0x5f0
+[  836.568406][   T12]  ? __phys_addr+0xee/0x170
+[  836.568481][   T12]  ? ocfs2_check_dir_entry.isra.30+0x332/0x370
+[  836.568608][   T12]  kasan_report+0x96/0xd0
+[  836.568696][   T12]  ? ocfs2_check_dir_entry.isra.30+0x332/0x370
+[  836.568785][   T12]  ocfs2_check_dir_entry.isra.30+0x332/0x370
+[  836.568881][   T12]  ? __pfx_ocfs2_check_dir_entry.isra.30+0x10/0x10
+[  836.568970][   T12]  ? __pfx_ocfs2_read_inode_block_full+0x10/0x10
+[  836.569055][   T12]  ? write_comp_data+0x29/0x80
+[  836.569134][   T12]  ? __sanitizer_cov_trace_pc+0x20/0x50
+[  836.569216][   T12]  ocfs2_dir_foreach_blk+0xd08/0x16d0
+[  836.569326][   T12]  ? lock_release+0x202/0x2f0
+[  836.569417][   T12]  ? write_comp_data+0x29/0x80
+[  836.569478][   T12]  ? __pfx_ocfs2_dir_foreach_blk+0x10/0x10
+[  836.569560][   T12]  ? inode_query_iversion+0x101/0x180
+[  836.569630][   T12]  ? __pfx_inode_query_iversion+0x10/0x10
+[  836.569705][   T12]  ? __pfx_ocfs2_inode_lock_full_nested+0x10/0x10
+[  836.569796][   T12]  ocfs2_dir_foreach+0x83/0xb0
+[  836.569888][   T12]  ? __pfx_ocfs2_dir_foreach+0x10/0x10
+[  836.569980][   T12]  ? finish_task_switch+0x15f/0x870
+[  836.570089][   T12]  ? write_comp_data+0x29/0x80
+[  836.570149][   T12]  ocfs2_queue_orphans+0x14e/0x3d0
+[  836.570213][   T12]  ? __pfx_ocfs2_queue_orphans+0x10/0x10
+[  836.570285][   T12]  ? ocfs2_node_map_set_bit+0x9c/0xc0
+[  836.570392][   T12]  ? __pfx_ocfs2_orphan_filldir+0x10/0x10
+[  836.570480][   T12]  ? lock_release+0x202/0x2f0
+[  836.570562][   T12]  ocfs2_recover_orphans+0x390/0xf30
+[  836.570674][   T12]  ? prepare_to_wait_event+0xce/0x820
+[  836.570778][   T12]  ? __pfx_ocfs2_recover_orphans+0x10/0x10
+[  836.570855][   T12]  ? write_comp_data+0x29/0x80
+[  836.570915][   T12]  ? write_comp_data+0x29/0x80
+[  836.570981][   T12]  ? write_comp_data+0x29/0x80
+[  836.571048][   T12]  ? write_comp_data+0x29/0x80
+[  836.571126][   T12]  ? __sanitizer_cov_trace_pc+0x20/0x50
+[  836.571188][   T12]  ? __ocfs2_wait_on_mount+0x1a3/0x700
+[  836.571280][   T12]  ? __pfx___ocfs2_wait_on_mount+0x10/0x10
+[  836.571362][   T12]  ? __pfx_autoremove_wake_function+0x10/0x10
+[  836.571437][   T12]  ? lock_release+0x202/0x2f0
+[  836.571524][   T12]  ocfs2_complete_recovery+0x625/0x10a0
+[  836.571606][   T12]  ? __pfx_ocfs2_complete_recovery+0x10/0x10
+[  836.571672][   T12]  ? rcu_is_watching+0x15/0xd0
+[  836.571753][   T12]  ? process_scheduled_works+0x41e/0x1ac0
+[  836.571852][   T12]  ? lock_acquire+0x1d5/0x360
+[  836.571935][   T12]  ? _raw_spin_unlock_irq+0x23/0x50
+[  836.572023][   T12]  ? rcu_is_watching+0x15/0xd0
+[  836.572101][   T12]  process_scheduled_works+0x5b0/0x1ac0
+[  836.572199][   T12]  ? __sanitizer_cov_trace_pc+0x20/0x50
+[  836.572280][   T12]  ? __pfx_process_scheduled_works+0x10/0x10
+[  836.572415][   T12]  ? do_raw_spin_lock+0xe1/0x2d0
+[  836.572530][   T12]  ? __sanitizer_cov_trace_pc+0x20/0x50
+[  836.572607][   T12]  ? assign_work+0x196/0x240
+[  836.572770][   T12]  worker_thread+0x547/0xe40
+[  836.572885][   T12]  ? __pfx_worker_thread+0x10/0x10
+[  836.572988][   T12]  kthread+0x439/0x890
+[  836.573121][   T12]  ? __pfx_kthread+0x10/0x10
+[  836.573211][   T12]  ? _raw_spin_unlock_irq+0x23/0x50
+[  836.573319][   T12]  ? __pfx_kthread+0x10/0x10
+[  836.573417][   T12]  ret_from_fork+0x52a/0x700
+[  836.573517][   T12]  ? __pfx_kthread+0x10/0x10
+[  836.573627][   T12]  ? __pfx_kthread+0x10/0x10
+[  836.573697][   T12]  ret_from_fork_asm+0x1a/0x30
+[  836.573783][   T12]  </TASK>
+[  836.573800][   T12] 
+[  837.058980][   T12] Allocated by task 1:
+[  837.062487][   T12]  kasan_save_stack+0x20/0x40
+[  837.064936][   T12]  kasan_save_track+0x14/0x30
+[  837.068401][   T12]  __kasan_kmalloc+0xaa/0xb0
+[  837.078985][   T12]  __kmalloc_cache_noprof+0x1e9/0x3f0
+[  837.084337][   T12]  tty_register_device_attr+0x1b6/0x720
+[  837.086969][   T12]  tty_register_driver+0x51f/0x860
+[  837.089866][   T12]  pty_init+0x688/0x1150
+[  837.094127][   T12]  do_one_initcall+0x10f/0x6c0
+[  837.104897][   T12]  kernel_init_freeable+0x6b4/0xc70
+[  837.108158][   T12]  kernel_init+0x1c/0x1e0
+[  837.110319][   T12]  ret_from_fork+0x52a/0x700
+[  837.113821][   T12]  ret_from_fork_asm+0x1a/0x30
+[  837.121904][   T12] 
+[  837.124465][   T12] The buggy address belongs to the object at ffff888044998000
+[  837.124465][   T12]  which belongs to the cache kmalloc-2k of size 2048
+[  837.138663][   T12] The buggy address is located 416 bytes to the right of
+[  837.138663][   T12]  allocated 1136-byte region [ffff888044998000, ffff888044998470)
+[  837.155097][   T12] 
+[  837.158469][   T12] The buggy address belongs to the physical page:
+[  837.188027][   T12] page: refcount:0 mapcount:0 mapping:0000000000000000 index:0x0 pfn:0x44998
+[  837.201893][   T12] head: order:3 mapcount:0 entire_mapcount:0 nr_pages_mapped:0 pincount:0
+[  837.215112][   T12] flags: 0x4fff00000000040(head|node=1|zone=1|lastcpupid=0x7ff)
+[  837.223228][   T12] page_type: f5(slab)
+[  837.224902][   T12] raw: 04fff00000000040 ffff88801b842000 dead000000000122 0000000000000000
+[  837.237996][   T12] raw: 0000000000000000 0000000000080008 00000000f5000000 0000000000000000
+[  837.245241][   T12] head: 04fff00000000040 ffff88801b842000 dead000000000122 0000000000000000
+[  837.257994][   T12] head: 0000000000000000 0000000000080008 00000000f5000000 0000000000000000
+[  837.266057][   T12] head: 04fff00000000003 ffffea0001126601 00000000ffffffff 00000000ffffffff
+[  837.286599][   T12] head: ffffffffffffffff 0000000000000000 00000000ffffffff 0000000000000008
+[  837.292823][   T12] page dumped because: kasan: bad access detected
+[  837.307016][   T12] page_owner tracks the page as allocated
+[  837.334449][   T12] page last allocated via order 3, migratetype Unmovable, gfp_mask 0xd20c0(__GFP_IO|__GFP_FS|__GFP_NOWARN|__GFP_NORETRY|__GFP_COMP|__GFP_NOMEMALLOC), pid 1, tgid 1 (swapper/0), ts 79197389837, free_ts 0
+[  837.370315][   T12]  post_alloc_hook+0x146/0x160
+[  837.379048][   T12]  prep_new_page+0x16/0x70
+[  837.385154][   T12]  get_page_from_freelist+0xfa6/0x2550
+[  837.391258][   T12]  __alloc_frozen_pages_noprof+0x227/0x520
+[  837.415125][   T12]  alloc_pages_mpol+0x218/0x560
+[  837.418169][   T12]  new_slab+0x25f/0x340
+[  837.434256][   T12]  ___slab_alloc+0xcfd/0x1630
+[  837.458168][   T12]  __slab_alloc.isra.89+0x57/0xb0
+[  837.466910][   T12]  __kmalloc_cache_noprof+0xff/0x3f0
+[  837.470678][   T12]  tty_register_device_attr+0x1b6/0x720
+[  837.489701][   T12]  tty_register_driver+0x51f/0x860
+[  837.509413][   T12]  pty_init+0x688/0x1150
+[  837.513693][   T12]  do_one_initcall+0x10f/0x6c0
+[  837.519491][   T12]  kernel_init_freeable+0x6b4/0xc70
+[  837.521818][   T12]  kernel_init+0x1c/0x1e0
+[  837.524270][   T12]  ret_from_fork+0x52a/0x700
+[  837.527477][   T12] page_owner free stack trace missing
+[  837.530232][   T12] 
+[  837.537821][   T12] Memory state around the buggy address:
+[  837.550360][   T12]  ffff888044998500: fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc
+[  837.555102][   T12]  ffff888044998580: fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc
+[  837.565475][   T12] >ffff888044998600: fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc
+[  837.593516][   T12]                          ^
+[  837.600555][   T12]  ffff888044998680: fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc
+[  837.629107][   T12]  ffff888044998700: fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc
+[  837.634477][   T12] ==================================================================
+[  837.747145][   T12] Kernel panic - not syncing: KASAN: panic_on_warn set ...
+[  837.757294][   T12] CPU: 1 UID: 0 PID: 12 Comm: kworker/u8:0 Not tainted 6.17.0-rc2 #1 PREEMPT(full) 
+[  837.776492][   T12] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.16.2-debian-1.16.2-1 04/01/2014
+[  837.783183][   T12] Workqueue: ocfs2_wq ocfs2_complete_recovery
+[  837.801225][   T12] Call Trace:
+[  837.812624][   T12]  <TASK>
+[  837.815706][   T12]  dump_stack_lvl+0x3d/0x1b0
+[  837.826676][   T12]  vpanic+0x6cc/0x760
+[  837.836431][   T12]  ? __pfx_vpanic+0x10/0x10
+[  837.838371][   T12]  ? irqentry_enter+0x30/0x60
+[  837.839968][   T12]  ? irqentry_exit+0x3b/0x90
+[  837.859607][   T12]  ? ocfs2_check_dir_entry.isra.30+0x332/0x370
+[  837.866426][   T12]  panic+0xae/0xb0
+[  837.882993][   T12]  ? __pfx_panic+0x10/0x10
+[  837.885066][   T12]  ? ocfs2_check_dir_entry.isra.30+0x332/0x370
+[  837.888632][   T12]  ? preempt_schedule_thunk+0x16/0x30
+[  837.891356][   T12]  ? check_panic_on_warn+0x1f/0xb0
+[  837.895839][   T12]  check_panic_on_warn+0xab/0xb0
+[  837.898886][   T12]  end_report+0x11f/0x180
+[  837.901298][   T12]  kasan_report+0xa4/0xd0
+[  837.905187][   T12]  ? ocfs2_check_dir_entry.isra.30+0x332/0x370
+[  837.921629][   T12]  ocfs2_check_dir_entry.isra.30+0x332/0x370
+[  837.924601][   T12]  ? __pfx_ocfs2_check_dir_entry.isra.30+0x10/0x10
+[  837.928413][   T12]  ? __pfx_ocfs2_read_inode_block_full+0x10/0x10
+[  837.944725][   T12]  ? write_comp_data+0x29/0x80
+[  837.954512][   T12]  ? __sanitizer_cov_trace_pc+0x20/0x50
+[  837.959112][   T12]  ocfs2_dir_foreach_blk+0xd08/0x16d0
+[  837.979600][   T12]  ? lock_release+0x202/0x2f0
+[  837.982497][   T12]  ? write_comp_data+0x29/0x80
+[  837.986767][   T12]  ? __pfx_ocfs2_dir_foreach_blk+0x10/0x10
+[  837.993004][   T12]  ? inode_query_iversion+0x101/0x180
+[  838.001398][   T12]  ? __pfx_inode_query_iversion+0x10/0x10
+[  838.011352][   T12]  ? __pfx_ocfs2_inode_lock_full_nested+0x10/0x10
+[  838.017105][   T12]  ocfs2_dir_foreach+0x83/0xb0
+[  838.023862][   T12]  ? __pfx_ocfs2_dir_foreach+0x10/0x10
+[  838.025982][   T12]  ? finish_task_switch+0x15f/0x870
+[  838.030510][   T12]  ? write_comp_data+0x29/0x80
+[  838.034475][   T12]  ocfs2_queue_orphans+0x14e/0x3d0
+[  838.050745][   T12]  ? __pfx_ocfs2_queue_orphans+0x10/0x10
+[  838.053985][   T12]  ? ocfs2_node_map_set_bit+0x9c/0xc0
+[  838.072563][   T12]  ? __pfx_ocfs2_orphan_filldir+0x10/0x10
+[  838.075699][   T12]  ? lock_release+0x202/0x2f0
+[  838.079944][   T12]  ocfs2_recover_orphans+0x390/0xf30
+[  838.096217][   T12]  ? prepare_to_wait_event+0xce/0x820
+[  838.103525][   T12]  ? __pfx_ocfs2_recover_orphans+0x10/0x10
+[  838.122162][   T12]  ? write_comp_data+0x29/0x80
+[  838.125269][   T12]  ? write_comp_data+0x29/0x80
+[  838.131753][   T12]  ? write_comp_data+0x29/0x80
+[  838.134832][   T12]  ? write_comp_data+0x29/0x80
+[  838.151126][   T12]  ? __sanitizer_cov_trace_pc+0x20/0x50
+[  838.155946][   T12]  ? __ocfs2_wait_on_mount+0x1a3/0x700
+[  838.162667][   T12]  ? __pfx___ocfs2_wait_on_mount+0x10/0x10
+[  838.178048][   T12]  ? __pfx_autoremove_wake_function+0x10/0x10
+[  838.182447][   T12]  ? lock_release+0x202/0x2f0
+[  838.194870][   T12]  ocfs2_complete_recovery+0x625/0x10a0
+[  838.211804][   T12]  ? __pfx_ocfs2_complete_recovery+0x10/0x10
+[  838.215994][   T12]  ? rcu_is_watching+0x15/0xd0
+[  838.219895][   T12]  ? process_scheduled_works+0x41e/0x1ac0
+[  838.223981][   T12]  ? lock_acquire+0x1d5/0x360
+[  838.234794][   T12]  ? _raw_spin_unlock_irq+0x23/0x50
+[  838.255392][   T12]  ? rcu_is_watching+0x15/0xd0
+[  838.257911][   T12]  process_scheduled_works+0x5b0/0x1ac0
+[  838.262171][   T12]  ? __sanitizer_cov_trace_pc+0x20/0x50
+[  838.279292][   T12]  ? __pfx_process_scheduled_works+0x10/0x10
+[  838.288056][   T12]  ? do_raw_spin_lock+0xe1/0x2d0
+[  838.292198][   T12]  ? __sanitizer_cov_trace_pc+0x20/0x50
+[  838.297036][   T12]  ? assign_work+0x196/0x240
+[  838.321766][   T12]  worker_thread+0x547/0xe40
+[  838.329081][   T12]  ? __pfx_worker_thread+0x10/0x10
+[  838.343325][   T12]  kthread+0x439/0x890
+[  838.351559][   T12]  ? __pfx_kthread+0x10/0x10
+[  838.353738][   T12]  ? _raw_spin_unlock_irq+0x23/0x50
+[  838.358203][   T12]  ? __pfx_kthread+0x10/0x10
+[  838.382394][   T12]  ret_from_fork+0x52a/0x700
+[  838.384251][   T12]  ? __pfx_kthread+0x10/0x10
+[  838.386473][   T12]  ? __pfx_kthread+0x10/0x10
+[  838.400289][   T12]  ret_from_fork_asm+0x1a/0x30
+[  838.404360][   T12]  </TASK>
+[  838.411682][   T12] Kernel Offset: disabled
+[  838.414805][   T12] Rebooting in 86400 seconds..
+
+VM DIAGNOSIS:
+10:51:04  Registers:
+info registers vcpu 0
+
+CPU#0
+RAX=ffff88801fb93980 RBX=ffff88802b63a440 RCX=0000000000000000 RDX=ffff88801fb93998
+RSI=0000000000000004 RDI=ffffffff90a7d324 RBP=ffffc90003cafad0 RSP=ffffc90003caf910
+R8 =fffff52000795f0c R9 =fffff52000795f0c R10=fffff52000795f0c R11=0000000000000003
+R12=0000000000000001 R13=0000000000000002 R14=ffffc90003ca8000 R15=ffff8880475fb980
+RIP=ffffffff8b8e6a79 RFL=00000046 [---Z-P-] CPL=0 II=0 A20=1 SMM=0 HLT=0
+ES =0000 0000000000000000 ffffffff 00c00100
+CS =0010 0000000000000000 ffffffff 00a09b00 DPL=0 CS64 [-RA]
+SS =0018 0000000000000000 ffffffff 00c09300 DPL=0 DS   [-WA]
+DS =0000 0000000000000000 ffffffff 00c00100
+FS =0000 00007f81d07526c0 ffffffff 00c00100
+GS =0000 ffff888097859000 ffffffff 00c00100
+LDT=0000 0000000000000000 ffffffff 00c00000
+TR =0040 fffffe0000003000 00004087 00008b00 DPL=0 TSS64-busy
+GDT=     fffffe0000001000 0000007f
+IDT=     fffffe0000000000 00000fff
+CR0=80050033 CR2=0000000000000000 CR3=000000004d710000 CR4=00002ef0
+DR0=0000000000000000 DR1=0000000000000000 DR2=0000000000000000 DR3=0000000000000000 
+DR6=00000000ffff0ff0 DR7=0000000000000400
+EFER=0000000000000d01
+FCW=037f FSW=0000 [ST=0] FTW=00 MXCSR=00001f80
+FPR0=0000000000000000 0000 FPR1=0000000000000000 0000
+FPR2=0000000000000000 0000 FPR3=0000000000000000 0000
+FPR4=0000000000000000 0000 FPR5=0000000000000000 0000
+FPR6=0000000000000000 0000 FPR7=0000000000000000 0000
+XMM00=ffffffffffffffff ffffff0000000000 XMM01=0101010101010101 0101010000000000
+XMM02=695f746e756f6d5f 7a79730032736667 XMM03=ffffffffffffffff ffffffffffffffff
+XMM04=0000000000000000 0000000000000000 XMM05=0000000000000000 00007f81d07516e0
+XMM06=00007f81d07516e0 00007f81d0751560 XMM07=00007f81d07515a0 00007f81d0751580
+XMM08=0000000000000000 00007f81cfa12ee7 XMM09=0000000000000000 00007f81cfa12fc5
+XMM10=0000000000000000 0000000000000000 XMM11=0000000000000000 0000000000000000
+XMM12=0000000000000000 0000000000000000 XMM13=0000000000000000 0000000000000000
+XMM14=0000000000000000 0000000000000000 XMM15=0000000000000000 0000000000000000
+info registers vcpu 1
+
+CPU#1
+RAX=0000000000000000 RBX=0000000000000008 RCX=ffffffff8b8afc51 RDX=0000000080000001
+RSI=ffff88801d6f5640 RDI=0000000000000002 RBP=ffffc900001df0d0 RSP=ffffc900001defe0
+R8 =00000000ffffffff R9 =fffff5200003be51 R10=fffff5200003be50 R11=ffffc900001df286
+R12=0000000000000400 R13=0000000000000000 R14=ffffffff8d1258b9 R15=ffffc900001df2d4
+RIP=ffffffff81b9bab5 RFL=00000012 [----A--] CPL=0 II=0 A20=1 SMM=0 HLT=0
+ES =0000 0000000000000000 ffffffff 00c00100
+CS =0010 0000000000000000 ffffffff 00a09b00 DPL=0 CS64 [-RA]
+SS =0018 0000000000000000 ffffffff 00c09300 DPL=0 DS   [-WA]
+DS =0000 0000000000000000 ffffffff 00c00100
+FS =0000 0000000000000000 ffffffff 00c00100
+GS =0000 ffff8880eb059000 ffffffff 00c00100
+LDT=0000 0000000000000000 00000000 00000000
+TR =0040 fffffe000004a000 00004087 00008b00 DPL=0 TSS64-busy
+GDT=     fffffe0000048000 0000007f
+IDT=     fffffe0000000000 00000fff
+CR0=80050033 CR2=00007fe7f7c02d40 CR3=0000000022d42000 CR4=00002ef0
+DR0=0000000000000000 DR1=0000000000000000 DR2=0000000000000000 DR3=0000000000000000 
+DR6=00000000ffff0ff0 DR7=0000000000000400
+EFER=0000000000000d01
+FCW=037f FSW=0000 [ST=0] FTW=00 MXCSR=00001f80
+FPR0=0000000000000000 0000 FPR1=0000000000000000 0000
+FPR2=0000000000000000 0000 FPR3=0000000000000000 0000
+FPR4=0000000000000000 0000 FPR5=0000000000000000 0000
+FPR6=0000000000000000 0000 FPR7=0000000000000000 0000
+XMM00=0000000000000000 0000000000000000 XMM01=2f7d30706414d5a1 574f57649d76a034
+XMM02=000000000011a8c8 375afdebbf381c81 XMM03=000000000011da70 39c07090191f9edb
+XMM04=40a0727574ed395c 00000000000aef98 XMM05=e00569210a6e503d 000000000011da70
+XMM06=39c07090191f9edb 000000000011a8c8 XMM07=375afdebbf381c81 00000000000b40e0
+XMM08=8ca0b852b1c7c8e1 00000000000b04f0 XMM09=0707075051515151 51685b0707241100
+XMM10=226b070707070707 0707070750515151 XMM11=0000000000000000 0000000000000000
+XMM12=0000000000000000 0000000000000000 XMM13=0000000000000000 0000000000000000
+XMM14=0000000000000000 0000000000000000 XMM15=0000000000000000 0000000000000000
